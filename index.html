@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="th" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google" content="notranslate">
+<meta name="theme-color" content="#ede9fe">
+<title>12 TENSES MASTER · ม.6 · By T.OAT</title>
+<style>
+:root{
+  --ink:#1e1b4b;--ink2:#3730a3;--mute:#6b7280;--dim:#94a3b8;--line:rgba(99,102,241,.16);
+  --card:rgba(255,255,255,.78);--card2:rgba(255,255,255,.92);
+  --pre1:#06b6d4;--pre2:#10b981;--pas1:#f59e0b;--pas2:#ec4899;--fut1:#8b5cf6;--fut2:#3b82f6;
+  --ok:#16a34a;--bad:#e11d48;--gold:#f59e0b;
+  --font:"Prompt","Kanit","Noto Sans Thai","Sukhumvit Set","Leelawadee UI","Thonburi",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --shadow:0 18px 50px -18px rgba(79,70,229,.35),0 2px 6px rgba(15,23,42,.05);
+}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes angle{to{--ang:360deg}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rise{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.6)}70%{transform:scale(1.08)}100%{transform:none}}
+@keyframes float{50%{transform:translateY(-7px) rotate(-6deg) scale(1.06)}}
+@keyframes shine{to{background-position:200% center}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;color:var(--ink);font-family:var(--font)}
+body{overflow-x:hidden;background:linear-gradient(160deg,#dbeafe 0%,#ede9fe 30%,#fce7f3 62%,#ffedd5 100%) fixed}
+button,select,input,textarea{font-family:inherit}
+.hidden{display:none!important}
+
+/* ---------- backdrop ---------- */
+.blobs{position:fixed;inset:-10%;z-index:0;pointer-events:none;filter:blur(60px);opacity:.75}
+.blobs i{position:absolute;border-radius:50%;animation:drift 24s ease-in-out infinite alternate}
+.blobs i:nth-child(1){width:42vw;height:42vw;left:-4%;top:-6%;background:#a5f3fc}
+.blobs i:nth-child(2){width:38vw;height:38vw;right:-6%;top:6%;background:#fbcfe8;animation-duration:29s}
+.blobs i:nth-child(3){width:46vw;height:46vw;left:28%;bottom:-14%;background:#c4b5fd;animation-duration:33s}
+.blobs i:nth-child(4){width:30vw;height:30vw;right:12%;bottom:4%;background:#fde68a;animation-duration:27s}
+@keyframes drift{50%{transform:translate(5vw,-4vh) scale(1.12)}100%{transform:translate(-4vw,4vh) scale(.94)}}
+#sky,#fx{position:fixed;inset:0;pointer-events:none}
+#sky{z-index:0}#fx{z-index:80}
+#bigclock{position:fixed;left:50%;top:50%;width:140vmax;height:140vmax;transform:translate(-50%,-50%);z-index:0;pointer-events:none;opacity:.07}
+#bigclock .hh,#bigclock .mm,#bigclock .ss,#bigclock .rg{transform-origin:500px 500px;transform-box:view-box}
+#bigclock .hh{animation:spin 300s linear infinite}#bigclock .mm{animation:spin 60s linear infinite}
+#bigclock .ss{animation:spin 12s steps(60) infinite}#bigclock .rg{animation:spin 160s linear infinite reverse}
+.edge{position:fixed;inset:0;z-index:79;pointer-events:none}
+body.hit .edge{animation:hitv .55s}@keyframes hitv{30%{box-shadow:inset 0 0 150px 30px rgba(244,63,94,.45)}}
+body.flash .edge{animation:flashv .5s}@keyframes flashv{25%{box-shadow:inset 0 0 150px 30px rgba(16,185,129,.4)}}
+body.hit #app{animation:quake .42s}
+@keyframes quake{20%{transform:translate(-9px,3px)}40%{transform:translate(8px,-4px)}60%{transform:translate(-5px,2px)}80%{transform:translate(4px,-1px)}}
+
+#app{position:relative;z-index:1;min-height:100vh;padding:max(14px,env(safe-area-inset-top)) 14px 60px}
+.wrap{max-width:1160px;margin:0 auto}
+.panel{background:var(--card);border:1px solid rgba(255,255,255,.9);border-radius:26px;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);box-shadow:var(--shadow)}
+.ringb{position:relative}
+.ringb::before{content:"";position:absolute;inset:-2px;border-radius:inherit;padding:2.5px;pointer-events:none;z-index:0;
+  background:conic-gradient(from var(--ang),var(--c1,#06b6d4),#fff0 20%,var(--c2,#ec4899) 45%,#fff0 70%,#8b5cf6 85%,var(--c1,#06b6d4));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:angle 5s linear infinite}
+.screen{animation:rise .55s cubic-bezier(.2,.8,.2,1)}
+.mode-banner{max-width:1160px;margin:0 auto 10px;text-align:center;font-size:13px;padding:8px 12px;border-radius:14px;background:#fffbeb;border:1px dashed #f59e0b;color:#92400e}
+.announce{max-width:1160px;margin:0 auto 14px;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:18px;
+  background:linear-gradient(100deg,#fef3c7,#fce7f3,#e0e7ff);border:1px solid #fff;box-shadow:var(--shadow);font-weight:600;animation:rise .6s}
+.announce b{flex:none;font-size:22px;animation:float 2.4s ease-in-out infinite}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;border-radius:16px;border:0;cursor:pointer;font-size:17px;font-weight:800;color:#fff;transition:transform .15s,box-shadow .2s,filter .2s;user-select:none;text-decoration:none;position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);transition:left .7s}
+.btn:hover::after{left:140%}
+.btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn:active{transform:scale(.97)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;filter:grayscale(.4)}
+.btn.main{width:100%;background:linear-gradient(135deg,#6366f1 0%,#a855f7 50%,#ec4899 100%);box-shadow:0 14px 30px -12px rgba(168,85,247,.8)}
+.btn.ghost{background:#fff;color:var(--ink2);border:1.5px solid #e0e7ff;box-shadow:0 6px 16px -10px rgba(79,70,229,.5)}
+.btn.gold{background:linear-gradient(135deg,#f59e0b,#f97316 55%,#ef4444);box-shadow:0 14px 30px -12px rgba(249,115,22,.8)}
+.btn.teal{background:linear-gradient(135deg,#06b6d4,#10b981);box-shadow:0 14px 30px -12px rgba(16,185,129,.7)}
+.btn.sky{background:linear-gradient(135deg,#3b82f6,#8b5cf6);box-shadow:0 14px 30px -12px rgba(99,102,241,.7)}
+.btn.sm{padding:9px 14px;font-size:14px;border-radius:12px}
+.err{margin-top:12px;padding:12px 14px;border-radius:14px;background:#fff1f2;border:1px solid #fda4af;color:#9f1239;font-size:14px;line-height:1.6}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:800;background:#fff;border:1px solid #e0e7ff;color:var(--ink2);white-space:nowrap}
+.lv1{background:#dcfce7;border-color:#86efac;color:#166534}.lv2{background:#fef3c7;border-color:#fcd34d;color:#92400e}.lv3{background:#ffe4e6;border-color:#fda4af;color:#9f1239}
+
+/* ---------- splash ---------- */
+#splash{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;
+  background:radial-gradient(circle at 50% 40%,#ffffff 0%,#e0e7ff 35%,#fbcfe8 70%,#fed7aa 100%);cursor:pointer;transition:opacity .9s,transform 1s cubic-bezier(.6,0,.3,1)}
+#splash.out{opacity:0;transform:scale(2.4);pointer-events:none}
+.portal{position:relative;width:min(62vw,320px);aspect-ratio:1}
+.portal>i{position:absolute;inset:0;border-radius:50%;border:4px solid transparent}
+.portal>i:nth-child(2){border-top-color:#06b6d4;border-bottom-color:#06b6d4;animation:spin 3s linear infinite}
+.portal>i:nth-child(3){inset:8%;border-left-color:#ec4899;border-right-color:#ec4899;animation:spin 4.5s linear infinite reverse}
+.portal>i:nth-child(4){inset:16%;border:3px dashed #8b5cf6;animation:spin 14s linear infinite}
+.portal>i:nth-child(5){inset:23%;border-top-color:#f59e0b;border-right-color:#f59e0b;animation:spin 1.8s linear infinite reverse}
+.portal .glow{position:absolute;inset:-30%;border-radius:50%;background:conic-gradient(#a5f3fc,#fbcfe8,#fde68a,#c4b5fd,#a5f3fc);animation:spin 8s linear infinite;filter:blur(40px);opacity:.8}
+.clk{position:absolute;inset:30%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#e0e7ff 70%);box-shadow:0 20px 60px -10px rgba(99,102,241,.6),inset 0 -8px 20px rgba(99,102,241,.25);display:grid;place-items:center}
+.clk b{position:absolute;left:50%;bottom:50%;width:6px;margin-left:-3px;border-radius:6px;background:#312e81;transform-origin:50% 100%}
+.clk .hh{height:24%;animation:spin 7s linear infinite}
+.clk .mm{height:36%;width:4px;margin-left:-2px;background:#ec4899;animation:spin 1.1s linear infinite}
+.clk::after{content:"";width:14px;height:14px;border-radius:50%;background:#f59e0b;box-shadow:0 0 0 4px #fff;z-index:1}
+.sp-t{margin-top:30px;font-size:clamp(46px,11vw,104px);font-weight:900;letter-spacing:.04em;line-height:1;
+  background:linear-gradient(100deg,#0891b2,#7c3aed 35%,#db2777 65%,#ea580c);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 8px 18px rgba(124,58,237,.35));animation:titleIn 1.4s cubic-bezier(.2,.9,.2,1) both .2s}
+.sp-s{margin-top:10px;letter-spacing:.5em;font-weight:900;color:#7c3aed;font-size:clamp(12px,2.6vw,18px);animation:titleIn 1.4s both .5s}
+.sp-go{margin-top:34px;padding:15px 30px;border-radius:999px;border:0;background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;font-size:17px;font-weight:800;animation:pulse 1.6s ease-in-out infinite;box-shadow:0 14px 30px -10px #a855f7}
+@keyframes pulse{50%{box-shadow:0 0 0 16px rgba(168,85,247,0),0 18px 40px -8px #a855f7;transform:scale(1.05)}}
+@keyframes titleIn{from{opacity:0;letter-spacing:.6em;filter:blur(14px)}}
+
+/* ---------- hero / cover ---------- */
+.cover{position:relative;max-width:1160px;margin:0 auto;border-radius:30px;overflow:hidden;box-shadow:0 30px 70px -28px rgba(79,70,229,.55);aspect-ratio:16/6;background:#e0e7ff;animation:rise .7s}
+.cover img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:50% 50%;animation:kenburns 18s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.035)}}
+.cover::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 4px rgba(255,255,255,.7);pointer-events:none;z-index:2}
+.cover .gloss{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 45%,transparent 60%);background-size:250% 100%;animation:shine 7s linear infinite;pointer-events:none;z-index:1}
+.cover .cap{position:absolute;left:24px;right:24px;bottom:18px;z-index:2;color:#fff;text-shadow:0 3px 16px rgba(0,0,0,.45)}
+.cover .cap h1{margin:0;font-size:clamp(28px,5.5vw,58px);font-weight:900;letter-spacing:.02em;line-height:1.05}
+.cover .cap p{margin:4px 0 0;font-weight:600;opacity:.95;font-size:clamp(12px,1.8vw,16px)}
+.hero{text-align:center;padding:24px 10px 6px;position:relative}
+.logo{position:relative;width:150px;height:150px;margin:0 auto 6px}
+.logo svg{position:absolute;inset:0;width:100%;height:100%}
+.logo .spin{animation:spin 16s linear infinite}
+.logo .core{position:absolute;inset:34px;border-radius:50%;overflow:hidden;display:grid;place-items:center}
+.logo .core .clk{inset:0}
+.logo .core span{position:relative;z-index:2;font-size:28px;font-weight:900;color:#312e81;margin-top:44px}
+.orbit{position:absolute;inset:0;animation:spin 20s linear infinite}
+.orbit b{position:absolute;left:50%;top:50%;width:13px;height:13px;margin:-6.5px;border-radius:50%;box-shadow:0 3px 8px rgba(0,0,0,.18);border:2px solid #fff}
+.sub{font-size:clamp(13px,2.4vw,17px);color:#7c3aed;letter-spacing:.2em;text-transform:uppercase;font-weight:800}
+.title{font-size:clamp(40px,8.5vw,84px);line-height:1;margin:8px 0 4px;font-weight:900;letter-spacing:.01em;
+  background:linear-gradient(100deg,#0891b2 0%,#7c3aed 25%,#db2777 50%,#ea580c 75%,#0891b2 100%);background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite,titleIn 1.3s cubic-bezier(.2,.9,.2,1) both;filter:drop-shadow(0 10px 18px rgba(124,58,237,.25))}
+.brand{font-size:13.5px;color:var(--mute)}
+.timeline{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:14px 0 4px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:7px 15px;border-radius:999px;font-size:13px;font-weight:800;background:#fff;box-shadow:0 6px 16px -10px rgba(79,70,229,.6)}
+.chip b{width:10px;height:10px;border-radius:50%}
+
+/* ---------- login ---------- */
+.login{max-width:540px;margin:18px auto 0;padding:26px 22px}
+.login h2{margin:0 0 4px;font-size:23px}
+.login p.note{margin:0 0 16px;color:var(--mute);font-size:14px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:14px;font-weight:800;margin-bottom:6px;color:var(--ink2)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.seg button{padding:14px 0;border-radius:16px;border:2px solid #e0e7ff;background:#fff;color:var(--ink);font-size:18px;font-weight:900;cursor:pointer;transition:.2s}
+.seg button:hover{border-color:#a5b4fc}
+.seg button.on{background:linear-gradient(135deg,#6366f1,#ec4899);border-color:transparent;color:#fff;box-shadow:0 12px 26px -10px rgba(236,72,153,.8);transform:translateY(-2px)}
+select.inp,input.inp,textarea.inp{width:100%;padding:13px 14px;border-radius:14px;border:2px solid #e0e7ff;background:#fff;color:var(--ink);font-size:16px}
+select.inp{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#6366f1 50%),linear-gradient(135deg,#6366f1 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select.inp:disabled{opacity:.55}
+.inp:focus{outline:none;border-color:#a78bfa;box-shadow:0 0 0 4px rgba(167,139,250,.25)}
+.nobox{display:flex;gap:10px}
+.nobox .pill{flex:1;padding:12px 14px;border-radius:14px;border:2px dashed #e0e7ff;font-size:15px;color:var(--mute);background:#fafaff}
+.nobox .pill b{color:var(--ink);font-size:18px}
+.foot{text-align:center;margin-top:22px;color:var(--mute);font-size:12.5px}
+.adminlink{background:#fff;border:1px solid #e0e7ff;color:var(--mute);padding:7px 14px;border-radius:999px;cursor:pointer;font-size:12px;margin-top:8px}
+
+/* ---------- hub ---------- */
+.hubtop{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:16px 18px}
+@media(max-width:760px){.hubtop{grid-template-columns:1fr}}
+.me{display:flex;align-items:center;gap:14px;min-width:0}
+.avatar{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;font-size:28px;font-weight:900;color:#fff;background:linear-gradient(135deg,#6366f1,#ec4899);box-shadow:0 12px 24px -10px #ec4899;flex:none;position:relative}
+.avatar::after{content:"";position:absolute;inset:-5px;border-radius:24px;border:2px dashed #c4b5fd;animation:spin 14s linear infinite}
+.who .n{font-size:21px;font-weight:900;line-height:1.2}
+.who .c{font-size:14px;color:var(--mute)}
+.stat{display:flex;gap:10px;flex-wrap:wrap}
+.stat .s{padding:9px 14px;border-radius:16px;background:#fff;text-align:center;min-width:96px;box-shadow:0 8px 18px -12px rgba(79,70,229,.6)}
+.stat .s b{display:block;font-size:22px;background:linear-gradient(135deg,#6366f1,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .s span{font-size:11px;color:var(--mute)}
+.overall{height:14px;border-radius:99px;background:#eef2ff;overflow:hidden;margin:0 18px 6px;position:relative}
+.overall i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pre1),var(--pas1),var(--pas2),var(--fut1));transition:width 1.2s cubic-bezier(.2,.8,.2,1);border-radius:99px}
+.overall-l{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin:0 20px 12px}
+.toolrow{display:flex;gap:8px;flex-wrap:wrap;padding:0 18px 16px}
+.shelf{margin-top:14px;padding:14px 16px}
+.shelf h4{margin:0 0 10px;font-size:16px}
+.badges{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 8px;scrollbar-width:thin}
+.bd{flex:none;width:92px;text-align:center;padding:10px 6px;border-radius:18px;background:#fff;box-shadow:0 8px 18px -12px rgba(79,70,229,.6);cursor:pointer;transition:transform .2s}
+.bd:hover{transform:translateY(-3px)}
+.bd i{display:block;font-style:normal;font-size:32px;width:54px;height:54px;line-height:54px;margin:0 auto 4px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#fde68a 60%,#f59e0b);box-shadow:0 6px 14px -6px #f59e0b,inset 0 -4px 8px rgba(180,83,9,.25)}
+.bd span{font-size:11.5px;font-weight:800;line-height:1.25;display:block}
+.bd.off{opacity:.5}.bd.off i{filter:grayscale(1);background:radial-gradient(circle at 35% 30%,#fff,#e5e7eb 60%,#cbd5e1);box-shadow:none}
+.frame{margin:28px 0 12px;display:flex;align-items:center;gap:12px}
+.frame .orb{font-size:34px;animation:float 3s ease-in-out infinite}
+.frame h3{margin:0;font-size:34px;font-weight:900;letter-spacing:.05em;background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.frame span.t{color:var(--mute);font-size:14px;font-weight:600}
+.frame .bar{flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--c1),var(--c2),transparent)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1020px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.grid{grid-template-columns:1fr}}
+.card{position:relative;border-radius:26px;padding:3px;cursor:pointer;transform-style:preserve-3d;will-change:transform;
+  background:conic-gradient(from var(--ang),var(--c1),var(--c2),#fff 18%,var(--c1) 32%,var(--c2) 60%,#fff 78%,var(--c1));
+  animation:rise .6s both,angle 6s linear infinite;transition:transform .2s ease-out,box-shadow .25s;box-shadow:0 18px 36px -20px var(--c1)}
+.card:hover{box-shadow:0 26px 50px -18px var(--c1)}
+.card .in{position:relative;height:100%;border-radius:23px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
+.card .banner{position:relative;height:118px;background-size:cover;background-position:center;overflow:hidden}
+.card .banner.gen{background:linear-gradient(135deg,var(--c1),var(--c2))}
+.card .banner.gen::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 120%,rgba(255,255,255,.45) 0 30%,transparent 31%),radial-gradient(circle at 90% -20%,rgba(255,255,255,.35) 0 34%,transparent 35%),repeating-linear-gradient(45deg,rgba(255,255,255,.08) 0 10px,transparent 10px 20px)}
+.card .banner::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 45%,transparent 60%);background-size:260% 100%;animation:shine 6s linear infinite;animation-delay:var(--d,0s)}
+.card .num{position:absolute;right:12px;top:4px;font-size:58px;font-weight:900;color:rgba(255,255,255,.9);text-shadow:0 4px 14px rgba(0,0,0,.18);z-index:1}
+.card .ico{position:absolute;left:14px;top:88px;z-index:2;width:62px;height:62px;border-radius:20px;display:grid;place-items:center;font-size:34px;background:#fff;box-shadow:0 10px 22px -10px var(--c1);animation:float 3.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+.card .body{padding:34px 16px 14px;display:flex;flex-direction:column;flex:1}
+.card .nm{font-size:19px;font-weight:900;line-height:1.2}
+.card .th{font-size:13px;color:var(--mute);margin:2px 0 8px}
+.card .fm{align-self:flex-start;font-size:12.5px;font-weight:800;padding:5px 10px;border-radius:10px;background:linear-gradient(135deg,color-mix(in srgb,var(--c1) 14%,#fff),color-mix(in srgb,var(--c2) 14%,#fff));color:var(--ink);margin-bottom:12px}
+.card .row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.ring{width:60px;height:60px;flex:none;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:15px;font-weight:900}
+.card .meta{flex:1;font-size:12.5px;color:var(--mute);line-height:1.5}
+.card .stars{font-size:16px;letter-spacing:2px;color:var(--gold)}
+.card .go{margin-top:auto;width:100%;padding:11px;border-radius:14px;border:0;font-weight:900;font-size:15px;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2));cursor:pointer;box-shadow:0 10px 22px -12px var(--c1);transition:filter .2s,transform .15s}
+.card:hover .go{filter:brightness(1.08)}
+.card .mini{display:flex;gap:6px;margin-top:8px}
+.card .mini button{flex:1;padding:7px 4px;border-radius:11px;border:1.5px solid #eef2ff;background:#f8fafc;font-size:12.5px;font-weight:800;color:var(--ink2);cursor:pointer}
+.card .mini button:hover{background:#eef2ff}
+.card .resume{position:absolute;left:12px;top:10px;z-index:2;font-size:11px;font-weight:900;padding:4px 9px;border-radius:9px;background:#fff;color:#c2410c;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.card .medal{position:absolute;left:12px;top:10px;z-index:2;font-size:11px;font-weight:900;padding:4px 9px;border-radius:9px;background:linear-gradient(135deg,#fde68a,#f59e0b);color:#451a03}
+.card .pass{position:absolute;right:12px;bottom:10px;z-index:2;font-size:11px;font-weight:900;padding:3px 8px;border-radius:8px;background:#fff;color:#15803d}
+.card.locked{cursor:not-allowed;filter:grayscale(.85);opacity:.7}
+.card.locked .go{background:#94a3b8}
+.card .lockov{position:absolute;inset:0;z-index:3;display:grid;place-items:center;font-size:44px;background:rgba(255,255,255,.35)}
+
+/* ---------- quiz ---------- */
+.qhead{display:flex;align-items:center;gap:10px;padding:12px 14px;flex-wrap:wrap}
+.qhead .ti{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:26px;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 8px 18px -8px var(--c1)}
+.qhead .tn{flex:1;min-width:160px}
+.qhead .tn b{display:block;font-size:18px}
+.qhead .tn span{font-size:13px;color:var(--mute)}
+.prog{height:12px;margin:0 14px 12px;border-radius:9px;background:#eef2ff;position:relative}
+.prog i{position:relative;display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--c1),var(--c2));transition:width .5s}
+.prog i::after{content:"";position:absolute;right:-9px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;background:#fff;border:4px solid var(--c2);box-shadow:0 0 0 5px color-mix(in srgb,var(--c2) 25%,transparent)}
+.dots{display:flex;flex-wrap:wrap;gap:5px;padding:0 14px 12px}
+.dots i{width:13px;height:13px;border-radius:4px;background:#e0e7ff;transition:transform .3s}
+.dots i.ok{background:#22c55e}.dots i.no{background:#f43f5e}.dots i.cur{outline:2px solid var(--ink2);outline-offset:1px;transform:scale(1.2)}
+#qCombo{display:none}
+#qCombo.on{display:inline-flex;background:linear-gradient(135deg,#f97316,#ef4444);border-color:transparent;color:#fff;box-shadow:0 8px 20px -6px rgba(249,115,22,.8);animation:pop .4s}
+.qcard{max-width:900px;margin:16px auto 0;padding:26px 24px 22px;border-radius:28px}
+.qcard.enter{animation:qin .6s cubic-bezier(.2,.9,.2,1)}
+@keyframes qin{from{opacity:0;transform:perspective(1000px) rotateY(-26deg) translateX(70px) scale(.94);filter:blur(6px)}}
+.qtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.qno{font-size:14px;font-weight:900;color:#7c3aed;letter-spacing:.14em;flex:1}
+.tool{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:12px;border:1.5px solid #e0e7ff;background:#fff;font-weight:800;font-size:13.5px;color:var(--ink2);cursor:pointer;transition:.2s}
+.tool:hover:not([disabled]){background:#eef2ff;transform:translateY(-1px)}
+.tool[disabled]{opacity:.45;cursor:not-allowed}
+.qtext{font-size:clamp(20px,3.3vw,29px);line-height:1.65;font-weight:700;margin:12px 0 22px;position:relative;z-index:1}
+.blank{display:inline-block;min-width:150px;padding:0 10px;margin:0 4px;border-bottom:4px dashed var(--c1);color:transparent;border-radius:8px;text-align:center;transition:.3s}
+.blank.fill{color:var(--ink);border-bottom-style:solid;background:color-mix(in srgb,var(--c1) 12%,#fff);animation:pop .45s}
+.blank.fill.ok{border-color:#22c55e;background:#dcfce7;color:#14532d}
+.blank.fill.no{border-color:#f43f5e;background:#ffe4e6;color:#881337}
+mark.sig{background:linear-gradient(transparent 55%,#fde68a 55%);color:inherit;padding:0 2px;border-radius:3px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1}
+@media(max-width:640px){.opts{grid-template-columns:1fr}}
+.opt{position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;padding:16px;border-radius:18px;border:2px solid #e0e7ff;background:#fff;color:var(--ink);font-size:18px;font-weight:800;text-align:left;cursor:pointer;
+  transition:transform .15s,background .2s,border-color .2s,box-shadow .2s;animation:optin .5s both;box-shadow:0 8px 18px -14px rgba(79,70,229,.8)}
+.opt:nth-child(2){animation-delay:.07s}.opt:nth-child(3){animation-delay:.14s}.opt:nth-child(4){animation-delay:.21s}
+@keyframes optin{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.opt:hover:not([disabled]){transform:translateY(-3px);border-color:#a5b4fc;box-shadow:0 14px 26px -14px rgba(79,70,229,.9)}
+.opt .k{width:38px;height:38px;flex:none;border-radius:13px;display:grid;place-items:center;font-weight:900;color:#fff}
+.opt:nth-child(1) .k{background:linear-gradient(135deg,#f472b6,#db2777)}.opt:nth-child(2) .k{background:linear-gradient(135deg,#fbbf24,#ea580c)}
+.opt:nth-child(3) .k{background:linear-gradient(135deg,#34d399,#059669)}.opt:nth-child(4) .k{background:linear-gradient(135deg,#60a5fa,#4f46e5)}
+.opt[disabled]{cursor:default}
+.opt.right{border-color:#22c55e;background:#f0fdf4;box-shadow:0 0 0 4px rgba(34,197,94,.2),0 14px 30px -12px #22c55e;animation:rightpop .5s}
+@keyframes rightpop{40%{transform:scale(1.04)}}
+.opt.wrong{border-color:#f43f5e;background:#fff1f2;animation:shake .4s}
+.opt.fade{opacity:.4}
+.opt.cut{opacity:.25;filter:grayscale(1);text-decoration:line-through;pointer-events:none}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.fb{margin-top:18px;padding:16px 18px;border-radius:18px;font-size:15.5px;line-height:1.7;animation:rise .35s;position:relative;z-index:1}
+.fb.ok{background:#f0fdf4;border:1.5px solid #86efac}
+.fb.no{background:#fff1f2;border:1.5px solid #fda4af}
+.fb .h{font-size:18px;font-weight:900;margin-bottom:4px}
+.fb code{font-family:inherit;font-weight:900;padding:2px 8px;border-radius:8px;background:#fff;border:1px solid #e0e7ff}
+.qactions{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.wave{position:fixed;z-index:81;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;border:4px solid #22c55e;pointer-events:none;animation:wave .75s ease-out forwards}
+@keyframes wave{to{transform:scale(16);opacity:0;border-width:1px}}
+.plus{position:fixed;z-index:82;font-weight:900;font-size:34px;color:#16a34a;text-shadow:0 4px 0 #fff,0 0 18px #86efac;pointer-events:none;animation:plus 1s ease-out forwards}
+@keyframes plus{to{transform:translateY(-90px) scale(1.5);opacity:0}}
+.callout{position:fixed;left:50%;top:40%;z-index:82;transform:translate(-50%,-50%);font-size:clamp(42px,10vw,100px);font-weight:900;pointer-events:none;white-space:nowrap;
+  background:linear-gradient(180deg,#fde047 5%,#f97316 55%,#dc2626);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 5px 0 #fff) drop-shadow(0 10px 18px rgba(234,88,12,.55));animation:callout 1.4s cubic-bezier(.2,1.5,.4,1) forwards}
+@keyframes callout{0%{transform:translate(-50%,-50%) scale(.2) rotate(-14deg);opacity:0}22%{transform:translate(-50%,-50%) scale(1.18) rotate(3deg);opacity:1}70%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-90%) scale(.92);opacity:0}}
+
+/* ---------- result ---------- */
+.result{max-width:780px;margin:10px auto 0;padding:30px 24px;text-align:center;overflow:hidden;border-radius:30px}
+.rank{position:relative;width:200px;height:170px;margin:0 auto;display:grid;place-items:center}
+.rays{position:absolute;left:50%;top:50%;width:540px;height:540px;margin:-270px 0 0 -270px;border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,rgba(251,191,36,.35) 0 7deg,transparent 7deg 20deg);
+  -webkit-mask:radial-gradient(circle,#000 18%,transparent 66%);mask:radial-gradient(circle,#000 18%,transparent 66%);animation:spin 20s linear infinite}
+.rk{position:relative;font-size:140px;font-weight:900;line-height:1;font-family:"Arial Black",Impact,var(--font);
+  background:linear-gradient(180deg,#fef08a 5%,#f59e0b 45%,#ea580c 70%,#9a3412);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 0 #fff) drop-shadow(0 14px 18px rgba(234,88,12,.45));animation:stamp 1s cubic-bezier(.2,1.6,.4,1) both .25s}
+.rk.C,.rk.D{background:linear-gradient(180deg,#c7d2fe,#6366f1 55%,#3730a3);-webkit-background-clip:text;background-clip:text}
+@keyframes stamp{from{transform:scale(3.4) rotate(-24deg);opacity:0;filter:blur(10px)}}
+.rank .trophy{position:absolute;right:-4px;top:0;font-size:50px}
+.rlabel{position:relative;font-size:13px;letter-spacing:.4em;font-weight:900;color:#ea580c;margin:4px 0 10px}
+.big{position:relative;width:210px;height:210px;margin:10px auto}
+.big b{position:absolute;inset:0;display:grid;place-items:center;font-size:58px;font-weight:900}
+.big b small{display:block;font-size:15px;color:var(--mute);font-weight:700;margin-top:-6px}
+.rstars{font-size:36px;letter-spacing:6px;color:var(--gold);text-shadow:0 4px 0 #fff,0 6px 14px rgba(245,158,11,.5)}
+.rstars span{display:inline-block;animation:starpop .55s cubic-bezier(.2,1.8,.4,1) both}
+@keyframes starpop{from{transform:scale(0) rotate(-200deg);opacity:0}}
+.lvrow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+@media(max-width:560px){.lvrow{grid-template-columns:repeat(2,1fr)}}
+.lvrow div{padding:12px;border-radius:18px;background:#fff;box-shadow:0 8px 18px -12px rgba(79,70,229,.6)}
+.lvrow b{display:block;font-size:24px;margin-top:4px}
+.sendst{font-size:14px;margin:10px 0;color:var(--mute)}
+.ractions{display:grid;gap:10px;margin-top:16px}
+.ractions .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review{max-width:780px;margin:16px auto 0;padding:20px}
+.review h3{margin:0 0 12px}
+.rv{padding:12px 14px;border-radius:14px;background:#fff;border:1px solid #eef2ff;margin-bottom:8px;font-size:15px;line-height:1.6;text-align:left}
+.rv .a{color:#be123c}.rv .c{color:#15803d;font-weight:900;background:#dcfce7;padding:0 6px;border-radius:6px}
+
+/* ---------- modal / toast ---------- */
+.modal{position:fixed;inset:0;z-index:90;background:rgba(30,27,75,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px}
+.modal .box{max-width:500px;width:100%;padding:24px;max-height:92vh;overflow:auto;animation:rise .35s;background:#fff;border-radius:26px;box-shadow:0 40px 80px -30px rgba(30,27,75,.6)}
+.modal .box.wide{max-width:760px}
+.modal .box h3{margin:0 0 8px;font-size:22px}
+.modal .box p{color:#475569;line-height:1.6;margin:0 0 16px}
+.modal img{width:100%;border-radius:16px;display:block;margin:0 0 12px;box-shadow:0 20px 40px -20px rgba(30,27,75,.5)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:95;padding:12px 18px;border-radius:14px;background:#1e1b4b;color:#fff;font-size:15px;box-shadow:0 14px 30px rgba(30,27,75,.35);animation:rise .3s;max-width:90vw;text-align:center}
+.mute{position:fixed;right:12px;bottom:12px;z-index:40;width:46px;height:46px;border-radius:50%;border:0;background:#fff;box-shadow:var(--shadow);font-size:20px;cursor:pointer}
+/* study sheet */
+.study .hd{margin:-24px -24px 16px;padding:22px 24px;border-radius:26px 26px 0 0;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2));position:relative;overflow:hidden}
+.study .hd::after{content:attr(data-ico);position:absolute;right:14px;top:-6px;font-size:90px;opacity:.35}
+.study .hd h3{margin:0;font-size:26px}.study .hd div{opacity:.95}
+.fx3{display:grid;gap:8px;margin-bottom:14px}
+.fx3 div{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;background:#f8fafc;border:1px solid #eef2ff;font-weight:800}
+.fx3 div i{font-style:normal;width:30px;height:30px;flex:none;border-radius:10px;display:grid;place-items:center;color:#fff;font-size:18px}
+.sigs{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
+.sigs span{padding:5px 10px;border-radius:999px;background:#fef3c7;color:#92400e;font-weight:800;font-size:13px}
+.exs div{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;background:#f0f9ff;margin-bottom:8px;font-weight:600}
+.exs button{flex:none;border:0;background:#fff;border-radius:10px;width:36px;height:36px;cursor:pointer;box-shadow:0 4px 10px -6px #3b82f6}
+/* leaderboard */
+.lbtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.lbtabs button{padding:8px 14px;border-radius:12px;border:1.5px solid #e0e7ff;background:#fff;font-weight:800;cursor:pointer;color:var(--ink2)}
+.lbtabs button.on{background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;border-color:transparent}
+.lbrow{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;background:#fff;border:1px solid #eef2ff;margin-bottom:8px;animation:rise .4s both}
+.lbrow .pos{width:38px;height:38px;flex:none;border-radius:12px;display:grid;place-items:center;font-weight:900;background:#eef2ff;color:var(--ink2)}
+.lbrow.p1 .pos{background:linear-gradient(135deg,#fde68a,#f59e0b);color:#451a03;font-size:20px}
+.lbrow.p2 .pos{background:linear-gradient(135deg,#f1f5f9,#94a3b8);color:#0f172a;font-size:20px}
+.lbrow.p3 .pos{background:linear-gradient(135deg,#fed7aa,#c2410c);color:#fff;font-size:20px}
+.lbrow.me{border:2px solid #a78bfa;background:#f5f3ff}
+.lbrow .nm{flex:1;font-weight:800;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lbrow .nm small{display:block;font-weight:600;color:var(--mute)}
+.lbrow .sc{font-weight:900;font-size:20px;color:#7c3aed}
+.newbadge{text-align:center}
+.newbadge .bd{width:auto;display:inline-block;padding:16px 26px;margin:6px;transform:scale(1.15);animation:pop .6s}
+
+/* ---------- admin ---------- */
+.admin{max-width:1260px;margin:0 auto;padding:18px}
+.admin h2{margin:0;font-size:24px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tabs button{padding:10px 16px;border-radius:12px;border:1.5px solid #e0e7ff;background:#fff;color:var(--ink2);font-weight:800;cursor:pointer}
+.tabs button.on{background:linear-gradient(135deg,#6366f1,#ec4899);border-color:transparent;color:#fff}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.toolbar select,.toolbar input{padding:9px 12px;border-radius:10px;border:1.5px solid #e0e7ff;background:#fff;color:var(--ink);font-size:14px}
+.tbl{overflow:auto;border-radius:16px;border:1px solid #e0e7ff;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:8px;border-bottom:1px solid #f1f5f9;text-align:center;white-space:nowrap}
+th{position:sticky;top:0;background:#eef2ff;font-size:12px;color:var(--ink2);z-index:1}
+td.l,th.l{text-align:left}
+tr:hover td{background:#fafaff}
+.sc{display:inline-block;min-width:38px;padding:3px 6px;border-radius:8px;font-weight:900}
+.sc.g{background:#dcfce7;color:#166534}.sc.y{background:#fef3c7;color:#92400e}.sc.r{background:#ffe4e6;color:#9f1239}.sc.n{color:#cbd5e1}
+.sc small{font-weight:600;opacity:.7;margin-left:2px}
+.pinbox{max-width:390px;margin:12vh auto 0;padding:26px;text-align:center}
+.pinbox input{width:100%;text-align:center;font-size:28px;letter-spacing:.4em;padding:12px;border-radius:14px;border:2px solid #e0e7ff;background:#fff;color:var(--ink);margin:14px 0}
+.setgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:860px){.setgrid{grid-template-columns:1fr}}
+.setbox{padding:16px;border-radius:18px;background:#fff;border:1px solid #eef2ff}
+.setbox h3{margin:0 0 6px;font-size:17px}
+.setbox .hint{font-size:12.5px;color:var(--mute);margin:0 0 10px;line-height:1.55}
+.coverprev{margin-top:10px;border-radius:14px;overflow:hidden;aspect-ratio:16/6;background:#eef2ff center/cover no-repeat;display:grid;place-items:center;color:var(--mute);font-size:13px}
+.cimgs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.cimgs label{display:flex;gap:8px;align-items:center;font-size:12.5px;font-weight:800}
+.cimgs label span{flex:none;width:72px;height:40px;border-radius:8px;background:#eef2ff center/cover no-repeat;display:grid;place-items:center;font-size:11px;color:#64748b}
+.cimgs input{flex:1;min-width:0;padding:8px;border-radius:9px;border:1.5px solid #e0e7ff;font-size:12px}
+.opengrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.opengrid label{display:flex;gap:6px;align-items:center;font-size:13px;padding:6px 8px;border-radius:10px;background:#f8fafc}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+@media print{.blobs,#sky,.mute,#bigclock{display:none}}
+
+</style>
+</head>
+<body translate="no">
+<div class="blobs"><i></i><i></i><i></i><i></i></div>
+<svg id="bigclock" viewBox="0 0 1000 1000"><g class="rg" fill="none" stroke="#4338ca"><circle cx="500" cy="500" r="470" stroke-width="3" stroke-dasharray="2 14"/><circle cx="500" cy="500" r="430" stroke-width="2"/></g><g id="bigticks"></g><g stroke="#4338ca" stroke-linecap="round"><line class="hh" x1="500" y1="500" x2="500" y2="270" stroke-width="16"/><line class="mm" x1="500" y1="500" x2="500" y2="140" stroke-width="9"/><line class="ss" x1="500" y1="560" x2="500" y2="90" stroke-width="4" stroke="#db2777"/></g><circle cx="500" cy="500" r="18" fill="#4338ca"/></svg>
+<canvas id="sky"></canvas>
+<canvas id="fx"></canvas>
+<div class="edge"></div>
+<div id="splash" class="hidden"><div class="portal"><div class="glow"></div><i></i><i></i><i></i><i></i><div class="clk"><b class="hh"></b><b class="mm"></b></div></div><div class="sp-t">12 TENSES</div><div class="sp-s">MASTER CHALLENGE</div><button class="sp-go">⏳ แตะเพื่อเข้าสู่ประตูกาลเวลา</button></div>
+<button class="mute" id="muteBtn" title="เสียง">🔊</button>
+
+<div id="app">
+  <div id="modeBanner" class="mode-banner hidden">⚙️ โหมดทดลอง — ยังไม่ได้ใส่ GAS_URL (รายชื่อตัวอย่าง / คะแนนเก็บในเครื่องนี้เท่านั้น)</div>
+  <div id="announce" class="announce hidden"><b>📢</b><span id="announceText"></span></div>
+
+  <!-- LOGIN -->
+  <section id="scrLogin" class="screen">
+    <div id="coverLogin" class="cover hidden"><img alt=""><div class="gloss"></div></div>
+    <div class="hero" id="heroDefault">
+      <div class="logo">
+        <svg viewBox="0 0 120 120" class="spin"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
+          <circle cx="60" cy="60" r="56" fill="none" stroke="url(#lg)" stroke-width="3.5" stroke-dasharray="4 8"/><g id="ticks"></g></svg>
+        <div class="orbit" id="orbit"></div>
+        <div class="core"><div class="clk"><b class="hh"></b><b class="mm"></b></div><span>12</span></div>
+      </div>
+      <div class="sub">Basic English Course · Mathayom 6</div>
+      <h1 class="title">TENSES MASTER</h1>
+      <div class="brand">12 การ์ด · การ์ดละ 30 ข้อ · ง่าย / กลาง / ยาก · By T.OAT · Thanakhan-oomsin school</div>
+    </div>
+    <div class="timeline">
+      <span class="chip"><b style="background:linear-gradient(135deg,var(--pre1),var(--pre2))"></b>PRESENT</span>
+      <span class="chip"><b style="background:linear-gradient(135deg,var(--pas1),var(--pas2))"></b>PAST</span>
+      <span class="chip"><b style="background:linear-gradient(135deg,var(--fut1),var(--fut2))"></b>FUTURE</span>
+    </div>
+    <div class="panel login ringb">
+      <h2>🎓 เข้าสู่ระบบ</h2>
+      <p class="note">เลือกชั้นและชื่อของตัวเอง — ระบบจะผูกชื่อกับเครื่องนี้ <b>1 คน = 1 เครื่อง</b></p>
+      <div class="field"><label>ชั้น</label><div class="seg" id="clsSeg"></div></div>
+      <div class="field"><label>ชื่อ - นามสกุล</label>
+        <select id="nameSel" class="inp" disabled><option value="">— เลือกชั้นก่อน —</option></select></div>
+      <div class="field"><label>เลขที่</label>
+        <div class="nobox"><div class="pill">เลขที่ <b id="noShow">–</b></div><div class="pill">ชั้น <b id="clsShow">–</b></div></div></div>
+      <button class="btn main" id="loginBtn" disabled>เข้าสู่ห้องฝึก 🚀</button>
+      <div id="loginErr" class="err hidden"></div>
+    </div>
+    <div class="foot"><div>Basic English Course · By T.OAT · Thanakhan-oomsin school</div>
+      <button class="adminlink" data-admin>🔐 Admin ครูโอ๊ต</button></div>
+  </section>
+
+  <!-- HUB -->
+  <section id="scrHub" class="screen hidden">
+    <div class="wrap">
+      <div id="coverHub" class="cover hidden" style="margin-bottom:14px"><img alt=""><div class="gloss"></div></div>
+      <div class="panel ringb">
+        <div class="hubtop">
+          <div class="me"><div class="avatar" id="hubAv">A</div>
+            <div class="who"><div class="n" id="hubName">–</div><div class="c" id="hubCls">–</div></div></div>
+          <div class="stat">
+            <div class="s"><b id="stDone">0/12</b><span>การ์ดที่ทำแล้ว</span></div>
+            <div class="s"><b id="stPass">0/12</b><span>การ์ดที่ผ่าน</span></div>
+            <div class="s"><b id="stSum">0</b><span>คะแนนรวม /360</span></div>
+            <div class="s"><b id="stStar">0</b><span>ดาว /36</span></div>
+          </div>
+        </div>
+        <div class="overall"><i id="overallBar"></i></div>
+        <div class="overall-l"><span>🧭 เส้นทางสู่ TENSE MASTER</span><span id="overallPct">0%</span></div>
+        <div class="toolrow">
+          <button class="btn sky sm" id="lbBtn">🏆 อันดับคะแนน</button>
+          <button class="btn gold sm" id="certBtn">🎓 เกียรติบัตร</button>
+          <button class="btn ghost sm" id="refreshBtn">🔄 อัปเดตคะแนน</button>
+          <button class="btn ghost sm" id="logoutBtn">🚪 ออกจากระบบ</button>
+        </div>
+      </div>
+      <div class="panel shelf"><h4>🏅 ตู้เหรียญรางวัล <span id="bdCount" style="color:var(--mute);font-weight:600;font-size:13px"></span></h4><div class="badges" id="badges"></div></div>
+      <div id="frames"></div>
+      <div class="foot">ทำได้ไม่จำกัดครั้ง ระบบเก็บคะแนนสูงสุดของแต่ละการ์ด · ทำเสร็จแล้วกด “บันทึกรูปผลคะแนน” ส่งครู<br>
+        <button class="adminlink" data-admin>🔐 Admin ครูโอ๊ต</button></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="scrQuiz" class="screen hidden">
+    <div class="wrap">
+      <div class="panel">
+        <div class="qhead">
+          <div class="ti" id="qIco">☀️</div>
+          <div class="tn"><b id="qTense">–</b><span id="qFormula">–</span></div>
+          <span class="badge" id="qMode" style="display:none">🎯 โหมดฝึกข้อที่ผิด</span>
+          <span class="badge" id="qTimer">⏱ 0:00</span>
+          <span class="badge" id="qLevel">ง่าย</span>
+          <span class="badge" id="qCombo">🔥 x0</span>
+          <span class="badge" id="qScore">✔ 0</span>
+          <span class="badge" id="qCount">1/30</span>
+        </div>
+        <div class="prog"><i id="qProg"></i></div>
+        <div class="dots" id="qDots"></div>
+      </div>
+      <div class="panel qcard ringb" id="qCard">
+        <div class="qtop">
+          <div class="qno" id="qNo">QUESTION 1</div>
+          <button class="tool" id="ttsBtn" title="ฟังประโยค">🔊 ฟัง</button>
+          <button class="tool" id="studyQBtn" title="ดูสูตร">📘 สูตร</button>
+          <button class="tool" id="llBtn" title="ตัดตัวเลือกผิด 2 ข้อ">✂️ 50:50 <span id="llLeft">2</span></button>
+        </div>
+        <div class="qtext" id="qText"></div>
+        <div class="opts" id="qOpts"></div>
+        <div id="qFb"></div>
+        <div class="qactions">
+          <button class="btn ghost sm" id="quitBtn">← พักไว้ก่อน</button>
+          <button class="btn main hidden" id="nextBtn" style="width:auto;min-width:180px">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="scrResult" class="screen hidden">
+    <div class="panel result ringb" id="resBox">
+      <div class="rank"><div class="rays"></div><div class="rk" id="rRank">S</div><div class="trophy" id="rTrophy">🏆</div></div>
+      <div class="rlabel">RANK</div>
+      <div class="sub" id="rTense" style="letter-spacing:.04em;text-transform:none">–</div>
+      <div class="big"><svg width="210" height="210" viewBox="0 0 210 210" style="transform:rotate(-90deg)">
+        <circle cx="105" cy="105" r="92" fill="none" stroke="#eef2ff" stroke-width="16"/>
+        <circle id="rArc" cx="105" cy="105" r="92" fill="none" stroke="url(#rg)" stroke-width="16" stroke-linecap="round" stroke-dasharray="578" stroke-dashoffset="578" style="transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)"/>
+        <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs></svg>
+        <b><span><span id="rScore">0</span><small>จาก 30 คะแนน</small></span></b></div>
+      <div class="rstars" id="rStars">☆☆☆</div>
+      <div style="font-size:21px;font-weight:900;margin-top:6px" id="rMsg">–</div>
+      <div style="color:var(--mute);margin-top:6px;line-height:1.6" id="rWho">–</div>
+      <div class="lvrow">
+        <div><span class="badge lv1">ง่าย</span><b id="rE">0/10</b></div>
+        <div><span class="badge lv2">ปานกลาง</span><b id="rM">0/10</b></div>
+        <div><span class="badge lv3">ยาก</span><b id="rH">0/10</b></div>
+        <div><span class="badge">🔥 คอมโบสูงสุด</span><b id="rC">0</b></div>
+      </div>
+      <div class="sendst" id="rSend">กำลังส่งคะแนน…</div>
+      <div class="ractions">
+        <button class="btn gold" id="snapBtn">📸 บันทึกรูปผลคะแนน (ส่งครู)</button>
+        <div class="two">
+          <button class="btn teal" id="againBtn">🔁 ทำการ์ดนี้อีกครั้ง</button>
+          <button class="btn ghost" id="homeBtn">🏠 กลับหน้าการ์ด</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel review" id="reviewBox"></div>
+  </section>
+
+  <!-- ADMIN -->
+  <section id="scrAdmin" class="screen hidden">
+    <div id="pinGate" class="panel pinbox ringb">
+      <div style="font-size:46px">🔐</div>
+      <h2 style="margin:6px 0 0">Admin ครูโอ๊ต</h2>
+      <input id="pinInp" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••">
+      <button class="btn main" id="pinBtn">เข้าสู่ระบบผู้ดูแล</button>
+      <div id="pinErr" class="err hidden"></div>
+      <button class="adminlink" id="pinBack">← กลับ</button>
+    </div>
+    <div id="adminPanel" class="panel admin hidden">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <h2 style="flex:1">📊 แดชบอร์ดครูโอ๊ต · 12 Tenses</h2>
+        <span class="badge" id="admTime">–</span>
+        <button class="btn ghost sm" id="admReload">🔄 รีเฟรช</button>
+        <button class="btn ghost sm" id="admClose">✕ ปิด</button>
+      </div>
+      <div class="tabs" id="admTabs">
+        <button data-t="matrix" class="on">🏅 คะแนนรายคน</button>
+        <button data-t="recent">🕒 ส่งล่าสุด</button>
+        <button data-t="devices">📱 อุปกรณ์ / ปลดล็อก</button>
+        <button data-t="design">🖼️ หน้าปก & การ์ด</button>
+        <button data-t="settings">⚙️ ตั้งค่าระบบ</button>
+      </div>
+      <div class="toolbar" id="admBar">
+        <select id="admCls"><option value="">ทุกห้อง</option></select>
+        <input id="admSearch" placeholder="ค้นหาชื่อ / เลขที่">
+        <button class="btn ghost sm" id="admCsv">⬇️ ดาวน์โหลด CSV</button>
+      </div>
+      <div id="admBody"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+/* ===================== CONFIG ===================== */
+const GAS_URL = "https://script.google.com/macros/s/AKfycbx_yxjdAKB6cok_CtiCidDCFgj0iOhqWRRYAXX9sBt4zLjM76VxMejTaddsbLMJ5RnDQw/exec";            // ← วาง URL เว็บแอป Apps Script (ลงท้าย /exec) ตรงนี้
+const CLASSES = ["6/1","6/2","6/3"];
+const OFFLINE_PIN = "7846";     // ใช้เฉพาะโหมดทดลอง (ไม่มี GAS_URL)
+
+/* ===================== DATA ===================== */
+const BANK = [[{"q":"Water ___ at 100 degrees Celsius.","o":["boils","is boiling","had boiled","will have boiled"],"l":1},{"q":"My father ___ coffee every morning before work.","o":["drinks","drink","is drinking","has drunk"],"l":1},{"q":"The sun ___ in the east.","o":["rises","rise","is rising","will have been rising"],"l":1},{"q":"We usually ___ lunch at the school canteen.","o":["have","has","had had","will have been having"],"l":1},{"q":"Nida ___ to school by sky train every day.","o":["goes","go","is going","has been going"],"l":1},{"q":"The library ___ at 8 a.m. on weekdays.","o":["opens","open","is opening","had opened"],"l":1},{"q":"My cat ___ fish, but it hates vegetables.","o":["loves","love","is loving","will be loving"],"l":1},{"q":"I ___ my teeth twice a day.","o":["brush","brushes","am brushing","had brushed"],"l":1},{"q":"They ___ football in the park every Saturday.","o":["play","plays","have been playing","had played"],"l":1},{"q":"Most Thai students ___ uniforms to school on weekdays.","o":["wear","wears","had worn","will have worn"],"l":1},{"q":"The train to Chiang Mai ___ at 6:15 tomorrow morning, so don't be late.","o":["leaves","leave","has left","had left"],"l":2},{"q":"My brother rarely ___ his room unless our mother reminds him.","o":["cleans","clean","is cleaning","had cleaned"],"l":2},{"q":"Every time it rains, the road in front of our school ___.","o":["floods","flood","was flooding","had flooded"],"l":2},{"q":"This smartphone ___ to my sister, not to me.","o":["belongs","is belonging","belong","has been belonging"],"l":2},{"q":"I ___ what you mean, but I don't agree with you.","o":["understand","am understanding","understands","had understood"],"l":2},{"q":"How often ___ your teacher give homework?","o":["does","do","is","are"],"l":2},{"q":"She ___ like spicy food, so she never orders som tam.","o":["doesn't","don't","isn't","aren't"],"l":2},{"q":"The museum ___ free entry to students on the first Sunday of every month.","o":["offers","offer","is offering","will have offered"],"l":2},{"q":"Our school ___ more than 2,000 students.","o":["has","have","is having","had had"],"l":2},{"q":"Light ___ faster than sound.","o":["travels","travel","had travelled","will be travelling"],"l":2},{"q":"Hardly a week ___ without a new viral trend appearing on TikTok.","o":["passes","is passing","pass","will have passed"],"l":3},{"q":"According to the schedule, the TGAT exam ___ at 9:00 a.m. sharp next Saturday.","o":["begins","begin","has begun","had begun"],"l":3},{"q":"Neither the teacher nor the students ___ the answer to this riddle.","o":["know","knows","are knowing","had known"],"l":3},{"q":"Each of the volunteers ___ a free T-shirt, according to the camp rules.","o":["receives","receive","is receiving","had received"],"l":3},{"q":"The number of students who use AI tools for homework ___ every semester.","o":["increases","increase","had increased","will have increased"],"l":3},{"q":"If you heat ice, it ___.","o":["melts","melt","is melting","had melted"],"l":3},{"q":"Whenever my grandmother ___ a new recipe on YouTube, she tries it the same day.","o":["finds","find","had found","will find"],"l":3},{"q":"The documentary claims that an adult elephant ___ up to 150 kilograms of food a day.","o":["eats","eat","had eaten","is eating"],"l":3},{"q":"Unless the weather ___ worse, the sports day will go ahead as planned.","o":["gets","will get","get","had got"],"l":3},{"q":"As soon as the bell ___, the students will rush to the canteen.","o":["rings","will ring","rang","ring"],"l":3}],[{"q":"Look! The children ___ in the rain.","o":["are playing","is playing","played","have played"],"l":1},{"q":"Please be quiet. The baby ___.","o":["is sleeping","are sleeping","slept","will sleep"],"l":1},{"q":"I can't talk now. I ___ dinner.","o":["am cooking","is cooking","cooked","have cooked"],"l":1},{"q":"Listen! Somebody ___ at the door.","o":["is knocking","knocks","had knocked","will knock"],"l":1},{"q":"They ___ for the bus right now.","o":["are waiting","wait","waited","have waited"],"l":1},{"q":"Where is Mint? — She ___ a shower at the moment.","o":["is taking","takes","took","will have taken"],"l":1},{"q":"We ___ English in the language lab at the moment.","o":["are studying","study","had studied","will study"],"l":1},{"q":"Hurry up! The bus ___.","o":["is coming","comes","had come","will have been coming"],"l":1},{"q":"My sister ___ a video call with her friend right now.","o":["is making","makes","had made","will have made"],"l":1},{"q":"Why ___ you laughing at me?","o":["are","is","do","have"],"l":1},{"q":"These days, more and more teenagers ___ their free time on short-video apps.","o":["are spending","is spending","had spent","will spend"],"l":2},{"q":"I ___ at my cousin's house until I find a new apartment.","o":["am staying","is staying","had stayed","will have been staying"],"l":2},{"q":"We ___ a party for our teacher on Friday — it's all arranged.","o":["are having","is having","had had","have had"],"l":2},{"q":"Food prices ___ rapidly this year because of inflation.","o":["are rising","is rising","had risen","will have risen"],"l":2},{"q":"Nattapong ___ hard this term because he wants to get into medical school.","o":["is studying","are studying","had studied","was studying"],"l":2},{"q":"Be careful! The water ___ — don't touch the pot.","o":["is boiling","boils","had boiled","will have boiled"],"l":2},{"q":"My brother ___ a part-time job at a café this summer.","o":["is doing","are doing","had done","will have done"],"l":2},{"q":"She ___ her phone at the most awkward times! It's so annoying.","o":["is always losing","always lose","are always losing","always losing"],"l":2},{"q":"The climate ___ faster than scientists predicted.","o":["is changing","are changing","had changed","will change"],"l":2},{"q":"Look at Ploy! She ___ the dress I gave her.","o":["is wearing","wears","had worn","will have worn"],"l":2},{"q":"I usually take the bus, but this week I ___ to school because the bus drivers are on strike.","o":["am walking","walk","had walked","will have walked"],"l":3},{"q":"Ms. Suda can't come to the phone right now because she ___ a meeting with the director.","o":["is having","are having","had had","will have been having"],"l":3},{"q":"Global temperatures ___ steadily, and experts warn that the trend may continue.","o":["are climbing","is climbing","had climbed","will climb"],"l":3},{"q":"What ___ tonight? I'm thinking of watching a movie.","o":["are you doing","do you do","did you do","have you done"],"l":3},{"q":"Thanks to online learning platforms, students in rural areas ___ access to better education these days.","o":["are gaining","is gaining","had gained","will have gained"],"l":3},{"q":"At present, the government ___ a new policy to reduce PM 2.5 pollution.","o":["is developing","are developing","had developed","will have developed"],"l":3},{"q":"Can you turn the music down? I ___ to concentrate on my essay.","o":["am trying","try","is trying","had tried"],"l":3},{"q":"My grandparents ___ with us until their new house is ready.","o":["are living","is living","had lived","will have lived"],"l":3},{"q":"Look at the screen! The number of viewers ___ every second.","o":["is growing","are growing","had grown","will have grown"],"l":3},{"q":"Why ___ so loudly? Is someone outside?","o":["is the dog barking","does the dog barking","has the dog bark","was the dog bark"],"l":3}],[{"q":"I ___ my homework, so can I go out now?","o":["have finished","finish","am finishing","will be finishing"],"l":1},{"q":"She ___ in Bangkok since 2015.","o":["has lived","lived","lives","will live"],"l":1},{"q":"We ___ each other for ten years, and we are still best friends.","o":["have known","know","knew","are knowing"],"l":1},{"q":"___ durian? It smells strong, but it tastes great!","o":["Have you ever tried","Has you ever tried","Are you ever trying","Will you ever tried"],"l":1},{"q":"I ___ to Japan, but I really want to go one day.","o":["have never been","never goes","am never going","had never been"],"l":1},{"q":"My dad ___ his car keys. He can't find them anywhere.","o":["has lost","loses","is losing","will lose"],"l":1},{"q":"They ___ three English tests this month.","o":["have taken","has taken","are taking","will take"],"l":1},{"q":"How long ___ this bicycle? — For about two years.","o":["have you had","do you have","are you having","will you have"],"l":1},{"q":"He ___ his phone screen three times this year!","o":["has broken","have broken","breaks","will be breaking"],"l":1},{"q":"I ___ the new Marvel movie yet. Is it good?","o":["haven't seen","don't see","am not seeing","won't see"],"l":1},{"q":"So far, our class ___ 5,000 baht for the flood victims.","o":["has raised","have raised","raises","had raised"],"l":2},{"q":"This is the best Thai food I ___.","o":["have ever eaten","do ever eat","am ever eating","had ever eaten"],"l":2},{"q":"Kru Oat ___ at this school for more than ten years.","o":["has taught","taught","teaches","will teach"],"l":2},{"q":"The bus ___ yet. We've been waiting for 20 minutes.","o":["hasn't arrived","doesn't arrive","hadn't arrived","won't arrive"],"l":2},{"q":"Scientists ___ a new species of frog in Doi Inthanon National Park.","o":["have recently discovered","has recently discovered","recently discover","will recently be discovering"],"l":2},{"q":"It's the third time she ___ late for class this week.","o":["has been","is","was","will be"],"l":2},{"q":"I can't log in because I ___ my password.","o":["have forgotten","forget","am forgetting","will forget"],"l":2},{"q":"Since the new sky train line opened, traffic in our area ___ much better.","o":["has got","gets","had got","will get"],"l":2},{"q":"Look! Someone ___ my umbrella. It isn't here anymore.","o":["has taken","takes","is taking","will take"],"l":2},{"q":"How many countries ___ so far?","o":["has your family visited","have your family visit","is your family visiting","had your family visited"],"l":2},{"q":"Over the past decade, social media ___ the way people consume news.","o":["has transformed","transforms","had transformed","will transform"],"l":3},{"q":"This is the first time I ___ a speech in front of the whole school.","o":["have given","give","gave","was giving"],"l":3},{"q":"She ___ three novels, and she is now working on her fourth.","o":["has written","writes","had written","will be writing"],"l":3},{"q":"\"You look exhausted!\" — \"I ___ three reports since this morning.\"","o":["have written","wrote","write","will write"],"l":3},{"q":"The company's profits ___ dramatically since the CEO resigned.","o":["have fallen","has fallen","fall","are falling"],"l":3},{"q":"Up to now, none of the candidates ___ a clear plan to solve the traffic problem.","o":["has presented","presents","had presented","will be presenting"],"l":3},{"q":"My sister, who ___ abroad twice, gives great travel tips.","o":["has travelled","travels","had travelled","will be travelling"],"l":3},{"q":"Despite years of research, scientists ___ a complete cure for the common cold.","o":["have not yet found","did not yet found","do not yet find","had not yet found"],"l":3},{"q":"It's been ages since I last saw you! How ___?","o":["have you been","are you being","had you been","do you be"],"l":3},{"q":"Ever since he joined the debate club, Krit ___ much more confident.","o":["has become","becomes","had become","is becoming"],"l":3}],[{"q":"I ___ for the bus for 30 minutes, and it still hasn't come.","o":["have been waiting","wait","am waiting","waited"],"l":1},{"q":"She ___ English since she was eight.","o":["has been learning","learns","is learning","will learn"],"l":1},{"q":"It ___ all morning, so the streets are wet.","o":["has been raining","rains","is raining","will rain"],"l":1},{"q":"We ___ for this exam for three weeks.","o":["have been studying","has been studying","study","are studying"],"l":1},{"q":"You look tired. ___ hard?","o":["Have you been working","Has you been working","Do you work","Are you work"],"l":1},{"q":"They ___ football since 4 p.m.","o":["have been playing","has been playing","play","are playing"],"l":1},{"q":"My mom ___ in the garden all day.","o":["has been working","have been working","works","will work"],"l":1},{"q":"How long ___ here? — About an hour.","o":["have you been sitting","are you sitting","do you sit","did you sitting"],"l":1},{"q":"He ___ video games for five hours straight!","o":["has been playing","have been playing","plays","will play"],"l":1},{"q":"I ___ this book for a week, but I haven't finished it yet.","o":["have been reading","read","am reading","will read"],"l":1},{"q":"Why are your eyes red? ___?","o":["Have you been crying","Do you cry","Will you cry","Had you cried"],"l":2},{"q":"Lately, I ___ to a lot of podcasts to improve my listening skills.","o":["have been listening","has been listening","had listened","will listen"],"l":2},{"q":"The workers ___ the new bridge since January.","o":["have been building","has been building","build","are building"],"l":2},{"q":"My little brother ___ the piano for two years, and he's getting really good.","o":["has been learning","have been learning","learns","will be learning"],"l":2},{"q":"Somebody ___ my laptop! The settings are all different.","o":["has been using","uses","is using","will use"],"l":2},{"q":"We ___ about this problem for hours, and we still can't agree.","o":["have been arguing","has been arguing","argue","will argue"],"l":2},{"q":"Prices ___ steadily since the start of the year.","o":["have been rising","has been rising","rise","are rising"],"l":2},{"q":"Your hands are dirty. What ___?","o":["have you been doing","do you do","will you do","had you done"],"l":2},{"q":"She ___ as a nurse since she graduated in 2020.","o":["has been working","have been working","works","is working"],"l":2},{"q":"I ___ to call you all afternoon! Why didn't you pick up?","o":["have been trying","try","am trying","will try"],"l":2},{"q":"Thai farmers ___ with severe droughts more frequently over the last few years.","o":["have been struggling","has been struggling","struggle","will struggle"],"l":3},{"q":"\"Sorry I'm late. ___ long?\"","o":["Have you been waiting","Do you wait","Are you waiting","Will you wait"],"l":3},{"q":"Ever since the factory opened, residents ___ about the noise and air pollution.","o":["have been complaining","has been complaining","complain","were complaining"],"l":3},{"q":"Pim ___ for the scholarship interview every evening this month.","o":["has been preparing","have been preparing","prepares","was preparing"],"l":3},{"q":"The researchers ___ the effects of screen time on teenagers since 2019, and their findings are surprising.","o":["have been studying","has been studying","study","had studied"],"l":3},{"q":"\"The ground is wet.\" — \"Yes, it ___ heavily since midnight.\"","o":["has been raining","rains","is raining","will be raining"],"l":3},{"q":"My neighbours ___ their house for months; the noise is driving me crazy.","o":["have been renovating","has been renovating","renovate","renovated"],"l":3},{"q":"How long ___ on the robotics project?","o":["has the team been working","is the team working","does the team work","did the team working"],"l":3},{"q":"I'm exhausted because I ___ my assignment since 6 a.m. without a break.","o":["have been revising","has been revising","revise","am revising"],"l":3},{"q":"The children are covered in mud — they ___ in the garden all afternoon.","o":["have been digging","has been digging","dig","will dig"],"l":3}],[{"q":"I ___ my grandparents last weekend.","o":["visited","visit","have visited","will visit"],"l":1},{"q":"She ___ to Chiang Rai two years ago.","o":["went","goes","has gone","will go"],"l":1},{"q":"We ___ a great movie yesterday.","o":["watched","watch","have watched","will be watching"],"l":1},{"q":"Thomas Edison ___ the light bulb in 1879.","o":["invented","invents","has invented","will invent"],"l":1},{"q":"They ___ pizza for dinner last night.","o":["ate","eat","have eaten","will eat"],"l":1},{"q":"I ___ my phone at school yesterday.","o":["left","leave","have left","will leave"],"l":1},{"q":"When I was a child, I ___ in Hat Yai.","o":["lived","live","have lived","will live"],"l":1},{"q":"___ the football match last night?","o":["Did you watch","Do you watch","Have you watched","Will you watch"],"l":1},{"q":"The concert ___ at 7 p.m. and finished at 10 p.m.","o":["started","starts","has started","will start"],"l":1},{"q":"He ___ his leg while playing basketball last month.","o":["broke","breaks","has broken","will break"],"l":1},{"q":"Sunthorn Phu ___ many famous poems, including Phra Aphai Mani.","o":["wrote","writes","has written","will write"],"l":2},{"q":"I ___ an email to my teacher an hour ago, but she hasn't replied yet.","o":["sent","send","have sent","had sent"],"l":2},{"q":"She ___ the bus this morning because she woke up late.","o":["missed","misses","has missed","will miss"],"l":2},{"q":"Last year, our school ___ first prize in the national robotics competition.","o":["won","wins","has won","will win"],"l":2},{"q":"The Titanic ___ in 1912 after hitting an iceberg.","o":["sank","sinks","has sunk","was sinking"],"l":2},{"q":"When ___ the news about the flood?","o":["did you hear","have you heard","do you hear","had you heard"],"l":2},{"q":"Last night, we ___ dinner, washed the dishes, and then watched TV.","o":["cooked","cook","have cooked","will cook"],"l":2},{"q":"My parents ___ married in 2005.","o":["got","get","have got","will get"],"l":2},{"q":"Yesterday the teacher ___ angry because nobody had done the homework.","o":["was","is","has been","will be"],"l":2},{"q":"Kru Oat ___ us a difficult quiz last Friday.","o":["gave","gives","has given","will give"],"l":2},{"q":"The ancient Egyptians ___ the pyramids more than 4,000 years ago.","o":["built","build","have built","will build"],"l":3},{"q":"It was only after she had read the reviews that she ___ to buy the laptop.","o":["decided","decides","has decided","will decide"],"l":3},{"q":"Last week, Mark ___ the job offer, even though the salary was attractive.","o":["refused","refuses","has refused","will refuse"],"l":3},{"q":"While I was jogging in the park, I ___ an old friend from primary school.","o":["met","meet","have met","was meeting"],"l":3},{"q":"The power ___ just as we were about to submit the online test.","o":["went out","goes out","has gone out","had been going out"],"l":3},{"q":"Did you know that Neil Armstrong ___ on the Moon in 1969?","o":["walked","walks","has walked","was walking"],"l":3},{"q":"The moment she ___ onto the stage, the audience burst into applause.","o":["stepped","steps","has stepped","will step"],"l":3},{"q":"Two days ago, the police ___ the man who had stolen the motorbike.","o":["arrested","arrest","have arrested","had arrested"],"l":3},{"q":"Back in the 1990s, few people ___ mobile phones.","o":["owned","own","have owned","will own"],"l":3},{"q":"When the earthquake struck, the old building ___ in seconds.","o":["collapsed","collapses","was collapsing","had collapsed"],"l":3}],[{"q":"I ___ TV when the phone rang.","o":["was watching","were watching","am watching","will watch"],"l":1},{"q":"At 8 p.m. yesterday, we ___ dinner.","o":["were having","was having","are having","will be having"],"l":1},{"q":"She ___ a book when I arrived.","o":["was reading","were reading","is reading","has read"],"l":1},{"q":"What ___ you doing at 10 o'clock last night?","o":["were","are","was","have"],"l":1},{"q":"The children ___ in the garden while their parents were cooking.","o":["were playing","was playing","are playing","have played"],"l":1},{"q":"It ___ heavily when we left the house.","o":["was raining","were raining","is raining","rains"],"l":1},{"q":"While my sister ___ her hair, the electricity went off.","o":["was drying","were drying","is drying","dries"],"l":1},{"q":"They ___ for the bus when it started to rain.","o":["were waiting","was waiting","are waiting","have waited"],"l":1},{"q":"At this time yesterday, I ___ on the beach in Hua Hin.","o":["was lying","were lying","am lying","will be lying"],"l":1},{"q":"He ___ his bike when he fell off.","o":["was riding","were riding","is riding","rides"],"l":1},{"q":"While the teacher ___ the lesson, two students were whispering at the back.","o":["was explaining","were explaining","is explaining","has explained"],"l":2},{"q":"I saw Beam at the mall yesterday. She ___ for a birthday present for her mom.","o":["was looking","were looking","is looking","will look"],"l":2},{"q":"When I called Nong last night, he ___ a shower, so he didn't answer.","o":["was taking","were taking","is taking","has taken"],"l":2},{"q":"The sun ___ and the birds were singing when we woke up.","o":["was shining","were shining","is shining","shines"],"l":2},{"q":"\"What were you doing when the earthquake happened?\" — \"I ___ my homework.\"","o":["was doing","were doing","am doing","will do"],"l":2},{"q":"All through the night, the dog ___ loudly, so nobody could sleep.","o":["was barking","were barking","is barking","has barked"],"l":2},{"q":"I ___ to music, so I didn't hear you knock.","o":["was listening","were listening","am listening","listen"],"l":2},{"q":"At midnight last night, my brother ___ for his exam.","o":["was still studying","were still studying","is still studying","will still study"],"l":2},{"q":"While we ___ along the beach, we found a beautiful shell.","o":["were walking","was walking","are walking","walk"],"l":2},{"q":"Yesterday she ___ her car while she was talking on the phone, which is very dangerous.","o":["was driving","were driving","is driving","will drive"],"l":2},{"q":"The famous actor was spotted while he ___ street food in Yaowarat last night.","o":["was buying","were buying","is buying","has bought"],"l":3},{"q":"When we lived in Bangkok, my dad ___ about the traffic.","o":["was always complaining","is always complaining","were always complaining","has always complained"],"l":3},{"q":"I first met my best friend while we ___ at a summer English camp.","o":["were staying","was staying","are staying","have stayed"],"l":3},{"q":"The hackers stole the data while the security team ___ the system.","o":["was upgrading","were upgrading","is upgrading","will be upgrading"],"l":3},{"q":"Kru Oat noticed that several students ___ their phones under their desks during the quiz.","o":["were using","was using","are using","will use"],"l":3},{"q":"At 3 a.m., while everyone else ___, a thief broke into the shop.","o":["was sleeping","were sleeping","is sleeping","sleeps"],"l":3},{"q":"Neither my brother nor my sisters ___ attention when Dad explained the rules.","o":["were paying","was paying","are paying","pay"],"l":3},{"q":"When the reporter arrived, the firefighters ___ to put out the fire.","o":["were still trying","was still trying","are still trying","will still try"],"l":3},{"q":"Yesterday at this time, our team ___ against Bangkok Christian College in the final.","o":["was competing","were competing","is competing","will be competing"],"l":3},{"q":"\"Why didn't you answer my LINE message?\" — \"Sorry, I ___ my motorbike.\"","o":["was riding","were riding","am riding","have ridden"],"l":3}],[{"q":"When we arrived at the cinema, the movie ___.","o":["had already started","has already started","will already have started","already starts"],"l":1},{"q":"She ___ snow before she visited Japan.","o":["had never seen","has never seen","never sees","will never see"],"l":1},{"q":"By the time I got home, my family ___ dinner.","o":["had eaten","have eaten","eat","will have eaten"],"l":1},{"q":"I couldn't get into the house because I ___ my key.","o":["had lost","have lost","lose","will lose"],"l":1},{"q":"The train ___ when we reached the station, so we took a taxi.","o":["had left","has left","leaves","will have left"],"l":1},{"q":"He was hungry because he ___ breakfast.","o":["hadn't eaten","hasn't eaten","doesn't eat","won't eat"],"l":1},{"q":"After she ___ her homework, she went to bed.","o":["had finished","has finished","finishes","will finish"],"l":1},{"q":"I recognized him because I ___ him on TV before.","o":["had seen","have seen","see","will be seeing"],"l":1},{"q":"They were tired because they ___ ten kilometres.","o":["had walked","have walked","walk","will walk"],"l":1},{"q":"Before last year, ___ abroad?","o":["had you ever travelled","have you ever travelled","do you ever travel","will you ever travel"],"l":1},{"q":"By the time the ambulance arrived, the patient ___ consciousness.","o":["had regained","has regained","regains","will have regained"],"l":2},{"q":"She told me that she ___ the report the day before.","o":["had submitted","has submitted","submits","will submit"],"l":2},{"q":"The streets were wet because it ___ during the night.","o":["had rained","has rained","rains","will be raining"],"l":2},{"q":"It was the first time I ___ such a beautiful sunset.","o":["had seen","have seen","see","will see"],"l":2},{"q":"When I checked my bank app, I realized someone ___ money from my account.","o":["had stolen","has stolen","steals","will steal"],"l":2},{"q":"Before he moved to Phuket, Sam ___ in Bangkok for ten years.","o":["had lived","has lived","lives","will have lived"],"l":2},{"q":"I didn't watch the film because I ___ the book and knew the ending.","o":["had read","have read","am reading","will read"],"l":2},{"q":"Kru Oat was disappointed because many students ___ the assignment.","o":["had not done","have not done","do not do","will not do"],"l":2},{"q":"The thief ___ before the police arrived.","o":["had escaped","has escaped","escapes","will have escaped"],"l":2},{"q":"Ploy was nervous because she ___ in front of such a big audience before.","o":["had never performed","has never performed","never performs","will never perform"],"l":2},{"q":"No sooner ___ than the students rushed out of the classroom.","o":["had the bell rung","the bell had rung","has the bell rung","does the bell ring"],"l":3},{"q":"Hardly ___ down when the phone rang.","o":["had she sat","she had sat","has she sat","she has sat"],"l":3},{"q":"If I ___ harder, I would have passed the exam.","o":["had studied","have studied","studied","would study"],"l":3},{"q":"I wish I ___ to the party last night; I heard it was amazing.","o":["had gone","have gone","went","will go"],"l":3},{"q":"By the end of the 19th century, Siam ___ several modern reforms under King Chulalongkorn.","o":["had introduced","has introduced","introduces","will have introduced"],"l":3},{"q":"The detective discovered that the victim ___ the house two hours before the crime.","o":["had left","has left","leaves","will have left"],"l":3},{"q":"Until she moved to Bangkok, Fah ___ on the BTS.","o":["had never ridden","has never ridden","never rides","will never ride"],"l":3},{"q":"The report showed that sales ___ by 20% compared with the previous year.","o":["had fallen","have fallen","fall","will have fallen"],"l":3},{"q":"Scarcely ___ when it started to pour.","o":["had the concert begun","the concert had begun","has the concert begun","does the concert begin"],"l":3},{"q":"He apologized for the mistake he ___ the day before.","o":["had made","has made","makes","will make"],"l":3}],[{"q":"She was tired because she ___ all day.","o":["had been working","has been working","works","will have been working"],"l":1},{"q":"We ___ for two hours when the bus finally came.","o":["had been waiting","have been waiting","are waiting","will have been waiting"],"l":1},{"q":"His eyes were red because he ___.","o":["had been crying","has been crying","is crying","will cry"],"l":1},{"q":"I ___ English for three years before I moved to Australia.","o":["had been studying","have been studying","study","will have been studying"],"l":1},{"q":"The ground was wet because it ___ all night.","o":["had been raining","has been raining","is raining","will have been raining"],"l":1},{"q":"They ___ football for an hour when it started to rain.","o":["had been playing","have been playing","are playing","will be playing"],"l":1},{"q":"How long ___ for a job before you got this one?","o":["had you been looking","have you been looking","are you looking","will you be looking"],"l":1},{"q":"My mom was angry because I ___ games all evening.","o":["had been playing","have been playing","am playing","will have been playing"],"l":1},{"q":"He ___ in Chiang Mai for five years when he met his wife.","o":["had been living","has been living","lives","will be living"],"l":1},{"q":"I was out of breath because I ___.","o":["had been running","have been running","am running","will run"],"l":1},{"q":"By the time the teacher arrived, the students ___ for 20 minutes.","o":["had been waiting","have been waiting","will have been waiting","are waiting"],"l":2},{"q":"Her hands were covered in paint because she ___ the fence.","o":["had been painting","has been painting","is painting","will paint"],"l":2},{"q":"Somchai finally passed his driving test last week. He ___ for months.","o":["had been practising","has been practising","is practising","will have been practising"],"l":2},{"q":"The baby ___ for an hour before she finally fell asleep.","o":["had been crying","has been crying","cries","will have been crying"],"l":2},{"q":"When I arrived, they ___ about me — they stopped as soon as I walked in.","o":["had been talking","have been talking","are talking","will talk"],"l":2},{"q":"We ___ the project for weeks before our teacher changed the topic.","o":["had been planning","have been planning","are planning","will have been planning"],"l":2},{"q":"The company ___ money for years before it finally went bankrupt.","o":["had been losing","has been losing","loses","will be losing"],"l":2},{"q":"I ___ for the exam all night, so I fell asleep during it.","o":["had been revising","have been revising","am revising","will revise"],"l":2},{"q":"She ___ the piano for ten years when she won her first competition.","o":["had been playing","has been playing","plays","will have been playing"],"l":2},{"q":"The roads were flooded because it ___ heavily for three days.","o":["had been raining","has been raining","is raining","will have been raining"],"l":2},{"q":"Investigators discovered that the pilot ___ for 16 hours before the accident.","o":["had been flying","has been flying","flies","will have been flying"],"l":3},{"q":"Before the new law was passed, citizens ___ for better air quality for over a decade.","o":["had been campaigning","have been campaigning","are campaigning","will have been campaigning"],"l":3},{"q":"By the time the rescue team reached them, the boys ___ in the cave for nine days.","o":["had been waiting","have been waiting","are waiting","will have been waiting"],"l":3},{"q":"The athlete was disqualified because he ___ banned substances for months.","o":["had been taking","has been taking","is taking","will be taking"],"l":3},{"q":"Long before smartphones became popular, people ___ text messages on basic mobile phones for years.","o":["had been sending","have been sending","are sending","will have been sending"],"l":3},{"q":"It was obvious that the children ___ in the mud; their clothes were filthy.","o":["had been playing","have been playing","are playing","will play"],"l":3},{"q":"When the manager finally answered, I ___ on hold for 45 minutes.","o":["had been waiting","have been waiting","am waiting","will have been waiting"],"l":3},{"q":"The old bridge, which ___ for years, finally collapsed last night.","o":["had been deteriorating","has been deteriorating","is deteriorating","will have been deteriorating"],"l":3},{"q":"Experts said the volcano ___ warning signs for weeks before it erupted.","o":["had been showing","has been showing","shows","will have been showing"],"l":3},{"q":"Malee ___ Japanese for only six months when she passed the JLPT N3.","o":["had been learning","has been learning","is learning","will be learning"],"l":3}],[{"q":"I think it ___ tomorrow, so bring an umbrella.","o":["will rain","rains","rained","has rained"],"l":1},{"q":"Don't worry. I ___ you with your homework.","o":["will help","help","helped","have helped"],"l":1},{"q":"She ___ 18 next month.","o":["will be","is being","was","has been"],"l":1},{"q":"We ___ the results next week.","o":["will know","know","knew","had known"],"l":1},{"q":"Maybe I ___ a new phone next year.","o":["will buy","buy","bought","have bought"],"l":1},{"q":"\"The phone is ringing.\" — \"OK, I ___ it.\"","o":["will answer","answer","answered","have answered"],"l":1},{"q":"I promise I ___ late again.","o":["won't be","am not","wasn't","haven't been"],"l":1},{"q":"In the future, robots ___ many of our jobs.","o":["will do","do","did","had done"],"l":1},{"q":"___ me a favour, please?","o":["Will you do","Did you do","Have you done","Do you did"],"l":1},{"q":"\"I'm thirsty.\" — \"I ___ you a glass of water.\"","o":["will get","get","got","have got"],"l":1},{"q":"If you study hard, you ___ the TGAT exam.","o":["will pass","passed","had passed","have been passing"],"l":2},{"q":"I'm sure our team ___ the match on Saturday.","o":["will win","won","has won","had won"],"l":2},{"q":"By 2050, I believe most cars ___ electric.","o":["will be","were","have been","had been"],"l":2},{"q":"\"The room is so hot.\" — \"I ___ the air conditioner.\"","o":["will turn on","turned on","have turned on","turn on"],"l":2},{"q":"Perhaps the government ___ the tax next year.","o":["will raise","raises","raised","has raised"],"l":2},{"q":"Probably the price of gold ___ again next month.","o":["will rise","rises","rose","had risen"],"l":2},{"q":"Unless it rains, we ___ a picnic at Lumpini Park on Sunday.","o":["will have","had","have had","had had"],"l":2},{"q":"\"I've lost my pen.\" — \"Don't worry, I ___ you mine.\"","o":["will lend","lend","lent","have lent"],"l":2},{"q":"Do you think AI ___ teachers one day?","o":["will replace","replaces","replaced","had replaced"],"l":2},{"q":"When you arrive at the airport, someone ___ you up.","o":["will pick","picked","has picked","had picked"],"l":2},{"q":"Experts predict that sea levels ___ by at least half a metre by the end of the century.","o":["will rise","rise","rose","had risen"],"l":3},{"q":"Provided that you return the book on time, the library ___ you a fine.","o":["won't charge","didn't charge","hasn't charged","hadn't charged"],"l":3},{"q":"As soon as I get my results, I ___ you.","o":["will text","text","texted","have texted"],"l":3},{"q":"Once it opens, the new MRT line ___ travel time to the airport by half.","o":["will cut","cuts","cut","had cut"],"l":3},{"q":"Whoever wins the election ___ many economic challenges.","o":["will face","faced","has faced","had faced"],"l":3},{"q":"I ___ that mistake again — I've learned my lesson.","o":["will never make","never made","have never made","had never made"],"l":3},{"q":"\"Shall we take a taxi?\" — \"No, it's not far. We ___.\"","o":["will walk","have walked","walked","had walked"],"l":3},{"q":"Once the vaccine is approved, millions of people ___ it.","o":["will receive","receive","received","had received"],"l":3},{"q":"Without urgent action, many coral reefs in the Andaman Sea ___ within decades.","o":["will disappear","disappear","disappeared","had disappeared"],"l":3},{"q":"Should you need any help, our staff ___ happy to assist you.","o":["will be","were","have been","had been"],"l":3}],[{"q":"This time tomorrow, I ___ on a plane to Japan.","o":["will be flying","am flying","was flying","have flown"],"l":1},{"q":"Don't call me at 8 p.m. tonight — I ___ dinner then.","o":["will be having","was having","have had","had had"],"l":1},{"q":"At 10 a.m. tomorrow, we ___ our English exam.","o":["will be taking","were taking","have taken","had taken"],"l":1},{"q":"This time next week, they ___ on the beach in Krabi.","o":["will be relaxing","were relaxing","have relaxed","had relaxed"],"l":1},{"q":"I can't meet you at 3 p.m. tomorrow. I ___ after my little sister then.","o":["will be looking","was looking","have looked","had looked"],"l":1},{"q":"At midnight tonight, I ___ — I'm so tired.","o":["will be sleeping","was sleeping","have slept","had slept"],"l":1},{"q":"Next Monday at this time, she ___ at her new job.","o":["will be working","was working","has worked","had worked"],"l":1},{"q":"Will you ___ the car tomorrow? I need to borrow it.","o":["be using","used","have used","using"],"l":1},{"q":"Tomorrow at 7 a.m., we ___ to school together.","o":["will be walking","were walking","have walked","had walked"],"l":1},{"q":"In a few minutes, the plane ___ in Phuket.","o":["will be landing","was landing","has landed","had landed"],"l":1},{"q":"Don't phone between 7 and 9 tonight. I ___ for my TGAT exam.","o":["will be studying","was studying","have studied","had studied"],"l":2},{"q":"When you arrive at the station tomorrow, I ___ for you at the main entrance.","o":["will be waiting","wait","was waiting","have waited"],"l":2},{"q":"This time next year, Fern ___ at Chulalongkorn University.","o":["will be studying","was studying","has studied","studies"],"l":2},{"q":"At 9 p.m. tonight, millions of fans ___ the final match.","o":["will be watching","were watching","have watched","watch"],"l":2},{"q":"Will you ___ the supermarket on your way home? Could you buy some eggs?","o":["be passing","passed","have passed","passing"],"l":2},{"q":"This time tomorrow, Grandma ___ her 80th birthday with the whole family.","o":["will be celebrating","was celebrating","has celebrated","celebrates"],"l":2},{"q":"I ___ you during the holidays, so let's chat online.","o":["won't be seeing","wasn't seeing","haven't seen","don't see"],"l":2},{"q":"Please don't disturb Dad tomorrow afternoon; he ___ from home.","o":["will be working","was working","has worked","works"],"l":2},{"q":"At this time next month, we ___ our graduation photos.","o":["will be taking","were taking","have taken","take"],"l":2},{"q":"\"Shall I call you at 6 tomorrow?\" — \"No, I ___ to the gym then.\"","o":["will be driving","was driving","have driven","drive"],"l":2},{"q":"Passengers are reminded that the train ___ shortly at Siam Station.","o":["will be arriving","was arriving","has arrived","had arrived"],"l":3},{"q":"Don't worry about the plants; I ___ them while you are on holiday.","o":["will be watering","was watering","have watered","had watered"],"l":3},{"q":"With the new schedule, Kru Oat ___ Grade 12 classes every afternoon next semester.","o":["will be teaching","was teaching","has taught","had taught"],"l":3},{"q":"By the time you read this message, I ___ over the Pacific Ocean.","o":["will be flying","was flying","have flown","had flown"],"l":3},{"q":"Ten years from now, many of us ___ in jobs that don't even exist today.","o":["will be working","were working","have worked","had worked"],"l":3},{"q":"___ the projector after lunch? If not, may I borrow it?","o":["Will you be using","Were you using","Have you used","Had you used"],"l":3},{"q":"The minister ___ a speech at the opening ceremony tomorrow, so the roads will be closed.","o":["will be giving","was giving","has given","had given"],"l":3},{"q":"In half an hour, the sun ___ over Doi Inthanon — let's get our cameras ready.","o":["will be rising","was rising","has risen","had risen"],"l":3},{"q":"While you are sitting your exam tomorrow morning, I ___ for you.","o":["will be praying","was praying","have prayed","pray"],"l":3},{"q":"Don't text Ploy at 9 tonight — she ___ her online piano lesson.","o":["will be having","was having","has had","had had"],"l":3}],[{"q":"By next June, I ___ from high school.","o":["will have graduated","had graduated","have graduated","graduate"],"l":1},{"q":"By the time you get home, I ___ dinner.","o":["will have cooked","had cooked","have cooked","cooked"],"l":1},{"q":"She ___ the report by Friday.","o":["will have finished","had finished","has finished","finished"],"l":1},{"q":"By 2030, they ___ the new airport.","o":["will have built","had built","have built","built"],"l":1},{"q":"By 9 p.m. tonight, the movie ___.","o":["will have ended","had ended","has ended","ended"],"l":1},{"q":"By the end of this year, I ___ 30 books.","o":["will have read","had read","have read","read"],"l":1},{"q":"By next month, we ___ here for ten years.","o":["will have lived","had lived","have lived","live"],"l":1},{"q":"Will you ___ your homework by tomorrow morning?","o":["have finished","finished","finishing","be finish"],"l":1},{"q":"By the time the guests arrive, we ___ the house.","o":["will have cleaned","had cleaned","have cleaned","cleaned"],"l":1},{"q":"I ___ all my money by the end of the trip!","o":["will have spent","had spent","have spent","spent"],"l":1},{"q":"By the time my brother goes to high school, I ___ from university.","o":["will have graduated","had graduated","have graduated","graduate"],"l":2},{"q":"By this time next year, Mint ___ her driving licence.","o":["will have got","had got","has got","got"],"l":2},{"q":"Don't call at 7 — the meeting ___ by then.","o":["won't have finished","hadn't finished","hasn't finished","didn't finish"],"l":2},{"q":"By the end of the semester, Kru Oat ___ over 500 essays.","o":["will have marked","had marked","has marked","marks"],"l":2},{"q":"The bridge ___ by the time the rainy season starts.","o":["will have been completed","had been completed","has been completed","was completed"],"l":2},{"q":"By the time we reach the cinema, the film ___.","o":["will already have started","had already started","has already started","already starts"],"l":2},{"q":"By 2040, scientists ___ a cure for many types of cancer.","o":["will have found","had found","have found","found"],"l":2},{"q":"I ___ my English portfolio by the deadline, I promise.","o":["will have completed","had completed","have completed","completed"],"l":2},{"q":"By the time she turns 25, she ___ to over 20 countries.","o":["will have travelled","had travelled","has travelled","travels"],"l":2},{"q":"In two years' time, they ___ married for 25 years.","o":["will have been","had been","have been","were"],"l":2},{"q":"By the time the government acts, many species ___ extinct.","o":["will have become","had become","have become","became"],"l":3},{"q":"Next month, the company ___ in business for exactly a century.","o":["will have been","had been","has been","was"],"l":3},{"q":"Experts estimate that by 2050 the world's population ___ nearly 10 billion.","o":["will have reached","had reached","has reached","reaches"],"l":3},{"q":"By the time we get to the stadium, the first half ___.","o":["will have ended","had ended","has ended","ended"],"l":3},{"q":"Before the decade is over, renewable energy ___ coal as Thailand's main source of power, analysts predict.","o":["will have replaced","had replaced","has replaced","replaces"],"l":3},{"q":"By the time you receive this letter, I ___ for Australia.","o":["will have left","had left","have left","left"],"l":3},{"q":"Unless they hurry, the last train ___ before they reach the platform.","o":["will have left","had left","has left","leaves"],"l":3},{"q":"By graduation day, our class ___ more than 200 hours of community service.","o":["will have completed","had completed","has completed","completed"],"l":3},{"q":"\"Can you call me back at 5?\" — \"Sure, I ___ my meeting by then.\"","o":["will have finished","had finished","have finished","finish"],"l":3},{"q":"Within the next ten minutes, the rocket ___ the Earth's atmosphere.","o":["will have left","had left","has left","left"],"l":3}],[{"q":"By next month, I ___ English for ten years.","o":["will have been learning","had been learning","have been learning","am learning"],"l":1},{"q":"By 5 p.m., we ___ for three hours.","o":["will have been studying","had been studying","have been studying","are studying"],"l":1},{"q":"By the time he arrives, I ___ for an hour.","o":["will have been waiting","had been waiting","have been waiting","am waiting"],"l":1},{"q":"By June, she ___ at this school for five years.","o":["will have been teaching","had been teaching","has been teaching","teaches"],"l":1},{"q":"By midnight, they ___ the game for six hours.","o":["will have been playing","had been playing","have been playing","are playing"],"l":1},{"q":"By next year, my dad ___ at the bank for 20 years.","o":["will have been working","had been working","has been working","works"],"l":1},{"q":"By 2028, we ___ in this house for a decade.","o":["will have been living","had been living","have been living","are living"],"l":1},{"q":"By the end of the day, I ___ for eight hours straight.","o":["will have been driving","had been driving","have been driving","am driving"],"l":1},{"q":"How long ___ English by the time you graduate?","o":["will you have been studying","had you been studying","have you been studying","are you studying"],"l":1},{"q":"By 10 a.m., the baby ___ for two hours.","o":["will have been sleeping","had been sleeping","has been sleeping","is sleeping"],"l":1},{"q":"By the time the concert starts, the fans ___ in line for over six hours.","o":["will have been standing","had been standing","have been standing","are standing"],"l":2},{"q":"Next year, Kru Oat ___ at GSB School for more than a decade.","o":["will have been teaching","had been teaching","has been teaching","is teaching"],"l":2},{"q":"By the end of this month, the workers ___ on the new road for a year.","o":["will have been working","had been working","have been working","work"],"l":2},{"q":"When she finally takes the IELTS test, she ___ for it for six months.","o":["will have been preparing","had been preparing","has been preparing","is preparing"],"l":2},{"q":"By the time the rescue boat arrives, the survivors ___ in the water for nearly a day.","o":["will have been floating","had been floating","have been floating","were floating"],"l":2},{"q":"By 8 p.m., I ___ this essay for five hours, so I'll need a break!","o":["will have been writing","had been writing","have been writing","am writing"],"l":2},{"q":"By next summer, Somsak ___ Muay Thai for ten years.","o":["will have been practising","had been practising","has been practising","practises"],"l":2},{"q":"By the time we get there, it ___ for a whole day.","o":["will have been raining","had been raining","has been raining","was raining"],"l":2},{"q":"In April, my grandparents ___ their noodle shop for 40 years.","o":["will have been running","had been running","have been running","run"],"l":2},{"q":"By the time the movie is released, the director ___ on it for seven years.","o":["will have been working","had been working","has been working","was working"],"l":2},{"q":"By the time the marathon runners cross the finish line, they ___ for over three hours.","o":["will have been running","had been running","have been running","were running"],"l":3},{"q":"When the new terminal opens in 2028, engineers ___ on it for nearly six years.","o":["will have been working","had been working","have been working","work"],"l":3},{"q":"Next year, the scientists ___ the effects of microplastics on marine life for a decade.","o":["will have been studying","had been studying","have been studying","are studying"],"l":3},{"q":"By the time the negotiators reach an agreement, they ___ for over 48 hours without a break.","o":["will have been talking","had been talking","have been talking","were talking"],"l":3},{"q":"By the end of her shift, the nurse ___ on her feet for twelve hours.","o":["will have been standing","had been standing","has been standing","is standing"],"l":3},{"q":"Come December, the students ___ for the TGAT exam for almost a year.","o":["will have been preparing","had been preparing","have been preparing","prepare"],"l":3},{"q":"By the time I retire, I ___ for this company for 35 years.","o":["will have been working","had been working","have been working","was working"],"l":3},{"q":"By 2030, Thailand ___ to cut its carbon emissions for over two decades.","o":["will have been trying","had been trying","has been trying","is trying"],"l":3},{"q":"By the time the website is fixed, users ___ about the bug for days.","o":["will have been complaining","had been complaining","have been complaining","were complaining"],"l":3},{"q":"\"You look exhausted already!\" — \"Well, by tonight I ___ these boxes for ten hours.\"","o":["will have been packing","had been packing","have been packing","am packing"],"l":3}]];
+const TENSES = [
+ {n:"Present Simple",th:"ปัจจุบันกาลธรรมดา",f:"present",fm:"S + V.1 (s/es)",neg:"S + do/does + not + V.1",q:"Do/Does + S + V.1 ?",use:"ความจริง • กิจวัตร/นิสัย • ตารางเวลา",ico:"☀️",
+  ex:["She walks to school every day.","Water boils at 100 degrees Celsius."],
+  sig:["always","usually","often","sometimes","rarely","never","every","twice a day","a day","whenever","every time","as soon as","unless","if","hardly a week","according to the schedule"]},
+ {n:"Present Continuous",th:"ปัจจุบันกาลกำลังกระทำ",f:"present",fm:"S + is/am/are + V-ing",neg:"S + is/am/are + not + V-ing",q:"Is/Am/Are + S + V-ing ?",use:"กำลังเกิดขึ้นตอนนี้ • สถานการณ์ชั่วคราว • แผนที่นัดไว้แล้ว",ico:"🎧",
+  ex:["Look! It is raining.","I am studying for the TGAT these days."],
+  sig:["now","right now","at the moment","look!","listen!","these days","at present","this week","this year","this term","this summer","be careful!","hurry up!","until","so annoying","tonight","every second"]},
+ {n:"Present Perfect",th:"ปัจจุบันกาลสมบูรณ์",f:"present",fm:"S + has/have + V.3",neg:"S + has/have + not + V.3",q:"Has/Have + S + V.3 ?",use:"เกิดในอดีต ผลยังเกี่ยวกับปัจจุบัน • ประสบการณ์ • จำนวนครั้ง",ico:"🏆",
+  ex:["I have visited Japan twice.","She has just finished her homework."],
+  sig:["since","for","already","yet","just","ever","never","so far","up to now","recently","the first time","the third time","over the past decade","three times","this month","this year","ever since","twice"]},
+ {n:"Present Perfect Continuous",th:"ปัจจุบันกาลสมบูรณ์กำลังกระทำ",f:"present",fm:"S + has/have + been + V-ing",neg:"S + has/have + not + been + V-ing",q:"Has/Have + S + been + V-ing ?",use:"ทำต่อเนื่องจากอดีตจนถึงตอนนี้ • เน้นระยะเวลา",ico:"⏳",
+  ex:["It has been raining since this morning.","We have been waiting for an hour."],
+  sig:["since","for","all day","all morning","all afternoon","lately","how long","for hours","for months","ever since","over the last few years","every evening this month","five hours straight"]},
+ {n:"Past Simple",th:"อดีตกาลธรรมดา",f:"past",fm:"S + V.2",neg:"S + did + not + V.1",q:"Did + S + V.1 ?",use:"เหตุการณ์จบแล้วในอดีต • มีเวลาชัดเจน",ico:"📜",
+  ex:["I watched a great movie last night.","He went to Chiang Mai two years ago."],
+  sig:["yesterday","ago","last","when i was a child","in 1879","in 1912","in 1969","in 2005","back in the 1990s","last night","this morning","the moment","when the earthquake struck","just as"]},
+ {n:"Past Continuous",th:"อดีตกาลกำลังกระทำ",f:"past",fm:"S + was/were + V-ing",neg:"S + was/were + not + V-ing",q:"Was/Were + S + V-ing ?",use:"กำลังเกิดในอดีต ณ เวลาหนึ่ง • ถูกเหตุการณ์อื่นแทรก",ico:"🎞️",
+  ex:["I was sleeping when you called.","They were playing while it was raining."],
+  sig:["while","when","at this time yesterday","yesterday at this time","at 8 p.m. yesterday","at midnight last night","at 3 a.m.","all through the night","at 10 o'clock last night"]},
+ {n:"Past Perfect",th:"อดีตกาลสมบูรณ์",f:"past",fm:"S + had + V.3",neg:"S + had + not + V.3",q:"Had + S + V.3 ?",use:"เกิดก่อนอีกเหตุการณ์หนึ่งในอดีต (เหตุการณ์ที่ 1)",ico:"⏮️",
+  ex:["The train had left when we arrived.","She had never seen snow before."],
+  sig:["by the time","before","after","already","never","no sooner","hardly","scarcely","wish","if","until","the day before","the first time","by the end of the 19th century"]},
+ {n:"Past Perfect Continuous",th:"อดีตกาลสมบูรณ์กำลังกระทำ",f:"past",fm:"S + had + been + V-ing",neg:"S + had + not + been + V-ing",q:"Had + S + been + V-ing ?",use:"ทำต่อเนื่องมาก่อนเหตุการณ์หนึ่งในอดีต • เน้นระยะเวลา",ico:"🕰️",
+  ex:["He had been working for hours before he rested.","Her eyes were red; she had been crying."],
+  sig:["for","before","when","by the time","all day","all night","all evening","for months","for years","for weeks"]},
+ {n:"Future Simple",th:"อนาคตกาลธรรมดา",f:"future",fm:"S + will + V.1",neg:"S + will not (won't) + V.1",q:"Will + S + V.1 ?",use:"คาดเดา • ตัดสินใจทันที • สัญญา • เสนอช่วย",ico:"🚀",
+  ex:["I think it will rain tomorrow.","Don't worry, I will help you."],
+  sig:["tomorrow","next","i think","maybe","perhaps","probably","i promise","promise","in the future","i'm sure","i believe","i hope","one day","as soon as","once","unless","provided that","should you","by 2050"]},
+ {n:"Future Continuous",th:"อนาคตกาลกำลังกระทำ",f:"future",fm:"S + will + be + V-ing",neg:"S + will not + be + V-ing",q:"Will + S + be + V-ing ?",use:"จะกำลังทำอยู่ ณ เวลาหนึ่งในอนาคต",ico:"🛰️",
+  ex:["This time tomorrow, I will be flying to Phuket.","Don't call at 8 — I will be having dinner."],
+  sig:["this time tomorrow","this time next week","this time next year","at this time next month","at 10 a.m. tomorrow","then","tonight","tomorrow","in a few minutes","in half an hour","ten years from now","next semester","shortly"]},
+ {n:"Future Perfect",th:"อนาคตกาลสมบูรณ์",f:"future",fm:"S + will + have + V.3",neg:"S + will not + have + V.3",q:"Will + S + have + V.3 ?",use:"จะเสร็จสมบูรณ์ก่อนเวลาหนึ่งในอนาคต (by …)",ico:"🎯",
+  ex:["By 2030, they will have built the new line.","I will have finished my essay by 6 p.m."],
+  sig:["by","by the time","by the end of","by then","by next","before the decade is over","within the next ten minutes","in two years' time","next month"]},
+ {n:"Future Perfect Continuous",th:"อนาคตกาลสมบูรณ์กำลังกระทำ",f:"future",fm:"S + will + have + been + V-ing",neg:"S + will not + have + been + V-ing",q:"Will + S + have + been + V-ing ?",use:"ทำต่อเนื่องไปจนถึงเวลาหนึ่งในอนาคต • เน้นระยะเวลา",ico:"🌌",
+  ex:["By June, she will have been teaching here for five years.","By noon, we will have been driving for four hours."],
+  sig:["by","by the time","for","by the end of","next year","come december","when","by tonight"]}
+];
+const FRAMES = {
+  present:{t:"PRESENT",th:"เหตุการณ์ในปัจจุบัน",c1:"#06b6d4",c2:"#10b981",orb:"☀️"},
+  past:{t:"PAST",th:"เหตุการณ์ในอดีต",c1:"#f59e0b",c2:"#ec4899",orb:"📜"},
+  future:{t:"FUTURE",th:"เหตุการณ์ในอนาคต",c1:"#8b5cf6",c2:"#3b82f6",orb:"🚀"}
+};
+const DEMO_ROSTER = [
+  {cls:"6/1",no:1,name:"นักเรียนทดลอง หนึ่ง"},{cls:"6/1",no:2,name:"นักเรียนทดลอง สอง"},{cls:"6/1",no:3,name:"นักเรียนทดลอง สาม"},
+  {cls:"6/2",no:1,name:"นักเรียนทดลอง สี่"},{cls:"6/2",no:2,name:"นักเรียนทดลอง ห้า"},
+  {cls:"6/3",no:1,name:"นักเรียนทดลอง หก"},{cls:"6/3",no:2,name:"นักเรียนทดลอง เจ็ด"}
+];
+const DEFAULT_CFG = {cover:"",cardImgs:Array(12).fill(""),announce:"",open:Array(12).fill(true),leaderboard:true,pass:21,lifelines:2};
+const LVNAME = {1:"ง่าย",2:"ปานกลาง",3:"ยาก"};
+
+/* ===================== UTIL ===================== */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const LS = {
+  get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},
+  del(k){try{localStorage.removeItem(k)}catch(e){}}
+};
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function stuKey(s){return s.cls+"|"+s.no}
+function deviceId(){
+  let id=LS.get("tm_device_id",null);
+  if(!id){id="D"+Date.now().toString(36)+Math.random().toString(36).slice(2,10)+Math.random().toString(36).slice(2,6);LS.set("tm_device_id",id)}
+  return id;
+}
+function hashCode(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(36).toUpperCase().padStart(6,"0").slice(-6)}
+function fmtTime(sec){sec=Math.max(0,Math.round(sec));const m=Math.floor(sec/60),s=sec%60;return m+" นาที "+s+" วินาที"}
+function clock(sec){sec=Math.max(0,Math.floor(sec));return Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0")}
+function nowTH(){const d=new Date();return d.toLocaleDateString("th-TH",{day:"numeric",month:"short",year:"numeric"})+" "+d.toLocaleTimeString("th-TH",{hour:"2-digit",minute:"2-digit"})+" น."}
+function stars(score){return score>=27?3:score>=21?2:score>=15?1:0}
+function rankOf(sc){return sc>=30?"S":sc>=27?"A":sc>=21?"B":sc>=15?"C":"D"}
+function safeUrl(u){u=String(u||"").trim();return /^https:\/\/[^\s"'<>()]+$/i.test(u)?u:""}
+function toast(msg,ms=2600){const t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),ms)}
+function show(id){["scrLogin","scrHub","scrQuiz","scrResult","scrAdmin"].forEach(s=>$("#"+s).classList.toggle("hidden",s!==id));window.scrollTo({top:0,behavior:"smooth"});if(id!=="scrQuiz")stopTimer()}
+function modal(html,cls=""){const m=document.createElement("div");m.className="modal";m.innerHTML='<div class="box '+cls+'">'+html+'</div>';document.body.appendChild(m);
+  m.addEventListener("click",e=>{if(e.target===m&&!m.dataset.lock)m.remove()});return m}
+function confirmBox(title,text,okText="ยืนยัน",cancelText="ยกเลิก"){
+  return new Promise(res=>{const m=modal(`<h3>${title}</h3><p>${text}</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><button class="btn ghost" data-x="0">${cancelText}</button><button class="btn main" data-x="1">${okText}</button></div>`);
+    m.dataset.lock="1";m.addEventListener("click",e=>{const b=e.target.closest("[data-x]");if(b){m.remove();res(b.dataset.x==="1")}})});
+}
+
+/* ===================== SOUND / SPEECH ===================== */
+let AC=null,muted=LS.get("tm_muted",false);
+function tone(freq,dur=.12,type="sine",vol=.08,delay=0){
+  if(muted)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const t=AC.currentTime+delay;const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.setValueAtTime(freq,t);g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g).connect(AC.destination);o.start(t);o.stop(t+dur+.02)}catch(e){}
+}
+const SFX={ok(){tone(660,.1,"triangle");tone(990,.18,"triangle",.08,.09)},no(){tone(220,.22,"sawtooth",.05)},click(){tone(520,.05,"square",.03)},
+  win(){[523,659,784,1047].forEach((f,i)=>tone(f,.22,"triangle",.08,i*.12))},
+  combo(n){[0,4,7,12].forEach((st,i)=>tone(440*Math.pow(2,(st+Math.min(n,12))/12),.12,"square",.035,i*.06))},
+  whoosh(){if(muted)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const t=AC.currentTime,o=AC.createOscillator(),g=AC.createGain();o.type="sawtooth";o.frequency.setValueAtTime(90,t);o.frequency.exponentialRampToValueAtTime(1400,t+.9);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.05,t+.3);g.gain.exponentialRampToValueAtTime(.0001,t+1);o.connect(g).connect(AC.destination);o.start(t);o.stop(t+1.05)}catch(e){}},
+  fanfare(){[[523,0],[659,.12],[784,.24],[1047,.4],[784,.58],[1047,.7],[1319,.86]].forEach(([f,d])=>{tone(f,.28,"triangle",.07,d);tone(f/2,.28,"sine",.05,d)})},
+  cut(){tone(900,.06,"square",.04);tone(600,.06,"square",.04,.07)}};
+function speak(text){try{if(!window.speechSynthesis)return toast("อุปกรณ์นี้ไม่รองรับการอ่านออกเสียง");speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=.9;
+  const v=speechSynthesis.getVoices().find(v=>/en(-|_)US/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+$("#muteBtn").textContent=muted?"🔇":"🔊";
+$("#muteBtn").onclick=()=>{muted=!muted;LS.set("tm_muted",muted);$("#muteBtn").textContent=muted?"🔇":"🔊"};
+
+/* ===================== BACKGROUND FX ===================== */
+let WARP=0;
+function warp(ms=1200){WARP=Math.max(WARP,ms)}
+(function sky(){const c=$("#sky"),x=c.getContext("2d");if(!x)return;let W,H,B=[],S=[],last=performance.now();
+  const COL=["#67e8f9","#f9a8d4","#c4b5fd","#fde68a","#a7f3d0","#93c5fd"];
+  const mkB=(y)=>({x:Math.random()*W,y:y==null?Math.random()*H:y,r:8+Math.random()*34,c:COL[Math.floor(Math.random()*COL.length)],v:.15+Math.random()*.45,p:Math.random()*6.28,a:.18+Math.random()*.25});
+  const mkS=()=>({x:Math.random()*W,y:Math.random()*H,p:Math.random()*6.28,s:.02+Math.random()*.04,r:1+Math.random()*2.2});
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;B=Array.from({length:Math.min(34,Math.floor(W*H/38000))},()=>mkB());S=Array.from({length:Math.min(70,Math.floor(W*H/16000))},mkS)}
+  rs();addEventListener("resize",rs);
+  (function loop(t){const dt=Math.min(50,t-last||16);last=t;x.clearRect(0,0,W,H);
+    const w=WARP>0;WARP=Math.max(0,WARP-dt);
+    for(const b of B){b.y-=b.v*(dt/16)*(w?14:1);b.p+=.01;const bx=b.x+Math.sin(b.p)*14;if(b.y<-b.r*2)Object.assign(b,mkB(H+b.r*2));
+      const g=x.createRadialGradient(bx,b.y,0,bx,b.y,b.r);g.addColorStop(0,b.c);g.addColorStop(1,"rgba(255,255,255,0)");x.globalAlpha=b.a;x.fillStyle=g;
+      if(w){x.fillRect(bx-b.r,b.y-b.r,b.r*2,b.r*2+60)}else{x.beginPath();x.arc(bx,b.y,b.r,0,6.28);x.fill()}}
+    for(const s of S){s.p+=s.s;const a=Math.max(0,Math.sin(s.p));x.globalAlpha=a*.9;x.fillStyle="#fff";const r=s.r*(.6+a*.6);
+      x.beginPath();x.moveTo(s.x,s.y-r*2.4);x.lineTo(s.x+r*.5,s.y-r*.5);x.lineTo(s.x+r*2.4,s.y);x.lineTo(s.x+r*.5,s.y+r*.5);x.lineTo(s.x,s.y+r*2.4);x.lineTo(s.x-r*.5,s.y+r*.5);x.lineTo(s.x-r*2.4,s.y);x.lineTo(s.x-r*.5,s.y-r*.5);x.closePath();x.fill()}
+    if(w){const cx=W/2,cy=H*.45;x.globalAlpha=.55;for(let i=0;i<36;i++){const a=Math.random()*6.28,r1=60+Math.random()*Math.max(W,H)*.3,r2=r1+80+Math.random()*220;
+      x.strokeStyle=COL[i%COL.length];x.lineWidth=2+Math.random()*3;x.beginPath();x.moveTo(cx+Math.cos(a)*r1,cy+Math.sin(a)*r1);x.lineTo(cx+Math.cos(a)*r2,cy+Math.sin(a)*r2);x.stroke()}}
+    x.globalAlpha=1;requestAnimationFrame(loop)})(performance.now());
+})();
+(function ticks(){let g="";for(let i=0;i<12;i++){const a=i*30*Math.PI/180,x1=60+46*Math.sin(a),y1=60-46*Math.cos(a),x2=60+52*Math.sin(a),y2=60-52*Math.cos(a);g+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#6366f1" stroke-width="${i%3?1.5:3}" stroke-linecap="round"/>`}$("#ticks").innerHTML=g;
+  let b="";for(let i=0;i<60;i++){const a=i*6*Math.PI/180,r1=i%5?400:370,x1=500+r1*Math.sin(a),y1=500-r1*Math.cos(a),x2=500+415*Math.sin(a),y2=500-415*Math.cos(a);b+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#4338ca" stroke-width="${i%5?3:9}"/>`}
+  ["XII","I","II","III","IV","V","VI","VII","VIII","IX","X","XI"].forEach((n,i)=>{const a=i*30*Math.PI/180;b+=`<text x="${500+320*Math.sin(a)}" y="${500-320*Math.cos(a)+18}" fill="#4338ca" font-size="54" font-weight="700" text-anchor="middle" font-family="Georgia,serif">${n}</text>`});
+  $("#bigticks").innerHTML=b;
+  const cols=["#06b6d4","#10b981","#14b8a6","#0ea5e9","#f59e0b","#f97316","#ec4899","#d946ef","#8b5cf6","#6366f1","#3b82f6","#a855f7"];
+  $("#orbit").innerHTML=cols.map((c,i)=>`<b style="background:${c};transform:rotate(${i*30}deg) translateY(-72px)"></b>`).join("");
+})();
+const FX=(function(){const c=$("#fx"),x=c.getContext("2d");let P=[],run=false;
+  function rs(){c.width=innerWidth;c.height=innerHeight}rs();addEventListener("resize",rs);
+  const COLS=["#ec4899","#f59e0b","#10b981","#3b82f6","#8b5cf6","#06b6d4","#f97316","#facc15"];
+  function loop(){if(!x){P=[];run=false;return}x.clearRect(0,0,c.width,c.height);const add=[];
+    for(const p of P){
+      if(p.k==="rocket"){p.x+=p.vx;p.y+=p.vy;p.vy+=.12;p.life--;x.globalAlpha=1;x.fillStyle="#f97316";x.beginPath();x.arc(p.x,p.y,3,0,6.28);x.fill();
+        add.push({k:"spark",x:p.x,y:p.y,vx:(Math.random()-.5),vy:Math.random(),life:18,c:"#fb923c",s:1.8});
+        if(p.vy>=-.5){p.life=0;tone(120+Math.random()*80,.25,"sawtooth",.03);const col=COLS[Math.floor(Math.random()*COLS.length)],n=72;
+          for(let i=0;i<n;i++){const a=i/n*6.28,v=3+Math.random()*3.5;add.push({k:"spark",x:p.x,y:p.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:60+Math.random()*30,c:Math.random()<.25?"#facc15":col,s:2.8,drag:.97})}}
+        continue}
+      if(p.k==="spark"){p.vx*=p.drag||1;p.vy*=p.drag||1;p.vy+=.06;p.x+=p.vx;p.y+=p.vy;p.life--;x.globalAlpha=Math.max(0,Math.min(1,p.life/40));x.fillStyle=p.c;x.beginPath();x.arc(p.x,p.y,p.s,0,6.28);x.fill();continue}
+      p.vy+=.18;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life--;x.save();x.translate(p.x,p.y);x.rotate(p.rot);x.globalAlpha=Math.min(1,p.life/30);x.fillStyle=p.c;x.fillRect(-p.w/2,-p.h/2,p.w,p.h);x.restore()}
+    P=P.filter(p=>p.life>0).concat(add);x.globalAlpha=1;
+    if(P.length)requestAnimationFrame(loop);else run=false}
+  function go(){if(!run){run=true;requestAnimationFrame(loop)}}
+  function burst(n,ox,oy,spread){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,v=2+Math.random()*spread;P.push({x:ox,y:oy,vx:Math.cos(a)*v,vy:Math.sin(a)*v-spread*.6,w:6+Math.random()*7,h:4+Math.random()*9,rot:Math.random()*6,vr:(Math.random()-.5)*.3,c:COLS[i%COLS.length],life:70+Math.random()*60})}go()}
+  function rocket(){P.push({k:"rocket",x:innerWidth*(.15+Math.random()*.7),y:innerHeight+10,vx:(Math.random()-.5)*2,vy:-(11+Math.random()*4),life:200});go()}
+  return{small(el){const r=el.getBoundingClientRect();burst(30,r.left+r.width/2,r.top+r.height/2,5)},
+    big(){for(let k=0;k<4;k++)setTimeout(()=>burst(90,innerWidth*(.2+.2*k),innerHeight*.35,10),k*220)},
+    fireworks(n=8){for(let i=0;i<n;i++)setTimeout(rocket,i*320+Math.random()*200)}};
+})();
+function wave(el){const r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+  const w=document.createElement("div");w.className="wave";w.style.left=cx+"px";w.style.top=cy+"px";document.body.appendChild(w);setTimeout(()=>w.remove(),800);
+  const p=document.createElement("div");p.className="plus";p.textContent="+1";p.style.left=(r.right-60)+"px";p.style.top=(r.top-10)+"px";document.body.appendChild(p);setTimeout(()=>p.remove(),1000)}
+function callout(t){$$(".callout").forEach(e=>e.remove());const d=document.createElement("div");d.className="callout";d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),1450)}
+function bodyFx(c,ms=550){document.body.classList.remove(c);void document.body.offsetWidth;document.body.classList.add(c);setTimeout(()=>document.body.classList.remove(c),ms)}
+
+/* ===================== API ===================== */
+async function api(action,data={}){
+  if(!GAS_URL) return localApi(action,data);
+  const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),25000);
+  try{
+    let r;
+    if(action==="roster"||action==="config"||action==="leaderboard") r=await fetch(GAS_URL+"?action="+action+"&t="+Date.now(),{signal:ctl.signal});
+    else r=await fetch(GAS_URL,{method:"POST",body:JSON.stringify(Object.assign({action},data)),signal:ctl.signal});
+    return await r.json();
+  }catch(e){return{ok:false,error:"network"}}finally{clearTimeout(to)}
+}
+function localDB(){const d=LS.get("tm_local_db",{});return Object.assign({devices:{},results:[],pin:OFFLINE_PIN,config:{}},d)}
+function localCfg(db){return Object.assign({},DEFAULT_CFG,db.config||{})}
+function localSum(results,k){const map={};for(const r of results){const rk=r.cls+"|"+r.no;if(k&&rk!==k)continue;map[rk]=map[rk]||{};const c=r.card-1,m=map[rk][c]||{best:0,attempts:0,last:""};m.best=Math.max(m.best,r.score);m.attempts++;m.last=r.t;map[rk][c]=m}return map}
+function buildLeaderboard(roster,sum){const rows=[];for(const s of roster){const m=sum[s.cls+"|"+s.no]||{};let t=0,d=0,p=0;for(let c=0;c<12;c++){const v=m[c]||m[String(c)];if(v){d++;t+=v.best;if(v.best===30)p++}}if(d)rows.push({cls:s.cls,no:s.no,name:s.name,sum:t,done:d,perfect:p})}
+  rows.sort((a,b)=>b.sum-a.sum||b.perfect-a.perfect||a.no-b.no);const byCls={};rows.forEach(r=>{(byCls[r.cls]=byCls[r.cls]||[]);if(byCls[r.cls].length<10)byCls[r.cls].push(r)});return{ok:true,all:rows.slice(0,15),byCls}}
+async function localApi(action,d){
+  const db=localDB();
+  const find=()=>DEMO_ROSTER.find(s=>s.cls===d.cls&&String(s.no)===String(d.no)&&s.name===d.name);
+  const bind=(s)=>{const k=stuKey(s);if(db.devices[k]&&db.devices[k].id!==d.deviceId)return{ok:false,error:"device_locked"};
+    for(const kk in db.devices){if(kk!==k&&db.devices[kk].id===d.deviceId){const o=db.devices[kk];return{ok:false,error:"device_used",other:o.name+" ("+o.cls+" เลขที่ "+o.no+")"}}}
+    db.devices[k]=db.devices[k]||{id:d.deviceId,cls:s.cls,no:s.no,name:s.name,first:nowTH()};db.devices[k].last=nowTH();return{ok:true}};
+  if(action==="roster")return{ok:true,roster:DEMO_ROSTER};
+  if(action==="config")return{ok:true,config:localCfg(db)};
+  if(action==="leaderboard")return localCfg(db).leaderboard?buildLeaderboard(DEMO_ROSTER,localSum(db.results,null)):{ok:false,error:"disabled"};
+  if(action==="login"){const s=find();if(!s)return{ok:false,error:"not_found"};const b=bind(s);if(!b.ok)return b;LS.set("tm_local_db",db);const k=stuKey(s);return{ok:true,student:s,progress:localSum(db.results,k)[k]||{},config:localCfg(db)}}
+  if(action==="submit"){const s=find();if(!s)return{ok:false,error:"not_found"};const b=bind(s);if(!b.ok)return b;const k=stuKey(s);const prev=(localSum(db.results,k)[k]||{})[d.card-1];
+    const attempt=(prev?prev.attempts:0)+1;db.results.push({t:nowTH(),cls:s.cls,no:s.no,name:s.name,card:d.card,score:d.score,easy:d.easy,med:d.med,hard:d.hard,sec:d.seconds,attempt,vio:d.violations,code:d.code,ll:d.lifelines||0});LS.set("tm_local_db",db);
+    return{ok:true,attempt,progress:localSum(db.results,k)[k]||{}}}
+  if(action==="checkPin")return{ok:String(d.pin)===String(db.pin)};
+  if(String(d.pin)!==String(db.pin))return{ok:false,error:"bad_pin"};
+  if(action==="admin")return{ok:true,roster:DEMO_ROSTER,summary:localSum(db.results,null),recent:db.results.slice().reverse(),config:localCfg(db),
+    devices:Object.values(db.devices).map(v=>({cls:v.cls,no:v.no,name:v.name,id:String(v.id).slice(0,8),first:v.first,last:v.last,ua:""})),time:nowTH()};
+  if(action==="release"){let n=0;for(const k in db.devices){const v=db.devices[k];if(d.all?(!d.cls||v.cls===d.cls):(v.cls===d.cls&&String(v.no)===String(d.no))){delete db.devices[k];n++}}LS.set("tm_local_db",db);return{ok:true,released:n}}
+  if(action==="setPin"){if(!/^\d{4,8}$/.test(String(d.newPin||"")))return{ok:false,error:"pin_format"};db.pin=String(d.newPin);LS.set("tm_local_db",db);return{ok:true}}
+  if(action==="setConfig"){const c=Object.assign(localCfg(db),d.config||{});c.cover=safeUrl(c.cover);c.cardImgs=(c.cardImgs||[]).slice(0,12).map(safeUrl);while(c.cardImgs.length<12)c.cardImgs.push("");
+    c.pass=Math.max(1,Math.min(30,parseInt(c.pass,10)||21));c.lifelines=Math.max(0,Math.min(5,parseInt(c.lifelines,10)||0));c.announce=String(c.announce||"").slice(0,400);db.config=c;LS.set("tm_local_db",db);return{ok:true,config:c}}
+  return{ok:false,error:"unknown_action"};
+}
+function errText(r){
+  const e=r&&r.error;
+  if(e==="device_locked")return"🔒 ชื่อนี้ถูกใช้งานบน<b>เครื่องอื่น</b>แล้ว<br>ระบบอนุญาต 1 คน = 1 เครื่อง เพื่อป้องกันการทำแทนกัน<br>ถ้านี่คือเครื่องของเธอจริง (เช่น เปลี่ยนเครื่อง/ล้างข้อมูลเบราว์เซอร์) ให้แจ้ง <b>ครูโอ๊ต</b> เพื่อปลดล็อก";
+  if(e==="device_used")return"📱 เครื่องนี้ถูกผูกกับ <b>"+esc(r.other||"นักเรียนคนอื่น")+"</b> แล้ว<br>ไม่สามารถใช้เครื่องนี้เข้าชื่ออื่นได้ — ถ้าเลือกชื่อผิดตอนแรก ให้แจ้งครูโอ๊ตเพื่อปลดล็อก";
+  if(e==="not_found")return"ไม่พบชื่อนี้ในรายชื่อ (ครูอาจแก้ไขรายชื่อ) ลองรีเฟรชหน้าแล้วเลือกใหม่";
+  if(e==="network")return"📡 เชื่อมต่อเซิร์ฟเวอร์ไม่ได้ ตรวจสอบอินเทอร์เน็ตแล้วลองใหม่";
+  if(e==="busy")return"เซิร์ฟเวอร์กำลังยุ่ง ลองใหม่อีกครั้งในไม่กี่วินาที";
+  if(e==="bad_pin")return"PIN ไม่ถูกต้อง";
+  if(e==="disabled")return"ครูปิดการแสดงอันดับคะแนนไว้";
+  return"เกิดข้อผิดพลาด: "+esc(e||"unknown");
+}
+
+/* ===================== STATE ===================== */
+let ROSTER=[],ME=LS.get("tm_session",null),PROG={},Q=null,selCls="",violations=0,CFG=Object.assign({},DEFAULT_CFG,LS.get("tm_cfg",{}));
+function progKey(){return"tm_prog_"+stuKey(ME)}
+function saveProg(p){PROG=p||{};LS.set(progKey(),PROG)}
+function statsKey(){return"tm_stats_"+(ME?stuKey(ME):"x")}
+function getStats(){return Object.assign({maxCombo:0,fast:0,badges:[]},LS.get(statsKey(),{}))}
+function wrongKey(i){return"tm_wrong_"+(ME?stuKey(ME):"x")+"_"+i}
+function pget(i){return PROG[i]||PROG[String(i)]||null}
+
+/* ===================== CONFIG / COVER ===================== */
+function applyConfig(c){
+  if(c){CFG=Object.assign({},DEFAULT_CFG,c);LS.set("tm_cfg",CFG)}
+  const cov=safeUrl(CFG.cover);
+  [["#coverLogin",true],["#coverHub",false]].forEach(([id])=>{const el=$(id);if(cov){el.querySelector("img").src=cov;el.classList.remove("hidden")}else el.classList.add("hidden")});
+  $("#heroDefault").classList.toggle("hidden",!!cov);
+  const an=String(CFG.announce||"").trim();$("#announceText").textContent=an;$("#announce").classList.toggle("hidden",!an);
+  $("#lbBtn").classList.toggle("hidden",!CFG.leaderboard);
+  if(ME&&!$("#scrHub").classList.contains("hidden"))openHub();
+}
+async function loadConfig(){const r=await api("config");if(r&&r.ok&&r.config)applyConfig(r.config)}
+
+/* ===================== LOGIN ===================== */
+function buildClsSeg(){
+  $("#clsSeg").innerHTML=CLASSES.map(c=>`<button data-c="${c}">ม.${c}</button>`).join("");
+  $("#clsSeg").onclick=e=>{const b=e.target.closest("button");if(!b)return;SFX.click();selCls=b.dataset.c;$$("#clsSeg button").forEach(x=>x.classList.toggle("on",x===b));fillNames()};
+}
+function fillNames(){
+  const list=ROSTER.filter(s=>s.cls===selCls).sort((a,b)=>a.no-b.no);
+  const sel=$("#nameSel");
+  sel.innerHTML=list.length?'<option value="">— เลือกชื่อของตัวเอง —</option>'+list.map(s=>`<option value="${s.no}">เลขที่ ${s.no} · ${esc(s.name)}</option>`).join(""):'<option value="">(ยังไม่มีรายชื่อห้องนี้)</option>';
+  sel.disabled=!list.length;$("#clsShow").textContent="ม."+selCls;$("#noShow").textContent="–";$("#loginBtn").disabled=true;
+}
+$("#nameSel").onchange=()=>{const no=$("#nameSel").value;$("#noShow").textContent=no||"–";$("#loginBtn").disabled=!no};
+async function loadRoster(){
+  $("#nameSel").innerHTML='<option>กำลังโหลดรายชื่อ…</option>';
+  const r=await api("roster");
+  if(r.ok){ROSTER=(r.roster||[]).map(s=>({cls:String(s.cls),no:Number(s.no),name:String(s.name)}));$("#loginErr").classList.add("hidden");if(selCls)fillNames();else $("#nameSel").innerHTML='<option value="">— เลือกชั้นก่อน —</option>'}
+  else{$("#loginErr").innerHTML=errText(r)+' <button class="btn ghost sm" id="rtry">ลองใหม่</button>';$("#loginErr").classList.remove("hidden");$("#rtry").onclick=loadRoster}
+}
+$("#loginBtn").onclick=async()=>{
+  const no=Number($("#nameSel").value);const s=ROSTER.find(x=>x.cls===selCls&&x.no===no);if(!s)return;
+  const ok=await confirmBox("ยืนยันตัวตน 🎓",`<b style="font-size:20px;color:var(--ink)">${esc(s.name)}</b><br>ชั้น ม.${s.cls} เลขที่ ${s.no}<br><br>⚠️ เมื่อเข้าสู่ระบบแล้ว ชื่อนี้จะถูก<b>ผูกกับเครื่องนี้</b> และเครื่องนี้จะใช้ได้กับชื่อนี้เท่านั้น`,"ใช่ นี่คือฉัน","เลือกใหม่");
+  if(!ok)return;
+  const b=$("#loginBtn");b.disabled=true;b.textContent="กำลังตรวจสอบ…";
+  const r=await api("login",{cls:s.cls,no:s.no,name:s.name,deviceId:deviceId(),ua:navigator.userAgent});
+  b.disabled=false;b.textContent="เข้าสู่ห้องฝึก 🚀";
+  if(!r.ok){$("#loginErr").innerHTML=errText(r);$("#loginErr").classList.remove("hidden");SFX.no();return}
+  ME={cls:s.cls,no:s.no,name:s.name};LS.set("tm_session",ME);saveProg(r.progress);if(r.config)applyConfig(r.config);SFX.win();warp(900);openHub();
+};
+
+/* ===================== BADGES ===================== */
+const BADGES=[
+  {id:"first",ico:"🌱",t:"ก้าวแรก",d:"ทำการ์ดใบแรกสำเร็จ",f:(P,S)=>countDone(P)>=1},
+  {id:"pass1",ico:"⭐",t:"ผ่านแล้ว!",d:"ได้คะแนนถึงเกณฑ์ผ่านในการ์ดใดก็ได้",f:(P)=>countPass(P)>=1},
+  {id:"perfect",ico:"💯",t:"Perfect 30",d:"ได้เต็ม 30 ในการ์ดใดก็ได้",f:(P)=>countPerfect(P)>=1},
+  {id:"combo10",ico:"🔥",t:"คอมโบ 10",d:"ตอบถูกติดกัน 10 ข้อ",f:(P,S)=>S.maxCombo>=10},
+  {id:"fast",ico:"⚡",t:"สายฟ้า",d:"ได้ 27+ ภายใน 5 นาที",f:(P,S)=>S.fast>0},
+  {id:"present",ico:"☀️",t:"เจ้าแห่งปัจจุบัน",d:"ผ่านการ์ด Present ครบ 4 ใบ",f:(P)=>[0,1,2,3].every(i=>isPass(P,i))},
+  {id:"past",ico:"📜",t:"เจ้าแห่งอดีต",d:"ผ่านการ์ด Past ครบ 4 ใบ",f:(P)=>[4,5,6,7].every(i=>isPass(P,i))},
+  {id:"future",ico:"🚀",t:"เจ้าแห่งอนาคต",d:"ผ่านการ์ด Future ครบ 4 ใบ",f:(P)=>[8,9,10,11].every(i=>isPass(P,i))},
+  {id:"explorer",ico:"🧭",t:"นักสำรวจกาลเวลา",d:"ลองทำครบทั้ง 12 การ์ด",f:(P)=>countDone(P)>=12},
+  {id:"diamond",ico:"💎",t:"ไร้ที่ติ",d:"ได้เต็ม 30 อย่างน้อย 3 การ์ด",f:(P)=>countPerfect(P)>=3},
+  {id:"grit",ico:"💪",t:"ไม่ยอมแพ้",d:"ทำแบบฝึกรวม 20 ครั้งขึ้นไป",f:(P)=>Object.values(P).reduce((a,v)=>a+(v.attempts||0),0)>=20},
+  {id:"master",ico:"👑",t:"TENSE MASTER",d:"ผ่านครบทั้ง 12 การ์ด รับเกียรติบัตร",f:(P)=>countPass(P)>=12}
+];
+function countDone(P){let n=0;for(let i=0;i<12;i++){const v=P[i]||P[String(i)];if(v&&v.attempts)n++}return n}
+function isPass(P,i){const v=P[i]||P[String(i)];return!!(v&&v.best>=CFG.pass)}
+function countPass(P){let n=0;for(let i=0;i<12;i++)if(isPass(P,i))n++;return n}
+function countPerfect(P){let n=0;for(let i=0;i<12;i++){const v=P[i]||P[String(i)];if(v&&v.best===30)n++}return n}
+function earnedBadges(){const S=getStats();return BADGES.filter(b=>{try{return b.f(PROG,S)}catch(e){return false}}).map(b=>b.id)}
+function checkNewBadges(){const S=getStats(),have=new Set(S.badges||[]),now=earnedBadges(),fresh=now.filter(id=>!have.has(id));
+  S.badges=now;LS.set(statsKey(),S);return BADGES.filter(b=>fresh.includes(b.id))}
+function renderBadges(){const got=new Set(earnedBadges());
+  $("#badges").innerHTML=BADGES.map(b=>`<div class="bd ${got.has(b.id)?"":"off"}" data-bd="${b.id}" title="${esc(b.d)}"><i>${b.ico}</i><span>${esc(b.t)}</span></div>`).join("");
+  $("#bdCount").textContent=`(${got.size}/${BADGES.length})`;
+  $("#badges").onclick=e=>{const el=e.target.closest(".bd");if(!el)return;const b=BADGES.find(x=>x.id===el.dataset.bd);toast(b.ico+" "+b.t+" — "+b.d+(got.has(b.id)?" ✓":" (ยังไม่ได้รับ)"))};
+}
+
+/* ===================== HUB ===================== */
+function ringSVG(score,c1,c2,id){const r=24,C=2*Math.PI*r,off=C*(1-score/30);
+  return `<svg width="60" height="60" viewBox="0 0 58 58"><defs><linearGradient id="g${id}"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><circle cx="29" cy="29" r="${r}" fill="none" stroke="#eef2ff" stroke-width="6"/><circle cx="29" cy="29" r="${r}" fill="none" stroke="url(#g${id})" stroke-width="6" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}"/></svg>`}
+function openHub(){
+  if(!ME){show("scrLogin");return}
+  PROG=LS.get(progKey(),PROG||{});
+  $("#hubAv").textContent=(ME.name||"?").trim().charAt(0);$("#hubName").textContent=ME.name;$("#hubCls").textContent="ชั้น ม."+ME.cls+" · เลขที่ "+ME.no+" · เกณฑ์ผ่าน "+CFG.pass+"/30";
+  let done=0,sum=0,st=0,pass=0;
+  let html="",delay=0;
+  for(const f of ["present","past","future"]){const F=FRAMES[f];
+    html+=`<div class="frame" style="--c1:${F.c1};--c2:${F.c2}"><span class="orb">${F.orb}</span><h3>${F.t}</h3><span class="t">${F.th}</span><div class="bar"></div></div><div class="grid">`;
+    TENSES.forEach((t,i)=>{if(t.f!==f)return;const p=pget(i);const best=p?p.best:0,att=p?p.attempts:0;if(att){done++;sum+=best;st+=stars(best);if(best>=CFG.pass)pass++}
+      const res=LS.get(resumeKey(i),null),open=CFG.open[i]!==false,img=safeUrl(CFG.cardImgs[i]),wr=(LS.get(wrongKey(i),[])||[]).length;
+      html+=`<div class="card ${att?"done":""} ${open?"":"locked"}" style="--c1:${F.c1};--c2:${F.c2};--d:${(i*.37).toFixed(2)}s;animation-delay:${(delay++)*.06}s,0s" data-card="${i}"><div class="in">
+        <div class="banner ${img?"":"gen"}" ${img?`style="background-image:url('${img}')"`:""}>
+          ${res?`<span class="resume">⏸ ทำค้างไว้ ข้อ ${res.i+1}/30</span>`:best===30?'<span class="medal">🏅 PERFECT 30</span>':""}
+          <div class="num">${String(i+1).padStart(2,"0")}</div>${best>=CFG.pass?'<span class="pass">✔ ผ่าน</span>':""}</div>
+        <div class="ico">${t.ico}</div>
+        <div class="body"><div class="nm">${t.n}</div><div class="th">${t.th}</div><div class="fm">${esc(t.fm)}</div>
+        <div class="row"><div class="ring">${ringSVG(best,F.c1,F.c2,i)}<b>${att?best:"–"}</b></div>
+          <div class="meta"><div class="stars">${"★".repeat(stars(best))}${"☆".repeat(3-stars(best))}</div>${att?`สูงสุด ${best}/30 · ทำแล้ว ${att} ครั้ง`:"ยังไม่เคยทำ"}</div></div>
+        <button class="go">${!open?"🔒 ครูยังไม่เปิด":res?"▶ ทำต่อ":att?"🔁 ทำอีกครั้ง":"🚀 เริ่มการ์ดนี้"}</button>
+        <div class="mini"><button data-study>📘 สรุปสูตร</button>${wr&&open?`<button data-wrong>🎯 ฝึกข้อที่ผิด (${wr})</button>`:""}</div></div>
+        ${open?"":'<div class="lockov">🔒</div>'}</div></div>`});
+    html+=`</div>`}
+  $("#frames").innerHTML=html;
+  $("#stDone").textContent=done+"/12";$("#stPass").textContent=pass+"/12";$("#stSum").textContent=sum;$("#stStar").textContent=st;
+  const pct=Math.round(sum/360*100);$("#overallPct").textContent=pct+"% · ผ่าน "+pass+"/12 การ์ด";
+  setTimeout(()=>$("#overallBar").style.width=pct+"%",80);
+  $("#certBtn").style.opacity=countPass(PROG)<12?".55":"1";$("#certBtn").title=countPass(PROG)<12?"ผ่านครบ 12 การ์ดเพื่อรับเกียรติบัตร":"";
+  renderBadges();
+  if($("#scrHub").classList.contains("hidden"))show("scrHub");
+}
+$("#frames").onclick=e=>{const c=e.target.closest(".card");if(!c)return;const i=Number(c.dataset.card);
+  if(e.target.closest("[data-study]")){SFX.click();openStudy(i);return}
+  if(CFG.open[i]===false){toast("🔒 การ์ดนี้ครูยังไม่เปิดให้ทำ");SFX.no();return}
+  if(e.target.closest("[data-wrong]")){SFX.click();startPractice(i);return}
+  SFX.click();warp(700);SFX.whoosh();startCard(i)};
+if(window.matchMedia&&matchMedia("(hover:hover) and (pointer:fine)").matches){
+  $("#frames").addEventListener("pointermove",e=>{const c=e.target.closest(".card");if(!c)return;const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+    c.style.transform=`perspective(900px) rotateY(${(px-.5)*12}deg) rotateX(${(.5-py)*10}deg) translateY(-6px) scale(1.02)`});
+  $("#frames").addEventListener("pointerout",e=>{const c=e.target.closest(".card");if(c&&!c.contains(e.relatedTarget))c.style.transform=""});
+}
+$("#logoutBtn").onclick=async()=>{if(await confirmBox("ออกจากระบบ?","เครื่องนี้ยังคงผูกกับชื่อของเธออยู่ (เข้าได้เฉพาะชื่อเดิม)","ออกจากระบบ")){LS.del("tm_session");ME=null;show("scrLogin")}};
+$("#refreshBtn").onclick=async()=>{const r=await api("login",{cls:ME.cls,no:ME.no,name:ME.name,deviceId:deviceId(),ua:navigator.userAgent});
+  if(r.ok){saveProg(r.progress);if(r.config)applyConfig(r.config);openHub();toast("อัปเดตคะแนนล่าสุดแล้ว ✓")}else{toast(r.error==="network"?"ออฟไลน์ — ใช้คะแนนที่บันทึกในเครื่อง":"ตรวจสอบไม่ผ่าน");if(r.error==="device_locked"||r.error==="device_used"||r.error==="not_found"){LS.del("tm_session");ME=null;show("scrLogin");$("#loginErr").innerHTML=errText(r);$("#loginErr").classList.remove("hidden")}}};
+
+/* ---------- study sheet ---------- */
+function openStudy(i){const t=TENSES[i],F=FRAMES[t.f];
+  const m=modal(`<div class="study" style="--c1:${F.c1};--c2:${F.c2}"><div class="hd" data-ico="${t.ico}"><h3>${i+1}. ${t.n}</h3><div>${t.th}</div></div>
+    <div class="fx3"><div><i style="background:#16a34a">+</i>${esc(t.fm)}</div><div><i style="background:#e11d48">−</i>${esc(t.neg)}</div><div><i style="background:#2563eb">?</i>${esc(t.q)}</div></div>
+    <b>📌 ใช้เมื่อ</b><ul style="margin:6px 0 12px;padding-left:22px;line-height:1.7">${t.use.split(" • ").map(u=>`<li>${esc(u)}</li>`).join("")}</ul>
+    <b>🔎 คำสังเกต (Signal words)</b><div class="sigs">${t.sig.filter(s=>!/^(if|when|for|by|then|until|once)$/.test(s)||true).slice(0,12).map(s=>`<span>${esc(s)}</span>`).join("")}</div>
+    <b>💬 ตัวอย่าง</b><div class="exs" style="margin-top:6px">${t.ex.map((e,k)=>`<div><button data-say="${k}">🔊</button><span>${esc(e)}</span></div>`).join("")}</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px"><button class="btn ghost" data-close>ปิด</button>${Q&&!$("#scrQuiz").classList.contains("hidden")?"":`<button class="btn main" data-start ${CFG.open[i]===false?"disabled":""}>🚀 เริ่มทำการ์ดนี้</button>`}</div></div>`);
+  m.addEventListener("click",e=>{const s=e.target.closest("[data-say]");if(s)speak(t.ex[Number(s.dataset.say)]);if(e.target.closest("[data-close]"))m.remove();if(e.target.closest("[data-start]")){m.remove();warp(700);SFX.whoosh();startCard(i)}});
+}
+
+/* ---------- leaderboard ---------- */
+$("#lbBtn").onclick=async()=>{
+  const m=modal(`<h3>🏆 อันดับคะแนน 12 Tenses</h3><p style="margin-bottom:10px">เรียงตามคะแนนสูงสุดรวมทุกการ์ด (เต็ม 360)</p><div class="lbtabs" id="lbTabs"></div><div id="lbBody">กำลังโหลด…</div><button class="btn ghost" style="width:100%;margin-top:10px" data-close>ปิด</button>`,"wide");
+  m.addEventListener("click",e=>{if(e.target.closest("[data-close]"))m.remove()});
+  const r=await api("leaderboard");
+  if(!r.ok){m.querySelector("#lbBody").innerHTML=`<div class="err">${errText(r)}</div>`;return}
+  const tabs=[["mine","ม."+ME.cls],["all","🌏 ทุกห้อง"]].concat(CLASSES.filter(c=>c!==ME.cls).map(c=>[c,"ม."+c]));
+  const draw=k=>{const list=k==="all"?r.all:(r.byCls[k==="mine"?ME.cls:k]||[]);
+    m.querySelector("#lbTabs").innerHTML=tabs.map(([v,l])=>`<button data-lb="${v}" class="${v===k?"on":""}">${l}</button>`).join("");
+    m.querySelector("#lbBody").innerHTML=list.length?list.map((x,j)=>`<div class="lbrow p${j+1} ${x.cls===ME.cls&&x.no===ME.no?"me":""}" style="animation-delay:${j*.05}s"><div class="pos">${j===0?"🥇":j===1?"🥈":j===2?"🥉":j+1}</div>
+      <div class="nm">${esc(x.name)}<small>ม.${esc(x.cls)} · ทำ ${x.done}/12 การ์ด${x.perfect?" · 💯×"+x.perfect:""}</small></div><div class="sc">${x.sum}</div></div>`).join(""):'<p style="color:var(--mute)">ยังไม่มีข้อมูล</p>'};
+  draw("mine");m.querySelector("#lbTabs").addEventListener("click",e=>{const b=e.target.closest("[data-lb]");if(b)draw(b.dataset.lb)});
+};
+
+/* ===================== QUIZ ===================== */
+let TIMER=null;
+function resumeKey(i){return"tm_q_"+(ME?stuKey(ME):"x")+"_"+i}
+function activeSec(){return Q?Math.round(((Q.elapsed||0)+(Date.now()-(Q.t0||Date.now())))/1000):0}
+function startTimer(){stopTimer();TIMER=setInterval(()=>{if(Q)$("#qTimer").textContent="⏱ "+clock(activeSec())},1000);$("#qTimer").textContent="⏱ "+clock(activeSec())}
+function stopTimer(){if(TIMER){clearInterval(TIMER);TIMER=null}}
+function makeItems(idx,list){return shuffle(list.map(qi=>{const it=BANK[idx][qi];const order=shuffle([0,1,2,3]);return{qi,q:it.q,l:it.l,o:order.map(k=>it.o[k]),a:order.indexOf(0)}}))}
+function setupQuizHeader(idx){
+  const F=FRAMES[TENSES[idx].f];document.documentElement.style.setProperty("--c1",F.c1);document.documentElement.style.setProperty("--c2",F.c2);
+  $("#qIco").textContent=TENSES[idx].ico;$("#qTense").textContent=(idx+1)+". "+TENSES[idx].n;$("#qFormula").textContent=TENSES[idx].th+" · "+TENSES[idx].fm;
+  $("#qMode").style.display=Q.practice?"":"none";$("#llBtn").style.display=Q.practice?"none":"";
+}
+function startCard(idx){
+  const saved=LS.get(resumeKey(idx),null);
+  if(saved&&saved.items&&saved.items.length===30&&saved.i<30){Q=saved;Q.t0=Date.now();if(Q.elapsed==null)Q.elapsed=0}
+  else Q={card:idx,items:makeItems(idx,BANK[idx].map((_,k)=>k)),i:0,ans:[],start:Date.now(),t0:Date.now(),elapsed:0,vio:0,ll:0,cut:{},maxCombo:0};
+  if(!Q.cut)Q.cut={};if(Q.ll==null)Q.ll=0;
+  violations=Q.vio||0;setupQuizHeader(idx);show("scrQuiz");renderQ();startTimer();
+}
+function startPractice(idx){
+  const wr=(LS.get(wrongKey(idx),[])||[]).filter(qi=>BANK[idx][qi]);if(!wr.length){toast("ไม่มีข้อที่ผิดค้างอยู่ 🎉");return}
+  Q={card:idx,practice:true,items:makeItems(idx,wr),i:0,ans:[],start:Date.now(),t0:Date.now(),elapsed:0,vio:0,ll:0,cut:{},maxCombo:0};
+  violations=0;setupQuizHeader(idx);show("scrQuiz");renderQ();startTimer();
+}
+function saveQ(){if(!Q||Q.practice)return;Q.vio=violations;const c=Object.assign({},Q,{elapsed:(Q.elapsed||0)+(Date.now()-Q.t0),t0:Date.now()});LS.set(resumeKey(Q.card),c)}
+function highlight(text,sig){
+  let h=esc(text);const list=sig.slice().sort((a,b)=>b.length-a.length).map(s=>esc(s).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"));
+  if(!list.length)return h;
+  const re=new RegExp("(^|[^A-Za-z])("+list.join("|")+")(?![A-Za-z])","gi");
+  return h.replace(re,(m,a,b)=>a+'<mark class="sig">'+b+"</mark>");
+}
+function sentenceHTML(it,fill,cls,hl){
+  const parts=it.q.split("___");const T=TENSES[Q.card];
+  const f=s=>hl?highlight(s,T.sig):esc(s);
+  return f(parts[0])+`<span class="blank ${fill?"fill "+cls:""}">${fill?esc(fill):"&nbsp;"}</span>`+f(parts[1]||"");
+}
+function renderQ(){
+  const it=Q.items[Q.i],N=Q.items.length,n=Q.i+1,score=Q.ans.filter(a=>a.ok).length;
+  $("#qCount").textContent=n+"/"+N;$("#qScore").textContent="✔ "+score;
+  const lv=$("#qLevel");lv.textContent=LVNAME[it.l];lv.className="badge lv"+it.l;
+  $("#qProg").style.width=(Q.i/N*100)+"%";
+  $("#qDots").innerHTML=Q.items.map((x,k)=>`<i class="${k<Q.ans.length?(Q.ans[k].ok?"ok":"no"):""} ${k===Q.i?"cur":""}"></i>`).join("");
+  $("#qNo").textContent="QUESTION "+n;
+  const qc=$("#qCard");qc.classList.remove("enter");void qc.offsetWidth;qc.classList.add("enter");updCombo();
+  $("#qText").innerHTML=sentenceHTML(it,"","",false);
+  const cut=Q.cut[Q.i]||[];
+  $("#qOpts").innerHTML=it.o.map((o,k)=>`<button class="opt ${cut.includes(k)?"cut":""}" data-k="${k}" ${cut.includes(k)?"disabled":""}><span class="k">${k+1}</span><span>${esc(o)}</span></button>`).join("");
+  $("#qFb").innerHTML="";$("#nextBtn").classList.add("hidden");updLL();
+  if(Q.ans.length>Q.i){applyAnswer(Q.ans[Q.i].pick,true)}
+}
+function updLL(){const left=Math.max(0,(CFG.lifelines|0)-(Q.ll||0));$("#llLeft").textContent=left;
+  $("#llBtn").disabled=!Q||left<=0||Q.ans.length>Q.i||!!Q.cut[Q.i];$("#llBtn").style.display=(Q&&Q.practice)||(CFG.lifelines|0)===0?"none":""}
+$("#llBtn").onclick=()=>{if(!Q||Q.ans.length>Q.i||Q.cut[Q.i])return;const left=(CFG.lifelines|0)-(Q.ll||0);if(left<=0)return;
+  const it=Q.items[Q.i],wrong=shuffle([0,1,2,3].filter(k=>k!==it.a)).slice(0,2);Q.cut[Q.i]=wrong;Q.ll=(Q.ll||0)+1;saveQ();SFX.cut();
+  wrong.forEach(k=>{const b=$$("#qOpts .opt")[k];b.classList.add("cut");b.disabled=true});updLL();toast("✂️ ตัดตัวเลือกผิดออก 2 ข้อแล้ว")};
+$("#ttsBtn").onclick=()=>{if(!Q)return;const it=Q.items[Q.i];const answered=Q.ans.length>Q.i;speak(it.q.replace("___",answered?it.o[it.a]:"blank"))};
+$("#studyQBtn").onclick=()=>{if(Q)openStudy(Q.card)};
+$("#qOpts").onclick=e=>{const b=e.target.closest(".opt");if(!b||b.disabled)return;choose(Number(b.dataset.k))};
+function streak(){if(!Q)return 0;let n=0;for(let j=Q.ans.length-1;j>=0&&Q.ans[j].ok;j--)n++;return n}
+function updCombo(){const n=streak(),b=$("#qCombo");b.textContent="🔥 COMBO x"+n;b.classList.toggle("on",n>=2)}
+function choose(k){
+  if(!Q||Q.ans.length>Q.i)return;
+  const it=Q.items[Q.i],ok=k===it.a;
+  Q.ans.push({qi:it.qi,pick:k,ok,l:it.l});Q.maxCombo=Math.max(Q.maxCombo||0,streak());
+  const wk=wrongKey(Q.card),ws=new Set(LS.get(wk,[])||[]);if(ok)ws.delete(it.qi);else ws.add(it.qi);LS.set(wk,Array.from(ws));
+  saveQ();applyAnswer(k,false);
+}
+function applyAnswer(k,silent){
+  const it=Q.items[Q.i],ok=k===it.a,T=TENSES[Q.card];
+  $$("#qOpts .opt").forEach((b,j)=>{b.disabled=true;if(j===it.a)b.classList.add("right");else if(j===k)b.classList.add("wrong");else b.classList.add("fade")});
+  $("#qText").innerHTML=sentenceHTML(it,it.o[it.a],ok?"ok":"no",true);
+  const found=T.sig.filter(s=>new RegExp("(^|[^A-Za-z])"+s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"(?![A-Za-z])","i").test(it.q));
+  const clue=found.length?`🔎 คำสังเกต: <b style="color:#b45309">${found.slice(0,3).map(esc).join(", ")}</b><br>`:"";
+  $("#qFb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><div class="h">${ok?"✔ ถูกต้อง! เก่งมาก":"✘ ยังไม่ถูก"}</div>
+    ${ok?"":`คำตอบที่ถูกคือ <code>${esc(it.o[it.a])}</code><br>`}${clue}📘 <b>${T.n}</b> : <code>${esc(T.fm)}</code> — ${esc(T.use)}</div>`;
+  const last=Q.i>=Q.items.length-1;const nb=$("#nextBtn");nb.textContent=last?"ดูผลคะแนน 🏁":"ข้อต่อไป →";nb.classList.remove("hidden");
+  $("#qScore").textContent="✔ "+Q.ans.filter(a=>a.ok).length;
+  const dot=$$("#qDots i")[Q.i];if(dot)dot.className=ok?"ok cur":"no cur";
+  updCombo();updLL();
+  if(!silent){const btn=$$("#qOpts .opt")[it.a];
+    if(ok){SFX.ok();FX.small(btn);wave(btn);bodyFx("flash",500);const n=streak();
+      if([3,5,10,15,20,30].includes(n)){setTimeout(()=>{callout(n===3?"COMBO x3!":n===5?"ON FIRE 🔥":n===10?"UNSTOPPABLE!":n===30?"PERFECT RUN!":"LEGENDARY x"+n);SFX.combo(n)},180)}}
+    else{SFX.no();bodyFx("hit")}
+    setTimeout(()=>nb.scrollIntoView({behavior:"smooth",block:"nearest"}),150)}
+}
+$("#nextBtn").onclick=()=>{if(!Q||Q.ans.length<=Q.i)return;SFX.click();if(Q.i>=Q.items.length-1){finish();return}Q.i++;saveQ();renderQ();window.scrollTo({top:0,behavior:"smooth"})};
+document.addEventListener("keydown",e=>{
+  if($("#scrQuiz").classList.contains("hidden")||document.querySelector(".modal"))return;
+  if(/^[1-4]$/.test(e.key)){const b=$$("#qOpts .opt")[Number(e.key)-1];if(b&&!b.disabled)choose(Number(e.key)-1)}
+  else if(e.key==="Enter"&&!$("#nextBtn").classList.contains("hidden"))$("#nextBtn").click();
+});
+$("#quitBtn").onclick=async()=>{const pr=Q&&Q.practice;if(await confirmBox(pr?"ออกจากโหมดฝึก?":"พักการ์ดนี้ไว้ก่อน?",pr?"ข้อที่ตอบถูกแล้วจะถูกนำออกจากรายการข้อที่ผิด":"คำตอบที่ทำไปแล้วจะถูกเก็บไว้ กลับมาทำต่อได้ภายหลัง",pr?"ออก":"พักไว้ก่อน","ทำต่อ")){saveQ();Q=null;openHub()}};
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&Q&&!$("#scrQuiz").classList.contains("hidden")){violations++;saveQ();setTimeout(()=>toast("⚠️ ระบบบันทึกการสลับหน้าจอ ("+violations+" ครั้ง)"),400)}});
+
+/* ===================== FINISH / RESULT ===================== */
+let LAST=null;
+async function finish(){
+  if(Q.practice){const ok=Q.ans.filter(a=>a.ok).length,n=Q.items.length,idx=Q.card,left=(LS.get(wrongKey(idx),[])||[]).length;Q=null;stopTimer();
+    if(ok===n){SFX.fanfare();FX.big()}else SFX.win();
+    const m=modal(`<div style="text-align:center"><div style="font-size:60px">${ok===n?"🎉":"💪"}</div><h3>ฝึกข้อที่ผิดเสร็จแล้ว!</h3><p>ตอบถูก <b>${ok}/${n}</b> ข้อ<br>${left?`ยังเหลือข้อที่ต้องฝึกอีก <b>${left}</b> ข้อ`:"เคลียร์ข้อที่ผิดครบแล้ว เยี่ยมมาก!"}<br><small>(โหมดฝึกไม่นับเป็นคะแนนส่งครู)</small></p><button class="btn main" data-close>กลับหน้าการ์ด</button></div>`);
+    m.dataset.lock="1";m.addEventListener("click",e=>{if(e.target.closest("[data-close]")){m.remove();openHub()}});return}
+  const ans=Q.ans,score=ans.filter(a=>a.ok).length,lv=l=>ans.filter(a=>a.ok&&a.l===l).length;
+  const seconds=activeSec();stopTimer();const T=TENSES[Q.card];const when=nowTH();
+  const code=hashCode([ME.cls,ME.no,ME.name,Q.card,score,Q.start].join("|"));
+  LAST={card:Q.card,score,easy:lv(1),med:lv(2),hard:lv(3),seconds,violations,code,when,attempt:null,items:Q.items,ans,maxCombo:Q.maxCombo||0,ll:Q.ll||0};
+  const S=getStats();S.maxCombo=Math.max(S.maxCombo||0,LAST.maxCombo);if(score>=27&&seconds<=300)S.fast=(S.fast||0)+1;LS.set(statsKey(),S);
+  LS.del(resumeKey(Q.card));const cardIdx=Q.card;Q=null;
+  const p=Object.assign({},PROG);const cur=pget(cardIdx)||{best:0,attempts:0};p[cardIdx]={best:Math.max(cur.best,score),attempts:cur.attempts+1,last:when};saveProg(p);
+  const fresh=checkNewBadges();
+  renderResult(fresh);
+  const payload={cls:ME.cls,no:ME.no,name:ME.name,deviceId:deviceId(),ua:navigator.userAgent,card:cardIdx+1,tense:T.n,score,easy:LAST.easy,med:LAST.med,hard:LAST.hard,seconds,violations,code,lifelines:LAST.ll};
+  const r=await api("submit",payload);
+  if(r.ok){LAST.attempt=r.attempt;saveProg(r.progress);$("#rSend").innerHTML="✅ ส่งคะแนนเข้าระบบครูแล้ว · ครั้งที่ "+r.attempt}
+  else if(r.error==="network"||r.error==="busy"){const q=LS.get("tm_pending",[]);q.push(payload);LS.set("tm_pending",q);$("#rSend").innerHTML="📡 ยังส่งไม่ได้ (อินเทอร์เน็ต) — เก็บไว้ในเครื่องแล้ว ระบบจะส่งให้อัตโนมัติ"}
+  else{$("#rSend").innerHTML="⚠️ "+errText(r)}
+}
+function renderResult(fresh){
+  const L=LAST,T=TENSES[L.card],s=stars(L.score);
+  $("#rTense").textContent="การ์ดที่ "+(L.card+1)+" · "+T.n;
+  $("#rScore").textContent="0";$("#rStars").innerHTML=[0,1,2].map(k=>`<span style="animation-delay:${1.5+k*.28}s">${k<s?"★":"☆"}</span>`).join("");
+  const rk=rankOf(L.score),rkEl=$("#rRank");rkEl.textContent=rk;rkEl.className="rk "+rk;rkEl.style.animation="none";void rkEl.offsetWidth;rkEl.style.animation="";
+  $("#rMsg").textContent=L.score>=27?"สุดยอด! เป็น Tense Master ตัวจริง 🌟":L.score>=CFG.pass?"ผ่านแล้ว! เยี่ยมมาก 💪":L.score>=15?"ใกล้ผ่านแล้ว! ลองทวนข้อที่ผิดอีกครั้ง 📘":"ไม่เป็นไร ลองอ่านสรุปสูตรแล้วทำใหม่นะ ✨";
+  $("#rTrophy").textContent=L.score>=27?"🏆":L.score>=21?"🥈":L.score>=15?"🎖️":"📚";
+  $("#rWho").innerHTML="<b style='color:var(--ink)'>"+esc(ME.name)+"</b> · ม."+ME.cls+" เลขที่ "+ME.no+"<br>ใช้เวลา "+fmtTime(L.seconds)+" · "+L.when+" · รหัส "+L.code+(L.ll?" · ใช้ 50:50 "+L.ll+" ครั้ง":"");
+  $("#rE").textContent=L.easy+"/10";$("#rM").textContent=L.med+"/10";$("#rH").textContent=L.hard+"/10";$("#rC").textContent=L.maxCombo;
+  $("#rSend").textContent="กำลังส่งคะแนน…";
+  const arc=$("#rArc");arc.style.strokeDashoffset=578;show("scrResult");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>arc.style.strokeDashoffset=578*(1-L.score/30)));
+  let c=0;const tick=setInterval(()=>{c++;$("#rScore").textContent=Math.min(c,L.score);if(c>=L.score)clearInterval(tick)},45);
+  warp(1300);SFX.whoosh();
+  setTimeout(()=>{if(L.score>=15){SFX.fanfare();FX.big()}else SFX.click();if(L.score>=21)FX.fireworks(L.score===30?14:8);[0,1,2].forEach(k=>k<s&&setTimeout(()=>tone(880+k*220,.15,"triangle",.07),k*280+300))},1200);
+  const wrong=L.ans.map((a,k)=>({a,it:L.items[k]})).filter(x=>!x.a.ok);
+  $("#reviewBox").innerHTML=wrong.length?`<h3>📝 ทบทวนข้อที่ผิด (${wrong.length} ข้อ) <span style="font-size:13px;color:var(--mute);font-weight:600">— กด “🎯 ฝึกข้อที่ผิด” ที่การ์ดเพื่อฝึกซ้ำ</span></h3>`+wrong.map(x=>`<div class="rv">${esc(x.it.q).replace("___",'<b class="c">'+esc(x.it.o[x.it.a])+"</b>")}<br><span class="a">✘ เธอตอบ: ${esc(x.it.o[x.a.pick])}</span> · <span class="badge lv${x.it.l}" style="font-size:11px">${LVNAME[x.it.l]}</span></div>`).join(""):`<h3 style="text-align:center">🎉 ถูกทุกข้อ! ไม่มีข้อผิดให้ทบทวน</h3>`;
+  if(fresh&&fresh.length)setTimeout(()=>{if(document.querySelector(".modal"))return;SFX.combo(8);
+    const m=modal(`<div class="newbadge"><div style="font-size:14px;font-weight:900;color:#7c3aed;letter-spacing:.3em">NEW BADGE!</div><h3>🎊 ได้รับเหรียญใหม่</h3>${fresh.map(b=>`<div class="bd"><i>${b.ico}</i><span>${esc(b.t)}</span><small style="display:block;color:var(--mute);font-size:11px;margin-top:2px">${esc(b.d)}</small></div>`).join("")}<button class="btn main" style="margin-top:14px" data-close>เยี่ยม!</button></div>`);
+    m.addEventListener("click",e=>{if(e.target.closest("[data-close]"))m.remove()});FX.big()},3200);
+}
+$("#againBtn").onclick=()=>{if(LAST)startCard(LAST.card)};
+$("#homeBtn").onclick=()=>openHub();
+async function flushPending(){
+  if(!GAS_URL||!ME)return;const q=LS.get("tm_pending",[]);if(!q.length)return;const rest=[];
+  for(const p of q){const r=await api("submit",p);if(r.ok)saveProg(r.progress);else if(r.error==="network"||r.error==="busy")rest.push(p)}
+  LS.set("tm_pending",rest);if(rest.length<q.length)toast("✅ ส่งคะแนนที่ค้างไว้ให้ครูเรียบร้อย")
+}
+setInterval(flushPending,30000);
+
+/* ===================== IMAGES (result / certificate) ===================== */
+function rr(x,X,Y,W,H,R){x.beginPath();x.moveTo(X+R,Y);x.arcTo(X+W,Y,X+W,Y+H,R);x.arcTo(X+W,Y+H,X,Y+H,R);x.arcTo(X,Y+H,X,Y,R);x.arcTo(X,Y,X+W,Y,R);x.closePath()}
+function fitText(x,txt,maxW,size,weight){let s=size;const FF=getComputedStyle(document.body).fontFamily;do{x.font=weight+" "+s+"px "+FF;s-=2}while(x.measureText(txt).width>maxW&&s>14);return x.font}
+function pastelBG(x,W,H){let g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,"#dbeafe");g.addColorStop(.35,"#ede9fe");g.addColorStop(.7,"#fce7f3");g.addColorStop(1,"#ffedd5");x.fillStyle=g;x.fillRect(0,0,W,H);
+  [[.15,.12,.45,"#a5f3fc"],[.9,.2,.4,"#fbcfe8"],[.75,.95,.5,"#c4b5fd"],[.1,.9,.35,"#fde68a"]].forEach(([a,b,r,c])=>{const rg=x.createRadialGradient(W*a,H*b,0,W*a,H*b,Math.max(W,H)*r);rg.addColorStop(0,c);rg.addColorStop(1,"rgba(255,255,255,0)");x.globalAlpha=.8;x.fillStyle=rg;x.fillRect(0,0,W,H)});x.globalAlpha=1}
+function drawResultImage(){
+  const L=LAST,T=TENSES[L.card],F=FRAMES[T.f],W=1080,H=1350,c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");const FF=getComputedStyle(document.body).fontFamily;
+  pastelBG(x,W,H);
+  x.fillStyle="rgba(255,255,255,.82)";x.strokeStyle="#fff";x.lineWidth=4;rr(x,60,60,W-120,H-120,50);x.fill();x.stroke();
+  let tg=x.createLinearGradient(200,0,880,0);tg.addColorStop(0,F.c1);tg.addColorStop(1,F.c2);
+  x.fillStyle=tg;rr(x,60,60,W-120,26,13);x.fill();
+  x.textAlign="center";
+  x.fillStyle="#7c3aed";x.font="800 30px "+FF;x.fillText("12 TENSES MASTER · ม.6",W/2,150);
+  x.fillStyle=tg;x.font=fitText(x,"การ์ดที่ "+(L.card+1)+" · "+T.n,900,62,"900");x.fillText("การ์ดที่ "+(L.card+1)+" · "+T.n,W/2,230);
+  x.fillStyle="#6b7280";x.font="600 30px "+FF;x.fillText(T.th+"  ·  "+T.fm,W/2,280);
+  const cx=W/2,cy=530,R=170;
+  x.save();x.translate(cx,cy);for(let i=0;i<28;i++){x.rotate(Math.PI*2/28);const rg=x.createLinearGradient(0,0,0,-520);rg.addColorStop(0,"rgba(251,191,36,.35)");rg.addColorStop(1,"rgba(251,191,36,0)");x.fillStyle=rg;x.beginPath();x.moveTo(0,0);x.lineTo(-36,-520);x.lineTo(36,-520);x.closePath();x.fill()}x.restore();
+  x.fillStyle="#fff";x.beginPath();x.arc(cx,cy,R+30,0,6.28);x.fill();
+  x.lineCap="round";x.lineWidth=34;x.strokeStyle="#eef2ff";x.beginPath();x.arc(cx,cy,R,0,6.28);x.stroke();
+  x.strokeStyle=tg;x.beginPath();x.arc(cx,cy,R,-Math.PI/2,-Math.PI/2+Math.PI*2*L.score/30);x.stroke();
+  x.fillStyle="#1e1b4b";x.font="900 150px "+FF;x.fillText(String(L.score),cx,cy+42);
+  x.fillStyle="#6b7280";x.font="700 30px "+FF;x.fillText("จาก 30 คะแนน",cx,cy+88);
+  const rk=rankOf(L.score);x.save();x.translate(cx+R+80,cy-R+10);x.rotate(.18);
+  let bg=x.createLinearGradient(-80,-80,80,80);bg.addColorStop(0,rk==="C"||rk==="D"?"#818cf8":"#fde047");bg.addColorStop(1,rk==="C"||rk==="D"?"#4338ca":"#ea580c");x.fillStyle=bg;
+  x.beginPath();for(let i=0;i<16;i++){const a=i*Math.PI/8,r2=i%2?64:82;x.lineTo(Math.cos(a)*r2,Math.sin(a)*r2)}x.closePath();x.fill();x.strokeStyle="#fff";x.lineWidth=6;x.stroke();
+  x.fillStyle="#fff";x.font="900 76px "+FF;x.fillText(rk,0,26);x.font="800 18px "+FF;x.fillText("RANK",0,-40);x.restore();
+  const s=stars(L.score);x.font="66px "+FF;x.fillStyle="#f59e0b";x.fillText("★".repeat(s)+"☆".repeat(3-s),cx,cy+R+108);
+  x.fillStyle="#1e1b4b";x.font=fitText(x,ME.name,880,54,"800");x.fillText(ME.name,W/2,905);
+  x.fillStyle="#4338ca";x.font="700 36px "+FF;x.fillText("ชั้น ม."+ME.cls+"   ·   เลขที่ "+ME.no,W/2,958);
+  [["ง่าย",L.easy+"/10","#16a34a"],["ปานกลาง",L.med+"/10","#d97706"],["ยาก",L.hard+"/10","#e11d48"],["คอมโบ",String(L.maxCombo),"#ea580c"]].forEach((v,i)=>{const bx=110+i*220,by=1000;x.fillStyle="#fff";rr(x,bx,by,200,120,24);x.fill();x.strokeStyle="#eef2ff";x.lineWidth=3;x.stroke();
+    x.fillStyle=v[2];x.font="700 26px "+FF;x.fillText(v[0],bx+100,by+44);x.fillStyle="#1e1b4b";x.font="900 44px "+FF;x.fillText(v[1],bx+100,by+98)});
+  x.fillStyle="#475569";x.font="600 27px "+FF;x.fillText("ใช้เวลา "+fmtTime(L.seconds)+"  ·  "+L.when,W/2,1170);
+  x.fillText((L.attempt?"ครั้งที่ "+L.attempt+"  ·  ":"")+"รหัสยืนยัน "+L.code+(L.ll?"  ·  50:50 ×"+L.ll:""),W/2,1212);
+  x.fillStyle="#94a3b8";x.font="600 24px "+FF;x.fillText("Basic English Course · By T.OAT · Thanakhan-oomsin school",W/2,1262);
+  return c;
+}
+function drawCertificate(){
+  const W=1600,H=1130,c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");const FF=getComputedStyle(document.body).fontFamily;
+  pastelBG(x,W,H);
+  let gb=x.createLinearGradient(0,0,W,H);gb.addColorStop(0,"#06b6d4");gb.addColorStop(.35,"#8b5cf6");gb.addColorStop(.7,"#ec4899");gb.addColorStop(1,"#f59e0b");
+  x.lineWidth=18;x.strokeStyle=gb;rr(x,40,40,W-80,H-80,40);x.stroke();
+  x.fillStyle="rgba(255,255,255,.88)";rr(x,70,70,W-140,H-140,30);x.fill();
+  x.lineWidth=3;x.strokeStyle="#f59e0b";rr(x,95,95,W-190,H-190,22);x.stroke();
+  x.textAlign="center";
+  x.font="96px "+FF;x.fillText("👑",W/2,215);
+  x.fillStyle="#7c3aed";x.font="800 30px "+FF;x.fillText("C E R T I F I C A T E   O F   A C H I E V E M E N T",W/2,270);
+  x.fillStyle=gb;x.font="900 96px "+FF;x.fillText("TENSE MASTER",W/2,380);
+  x.fillStyle="#475569";x.font="600 32px "+FF;x.fillText("เกียรติบัตรฉบับนี้ให้ไว้เพื่อแสดงว่า",W/2,450);
+  x.fillStyle="#1e1b4b";x.font=fitText(x,ME.name,1200,78,"900");x.fillText(ME.name,W/2,555);
+  x.strokeStyle="#c4b5fd";x.lineWidth=3;x.beginPath();x.moveTo(400,585);x.lineTo(1200,585);x.stroke();
+  x.fillStyle="#4338ca";x.font="700 34px "+FF;x.fillText("นักเรียนชั้นมัธยมศึกษาปีที่ "+ME.cls+"  เลขที่ "+ME.no,W/2,640);
+  x.fillStyle="#475569";x.font="600 32px "+FF;x.fillText("ผ่านแบบฝึก 12 Tenses ครบทั้ง 12 การ์ด (เกณฑ์ผ่าน "+CFG.pass+"/30 ต่อการ์ด)",W/2,700);
+  let sum=0,perfect=0;for(let i=0;i<12;i++){const v=pget(i);if(v){sum+=v.best;if(v.best===30)perfect++}}
+  [["คะแนนรวม",sum+"/360"],["การ์ดเต็ม 30",perfect+" ใบ"],["ร้อยละ",Math.round(sum/360*100)+"%"]].forEach((v,i)=>{const bx=380+i*290,by=750;x.fillStyle="#fff";rr(x,bx,by,260,120,24);x.fill();x.strokeStyle="#e0e7ff";x.lineWidth=3;x.stroke();
+    x.fillStyle="#7c3aed";x.font="700 26px "+FF;x.fillText(v[0],bx+130,by+44);x.fillStyle="#1e1b4b";x.font="900 46px "+FF;x.fillText(v[1],bx+130,by+100)});
+  const code=hashCode(["CERT",ME.cls,ME.no,ME.name,sum].join("|"));
+  x.fillStyle="#475569";x.font="600 26px "+FF;x.fillText("ให้ไว้ ณ วันที่ "+new Date().toLocaleDateString("th-TH",{day:"numeric",month:"long",year:"numeric"})+"   ·   รหัสยืนยัน "+code,W/2,930);
+  x.fillStyle="#1e1b4b";x.font="800 28px "+FF;x.fillText("ครูโอ๊ต (T.OAT)",W/2,985);
+  x.fillStyle="#94a3b8";x.font="600 22px "+FF;x.fillText("Basic English Course · Thanakhan-oomsin school",W/2,1015);
+  [[170,170],[W-170,170],[170,H-170],[W-170,H-170]].forEach(([a,b])=>{x.font="60px "+FF;x.fillText("✨",a,b+20)});
+  return c;
+}
+function showImage(c,fname,title){
+  c.toBlob(blob=>{
+    const url=URL.createObjectURL(blob);
+    const canShare=navigator.canShare&&navigator.share&&(()=>{try{return navigator.canShare({files:[new File([blob],fname,{type:"image/png"})]})}catch(e){return false}})();
+    const m=modal(`<h3>${title}</h3><img src="${url}" alt="result"><p style="font-size:14px">กด “ดาวน์โหลด” หรือ <b>กดค้างที่รูป</b> → บันทึกรูปภาพ แล้วส่งให้ครูโอ๊ต</p>
+      <div style="display:grid;gap:10px"><a class="btn gold" id="dlA" href="${url}" download="${fname}">⬇️ ดาวน์โหลดรูป</a>${canShare?'<button class="btn teal" id="shB">📤 แชร์ / บันทึกลงรูปภาพ</button>':""}<button class="btn ghost" id="clB">ปิด</button></div>`,"wide");
+    if(canShare)m.querySelector("#shB").onclick=()=>navigator.share({files:[new File([blob],fname,{type:"image/png"})],title}).catch(()=>{});
+    m.querySelector("#clB").onclick=()=>{m.remove();URL.revokeObjectURL(url)};
+    SFX.ok();
+  },"image/png");
+}
+$("#snapBtn").onclick=()=>{if(!LAST)return;showImage(drawResultImage(),`Tense${String(LAST.card+1).padStart(2,"0")}_${ME.cls.replace("/","-")}_No${ME.no}_${LAST.score}of30.png`,"📸 รูปผลคะแนนพร้อมแล้ว")};
+$("#certBtn").onclick=()=>{if(countPass(PROG)<12){toast("ผ่านครบ 12 การ์ด (≥"+CFG.pass+"/30) เพื่อรับเกียรติบัตร — ตอนนี้ผ่าน "+countPass(PROG)+"/12");return}
+  SFX.fanfare();FX.fireworks(10);showImage(drawCertificate(),`Certificate_TenseMaster_${ME.cls.replace("/","-")}_No${ME.no}.png`,"🎓 เกียรติบัตร TENSE MASTER")};
+
+/* ===================== ADMIN ===================== */
+let ADM={pin:"",data:null,tab:"matrix",timer:null};
+$$("[data-admin]").forEach(b=>b.onclick=openAdmin);
+function openAdmin(){show("scrAdmin");$("#pinGate").classList.remove("hidden");$("#adminPanel").classList.add("hidden");$("#pinErr").classList.add("hidden");$("#pinInp").value="";setTimeout(()=>$("#pinInp").focus(),200)}
+$("#pinBack").onclick=()=>{ME?openHub():show("scrLogin")};
+$("#pinInp").addEventListener("keydown",e=>{if(e.key==="Enter")$("#pinBtn").click()});
+$("#pinBtn").onclick=async()=>{const pin=$("#pinInp").value.trim();if(!pin)return;$("#pinBtn").disabled=true;
+  const r=await api("checkPin",{pin});$("#pinBtn").disabled=false;
+  if(!r.ok){$("#pinErr").innerHTML=r.error==="network"?errText(r):"PIN ไม่ถูกต้อง";$("#pinErr").classList.remove("hidden");SFX.no();return}
+  ADM.pin=pin;$("#pinGate").classList.add("hidden");$("#adminPanel").classList.remove("hidden");
+  $("#admCls").innerHTML='<option value="">ทุกห้อง</option>'+CLASSES.map(c=>`<option value="${c}">ม.${c}</option>`).join("");
+  await admLoad();clearInterval(ADM.timer);ADM.timer=setInterval(()=>{if(!$("#adminPanel").classList.contains("hidden")&&!document.hidden&&ADM.tab!=="settings"&&ADM.tab!=="design")admLoad()},15000);
+};
+$("#admClose").onclick=()=>{clearInterval(ADM.timer);ADM.pin="";ME?openHub():show("scrLogin")};
+$("#admReload").onclick=()=>admLoad();
+$("#admTabs").onclick=e=>{const b=e.target.closest("button");if(!b)return;ADM.tab=b.dataset.t;$$("#admTabs button").forEach(x=>x.classList.toggle("on",x===b));admRender()};
+$("#admCls").onchange=admRender;$("#admSearch").oninput=admRender;
+async function admLoad(){const r=await api("admin",{pin:ADM.pin});if(!r.ok){toast(errText(r).replace(/<[^>]+>/g," "));return}ADM.data=r;if(r.config)applyConfig(r.config);$("#admTime").textContent="อัปเดต "+(r.time||"");admRender()}
+function scCls(v){return v>=Math.max(24,CFG.pass)?"g":v>=CFG.pass?"g":v>=15?"y":"r"}
+function admRows(){const D=ADM.data;if(!D)return[];const cls=$("#admCls").value,q=$("#admSearch").value.trim().toLowerCase();
+  return D.roster.filter(s=>(!cls||s.cls===cls)&&(!q||s.name.toLowerCase().includes(q)||String(s.no)===q))}
+async function saveCfg(part,msg){const r=await api("setConfig",{pin:ADM.pin,config:part});if(r.ok){applyConfig(r.config);if(ADM.data)ADM.data.config=r.config;toast(msg||"บันทึกแล้ว ✓");SFX.ok()}else toast(errText(r).replace(/<[^>]+>/g," "));return r.ok}
+function admRender(){
+  const D=ADM.data,B=$("#admBody");if(!D){B.innerHTML="กำลังโหลด…";return}
+  $("#admBar").style.display=(ADM.tab==="settings"||ADM.tab==="design")?"none":"flex";$("#admCsv").style.display=ADM.tab==="matrix"?"":"none";
+  const cls=$("#admCls").value,q=$("#admSearch").value.trim().toLowerCase();
+  const pass=r=>(!cls||r.cls===cls)&&(!q||String(r.name).toLowerCase().includes(q)||String(r.no)===q);
+  if(ADM.tab==="matrix"){
+    const rows=admRows();
+    let h=`<div class="tbl"><table><tr><th>ชั้น</th><th>เลขที่</th><th class="l">ชื่อ-นามสกุล</th>${TENSES.map((t,i)=>`<th title="${esc(t.n)}">${i+1}<br><span style="font-weight:500;opacity:.7">${t.n.split(" ").map(w=>w[0]).join("")}</span></th>`).join("")}<th>ทำ</th><th>ผ่าน</th><th>รวม/360</th></tr>`;
+    for(const s of rows){const m=(D.summary||{})[s.cls+"|"+s.no]||{};let done=0,sum=0,ps=0;
+      h+=`<tr><td>${esc(s.cls)}</td><td>${s.no}</td><td class="l">${esc(s.name)}</td>`+TENSES.map((t,i)=>{const p=m[i]||m[String(i)];if(!p)return'<td><span class="sc n">–</span></td>';done++;sum+=p.best;if(p.best>=CFG.pass)ps++;return`<td title="ทำ ${p.attempts} ครั้ง · ล่าสุด ${esc(p.last)}"><span class="sc ${p.best>=CFG.pass?"g":p.best>=15?"y":"r"}">${p.best}<small>×${p.attempts}</small></span></td>`}).join("")+`<td><b>${done}/12</b></td><td><b>${ps}/12</b></td><td><b>${sum}</b></td></tr>`}
+    h+=`</table></div><p style="color:var(--mute);font-size:12px;margin-top:8px">ตัวเลข = คะแนนสูงสุด (เต็ม 30) · ×n = จำนวนครั้งที่ทำ · เขียว = ผ่านเกณฑ์ (${CFG.pass}) · เหลือง ≥15 · แดง &lt;15</p>`;
+    B.innerHTML=rows.length?h:'<p>ยังไม่มีรายชื่อ — ใส่รายชื่อในชีท “รายชื่อนักเรียน”</p>';
+  }else if(ADM.tab==="recent"){
+    const list=(D.recent||[]).filter(pass);
+    B.innerHTML=`<div class="tbl"><table><tr><th>เวลา</th><th>ชั้น</th><th>เลขที่</th><th class="l">ชื่อ</th><th class="l">การ์ด</th><th>คะแนน</th><th>ง่าย</th><th>กลาง</th><th>ยาก</th><th>เวลา</th><th>ครั้งที่</th><th>50:50</th><th>สลับแท็บ</th><th>รหัส</th></tr>`+
+      list.map(r=>`<tr><td>${esc(r.t)}</td><td>${esc(r.cls)}</td><td>${r.no}</td><td class="l">${esc(r.name)}</td><td class="l">${r.card}. ${esc((TENSES[r.card-1]||{}).n||"")}</td><td><span class="sc ${r.score>=CFG.pass?"g":r.score>=15?"y":"r"}">${r.score}</span></td><td>${r.easy}</td><td>${r.med}</td><td>${r.hard}</td><td>${fmtTime(r.sec)}</td><td>${r.attempt}</td><td>${r.ll||0}</td><td>${r.vio?'<b style="color:#e11d48">'+r.vio+"</b>":0}</td><td><code>${esc(r.code)}</code></td></tr>`).join("")+`</table></div>`+(list.length?"":'<p style="color:var(--mute)">ยังไม่มีการส่งคะแนน</p>');
+  }else if(ADM.tab==="devices"){
+    const list=(D.devices||[]).filter(pass).sort((a,b)=>a.cls===b.cls?a.no-b.no:a.cls<b.cls?-1:1);
+    B.innerHTML=`<div class="toolbar"><button class="btn ghost sm" id="relAll">🔓 ปลดล็อกทั้ง${cls?"ห้อง ม."+cls:"หมด (ทุกห้อง)"}</button><span style="color:var(--mute);font-size:13px">ปลดล็อกแล้ว นักเรียนเข้าจากเครื่องใหม่ได้ 1 เครื่อง (คะแนนเดิมไม่หาย)</span></div>
+      <div class="tbl"><table><tr><th>ชั้น</th><th>เลขที่</th><th class="l">ชื่อ</th><th>Device</th><th>ผูกครั้งแรก</th><th>ใช้ล่าสุด</th><th class="l">เครื่อง</th><th></th></tr>`+
+      list.map(d=>`<tr><td>${esc(d.cls)}</td><td>${d.no}</td><td class="l">${esc(d.name)}</td><td><code>${esc(d.id)}</code></td><td>${esc(d.first)}</td><td>${esc(d.last)}</td><td class="l" title="${esc(d.ua)}">${esc(uaShort(d.ua))}</td><td><button class="btn gold sm" data-rel="${esc(d.cls)}|${d.no}">🔓 ปลดล็อก</button></td></tr>`).join("")+`</table></div>`+(list.length?"":'<p style="color:var(--mute)">ยังไม่มีเครื่องที่ผูกไว้</p>');
+    B.querySelectorAll("[data-rel]").forEach(b=>b.onclick=async()=>{const[c,n]=b.dataset.rel.split("|");if(!await confirmBox("ปลดล็อกเครื่อง?",`ม.${esc(c)} เลขที่ ${esc(n)} จะเข้าจากเครื่องใหม่ได้`,"ปลดล็อก"))return;const r=await api("release",{pin:ADM.pin,cls:c,no:n});toast(r.ok?"ปลดล็อกแล้ว ✓":errText(r));admLoad()});
+    $("#relAll").onclick=async()=>{if(!await confirmBox("ปลดล็อกทั้งหมด?",cls?`ทุกคนในห้อง ม.${cls}`:"ทุกคนทุกห้อง","ปลดล็อก"))return;const r=await api("release",{pin:ADM.pin,all:true,cls});toast(r.ok?"ปลดล็อก "+r.released+" เครื่อง ✓":errText(r));admLoad()};
+  }else if(ADM.tab==="design"){
+    const C=CFG;
+    B.innerHTML=`<div class="setgrid"><div class="setbox"><h3>🖼️ รูปหน้าปกเว็บไซต์</h3>
+      <p class="hint">วางลิงก์รูปแบบ <b>ลิงก์ตรง</b> (ขึ้นต้น https:// ลงท้าย .jpg/.png) เช่นจาก postimg.cc ให้คัดลอก “Direct link” (i.postimg.cc/…)<br>📐 ขนาดแนะนำ <b>1600 × 600 px</b> (สัดส่วน 16:6) ไฟล์ไม่เกิน 1 MB · รูปจะแสดงเต็มภาพทุกอุปกรณ์ (ถ้าสัดส่วนไม่ใช่ 16:6 ขอบบน-ล่างหรือซ้าย-ขวาจะถูกตัด)</p>
+      <input class="inp" id="cfgCover" placeholder="https://i.postimg.cc/xxxx/cover.jpg" value="${esc(C.cover)}">
+      <div class="coverprev" id="coverPrev" style="${safeUrl(C.cover)?`background-image:url('${esc(safeUrl(C.cover))}')`:""}">${safeUrl(C.cover)?"":"ยังไม่มีรูปหน้าปก — จะแสดงโลโก้นาฬิกาแทน"}</div>
+      <div style="display:flex;gap:8px;margin-top:10px"><button class="btn main sm" id="saveCover" style="width:auto">💾 บันทึกรูปหน้าปก</button><button class="btn ghost sm" id="clearCover">ลบรูป</button></div></div>
+      <div class="setbox"><h3>🃏 รูปหัวการ์ดทั้ง 12 ใบ (ไม่บังคับ)</h3><p class="hint">📐 ขนาดแนะนำ <b>800 × 300 px</b> · ถ้าเว้นว่าง จะใช้ลายไล่สีอัตโนมัติ</p>
+      <div class="cimgs">${TENSES.map((t,i)=>`<label><span style="${safeUrl(C.cardImgs[i])?`background-image:url('${esc(safeUrl(C.cardImgs[i]))}')`:""}">${safeUrl(C.cardImgs[i])?"":i+1}</span><input data-ci="${i}" placeholder="${i+1}. ${esc(t.n)}" value="${esc(C.cardImgs[i]||"")}"></label>`).join("")}</div>
+      <button class="btn main sm" id="saveCards" style="width:auto;margin-top:10px">💾 บันทึกรูปการ์ด</button></div></div>`;
+    $("#cfgCover").oninput=()=>{const u=safeUrl($("#cfgCover").value),p=$("#coverPrev");p.style.backgroundImage=u?`url('${u}')`:"";p.textContent=u?"":($("#cfgCover").value.trim()?"⚠️ ลิงก์ต้องขึ้นต้นด้วย https://":"ยังไม่มีรูปหน้าปก")};
+    $("#saveCover").onclick=()=>{const v=$("#cfgCover").value.trim();if(v&&!safeUrl(v)){toast("ลิงก์ต้องขึ้นต้นด้วย https://");return}saveCfg({cover:v},"บันทึกรูปหน้าปกแล้ว ✓")};
+    $("#clearCover").onclick=()=>{$("#cfgCover").value="";$("#cfgCover").oninput();saveCfg({cover:""},"ลบรูปหน้าปกแล้ว")};
+    $("#saveCards").onclick=()=>saveCfg({cardImgs:$$("[data-ci]").map(i=>safeUrl(i.value))},"บันทึกรูปการ์ดแล้ว ✓").then(()=>admRender());
+  }else{
+    const C=CFG;
+    B.innerHTML=`<div class="setgrid">
+      <div class="setbox"><h3>📢 ข้อความประกาศ</h3><p class="hint">แสดงเป็นแถบประกาศบนหน้าเว็บของนักเรียน (เว้นว่าง = ไม่แสดง)</p>
+        <textarea class="inp" id="cfgAnn" rows="3" maxlength="400" placeholder="เช่น ส่งรูปผลคะแนนการ์ด 1–4 ภายในวันศุกร์นี้">${esc(C.announce)}</textarea></div>
+      <div class="setbox"><h3>🔓 เปิด/ปิดการ์ด</h3><p class="hint">ปิดการ์ดที่ยังไม่ได้สอน นักเรียนจะเห็นเป็นรูปกุญแจ 🔒</p>
+        <div class="opengrid">${TENSES.map((t,i)=>`<label><input type="checkbox" data-op="${i}" ${C.open[i]!==false?"checked":""}> ${i+1}. ${esc(t.n.replace("Continuous","Cont."))}</label>`).join("")}</div>
+        <div style="display:flex;gap:6px;margin-top:8px"><button class="btn ghost sm" id="opAll">เปิดทั้งหมด</button><button class="btn ghost sm" id="opNone">ปิดทั้งหมด</button></div></div>
+      <div class="setbox"><h3>🏆 เกณฑ์ & ตัวช่วย</h3>
+        <label class="hint" style="display:block">เกณฑ์ผ่านต่อการ์ด (คะแนน /30) — ใช้กับเหรียญรางวัลและเกียรติบัตร</label><input class="inp" id="cfgPass" type="number" min="1" max="30" value="${C.pass}">
+        <label class="hint" style="display:block;margin-top:10px">จำนวนตัวช่วย ✂️ 50:50 ต่อการ์ด (0 = ปิด)</label><input class="inp" id="cfgLL" type="number" min="0" max="5" value="${C.lifelines}">
+        <label style="display:flex;gap:8px;align-items:center;margin-top:12px;font-weight:800"><input type="checkbox" id="cfgLB" ${C.leaderboard?"checked":""}> แสดงอันดับคะแนน (Leaderboard) ให้นักเรียนดู</label></div>
+      <div class="setbox"><h3>🔑 PIN ผู้ดูแล</h3><p class="hint">ตัวเลข 4–8 หลัก (ค่าเริ่มต้น 7846)</p>
+        <div class="toolbar"><input id="newPin" inputmode="numeric" maxlength="8" placeholder="PIN ใหม่"><button class="btn main sm" id="savePin" style="width:auto">เปลี่ยน PIN</button></div>
+        <h3 style="margin-top:14px">🔗 ลิงก์</h3><p class="hint" style="word-break:break-all">นักเรียน: ${esc(location.href.split("?")[0])}<br>ผู้ดูแล: ${esc(location.href.split("?")[0])}?admin=1<br>${GAS_URL?"✅ เชื่อม Google Sheet แล้ว":"⚙️ โหมดทดลอง: ยังไม่ได้ใส่ GAS_URL"}</p></div>
+      </div><button class="btn main" id="saveSet" style="margin-top:14px">💾 บันทึกการตั้งค่าทั้งหมด</button>`;
+    $("#opAll").onclick=()=>$$("[data-op]").forEach(c=>c.checked=true);$("#opNone").onclick=()=>$$("[data-op]").forEach(c=>c.checked=false);
+    $("#saveSet").onclick=()=>saveCfg({announce:$("#cfgAnn").value.trim(),open:$$("[data-op]").map(c=>c.checked),pass:Number($("#cfgPass").value),lifelines:Number($("#cfgLL").value),leaderboard:$("#cfgLB").checked},"บันทึกการตั้งค่าแล้ว ✓").then(()=>admRender());
+    $("#savePin").onclick=async()=>{const np=$("#newPin").value.trim();const r=await api("setPin",{pin:ADM.pin,newPin:np});if(r.ok){ADM.pin=np;toast("เปลี่ยน PIN แล้ว ✓")}else toast(r.error==="pin_format"?"PIN ต้องเป็นตัวเลข 4–8 หลัก":errText(r))};
+  }
+}
+function uaShort(ua){ua=String(ua||"");if(/iPad|Macintosh.*Mobile/.test(ua))return"iPad";if(/iPhone/.test(ua))return"iPhone";if(/CrOS/.test(ua))return"Chromebook";if(/Android/.test(ua))return"Android";if(/Windows/.test(ua))return"Windows";if(/Mac/.test(ua))return"Mac";return ua.slice(0,30)}
+$("#admCsv").onclick=()=>{const D=ADM.data;if(!D)return;const rows=admRows();
+  const head=["ชั้น","เลขที่","ชื่อ-นามสกุล"].concat(TENSES.map((t,i)=>(i+1)+" "+t.n),["ทำ","ผ่าน","รวม"]);
+  const lines=[head].concat(rows.map(s=>{const m=(D.summary||{})[s.cls+"|"+s.no]||{};let d=0,sum=0,ps=0;const cells=TENSES.map((t,i)=>{const p=m[i]||m[String(i)];if(!p)return"";d++;sum+=p.best;if(p.best>=CFG.pass)ps++;return p.best});return[s.cls,s.no,s.name].concat(cells,[d,ps,sum])}));
+  const csv="﻿"+lines.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\r\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="12tenses_scores"+($("#admCls").value?"_"+$("#admCls").value.replace("/","-"):"")+".csv";a.click()};
+
+/* ===================== BOOT ===================== */
+(async function boot(){
+  if(!GAS_URL)$("#modeBanner").classList.remove("hidden");
+  buildClsSeg();applyConfig();
+  if(/[?&]admin=1/.test(location.search)){openAdmin();loadRoster();loadConfig();return}
+  const sp=$("#splash");sp.classList.remove("hidden");let gone=false;
+  const enter=()=>{if(gone)return;gone=true;SFX.whoosh();warp(1500);sp.classList.add("out");setTimeout(()=>sp.remove(),1100)};
+  sp.addEventListener("click",enter);setTimeout(enter,4500);
+  loadConfig();
+  if(ME){
+    openHub();
+    const r=await api("login",{cls:ME.cls,no:ME.no,name:ME.name,deviceId:deviceId(),ua:navigator.userAgent});
+    if(r.ok){saveProg(r.progress);if(r.config)applyConfig(r.config);if(!$("#scrHub").classList.contains("hidden"))openHub();flushPending()}
+    else if(r.error!=="network"&&r.error!=="busy"){LS.del("tm_session");ME=null;show("scrLogin");$("#loginErr").innerHTML=errText(r);$("#loginErr").classList.remove("hidden")}
+  }
+  loadRoster();
+})();
+</script>
+</body>
+</html>
