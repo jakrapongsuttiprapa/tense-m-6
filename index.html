@@ -130,7 +130,12 @@ body.hit #app{animation:quake .42s}
 .chip b{width:10px;height:10px;border-radius:50%}
 
 /* ---------- login ---------- */
-.login{max-width:540px;margin:18px auto 0;padding:26px 22px}
+.loginwrap{max-width:880px;margin:0 auto}
+.loginwrap .cover{max-width:none;margin:0 0 18px}
+.login{max-width:none;margin:14px 0 0;padding:28px 30px}
+.loginform{display:grid;grid-template-columns:1.15fr 1fr;gap:6px 26px;align-items:start}
+.loginform .full{grid-column:1/-1}
+@media(max-width:700px){.loginform{grid-template-columns:1fr}.login{padding:22px 18px}}
 .login h2{margin:0 0 4px;font-size:23px}
 .login p.note{margin:0 0 16px;color:var(--mute);font-size:14px}
 .field{margin-bottom:14px}
@@ -186,12 +191,14 @@ select.inp:disabled{opacity:.55}
   animation:rise .6s both,angle 6s linear infinite;transition:transform .2s ease-out,box-shadow .25s;box-shadow:0 18px 36px -20px var(--c1)}
 .card:hover{box-shadow:0 26px 50px -18px var(--c1)}
 .card .in{position:relative;height:100%;border-radius:23px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
-.card .banner{position:relative;height:118px;background-size:cover;background-position:center;overflow:hidden}
+.card .banner{position:relative;aspect-ratio:8/3;min-height:96px;overflow:hidden;background:#eef2ff}
+.card .banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .card .banner.gen{background:linear-gradient(135deg,var(--c1),var(--c2))}
 .card .banner.gen::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 120%,rgba(255,255,255,.45) 0 30%,transparent 31%),radial-gradient(circle at 90% -20%,rgba(255,255,255,.35) 0 34%,transparent 35%),repeating-linear-gradient(45deg,rgba(255,255,255,.08) 0 10px,transparent 10px 20px)}
 .card .banner::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 45%,transparent 60%);background-size:260% 100%;animation:shine 6s linear infinite;animation-delay:var(--d,0s)}
 .card .num{position:absolute;right:12px;top:4px;font-size:58px;font-weight:900;color:rgba(255,255,255,.9);text-shadow:0 4px 14px rgba(0,0,0,.18);z-index:1}
-.card .ico{position:absolute;left:14px;top:88px;z-index:2;width:62px;height:62px;border-radius:20px;display:grid;place-items:center;font-size:34px;background:#fff;box-shadow:0 10px 22px -10px var(--c1);animation:float 3.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+.card .body{position:relative}
+.card .ico{position:absolute;left:14px;top:-31px;z-index:2;width:62px;height:62px;border-radius:20px;display:grid;place-items:center;font-size:34px;background:#fff;box-shadow:0 10px 22px -10px var(--c1);animation:float 3.2s ease-in-out infinite;animation-delay:var(--d,0s)}
 .card .body{padding:34px 16px 14px;display:flex;flex-direction:column;flex:1}
 .card .nm{font-size:19px;font-weight:900;line-height:1.2}
 .card .th{font-size:13px;color:var(--mute);margin:2px 0 8px}
@@ -365,10 +372,12 @@ tr:hover td{background:#fafaff}
 .setbox{padding:16px;border-radius:18px;background:#fff;border:1px solid #eef2ff}
 .setbox h3{margin:0 0 6px;font-size:17px}
 .setbox .hint{font-size:12.5px;color:var(--mute);margin:0 0 10px;line-height:1.55}
-.coverprev{margin-top:10px;border-radius:14px;overflow:hidden;aspect-ratio:16/6;background:#eef2ff center/cover no-repeat;display:grid;place-items:center;color:var(--mute);font-size:13px}
+.coverprev{margin-top:10px;border-radius:14px;overflow:hidden;aspect-ratio:16/6;background:#eef2ff;display:grid;place-items:center;color:var(--mute);font-size:13px;text-align:center;padding:0}
+.coverprev img{width:100%;height:100%;object-fit:cover;display:block}
 .cimgs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .cimgs label{display:flex;gap:8px;align-items:center;font-size:12.5px;font-weight:800}
-.cimgs label span{flex:none;width:72px;height:40px;border-radius:8px;background:#eef2ff center/cover no-repeat;display:grid;place-items:center;font-size:11px;color:#64748b}
+.cimgs label span{flex:none;width:80px;height:30px;border-radius:8px;background:#eef2ff;display:grid;place-items:center;font-size:11px;color:#64748b;overflow:hidden}
+.cimgs label span img{width:100%;height:100%;object-fit:cover}
 .cimgs input{flex:1;min-width:0;padding:8px;border-radius:9px;border:1.5px solid #e0e7ff;font-size:12px}
 .opengrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .opengrid label{display:flex;gap:6px;align-items:center;font-size:13px;padding:6px 8px;border-radius:10px;background:#f8fafc}
@@ -391,7 +400,7 @@ tr:hover td{background:#fafaff}
   <div id="announce" class="announce hidden"><b>📢</b><span id="announceText"></span></div>
 
   <!-- LOGIN -->
-  <section id="scrLogin" class="screen">
+  <section id="scrLogin" class="screen"><div class="loginwrap">
     <div id="coverLogin" class="cover hidden"><img alt=""><div class="gloss"></div></div>
     <div class="hero" id="heroDefault">
       <div class="logo">
@@ -404,7 +413,7 @@ tr:hover td{background:#fafaff}
       <h1 class="title">TENSES MASTER</h1>
       <div class="brand">12 การ์ด · การ์ดละ 30 ข้อ · ง่าย / กลาง / ยาก · By T.OAT · Thanakhan-oomsin school</div>
     </div>
-    <div class="timeline">
+    <div class="timeline" id="loginTimeline">
       <span class="chip"><b style="background:linear-gradient(135deg,var(--pre1),var(--pre2))"></b>PRESENT</span>
       <span class="chip"><b style="background:linear-gradient(135deg,var(--pas1),var(--pas2))"></b>PAST</span>
       <span class="chip"><b style="background:linear-gradient(135deg,var(--fut1),var(--fut2))"></b>FUTURE</span>
@@ -412,17 +421,19 @@ tr:hover td{background:#fafaff}
     <div class="panel login ringb">
       <h2>🎓 เข้าสู่ระบบ</h2>
       <p class="note">เลือกชั้นและชื่อของตัวเอง — ระบบจะผูกชื่อกับเครื่องนี้ <b>1 คน = 1 เครื่อง</b></p>
-      <div class="field"><label>ชั้น</label><div class="seg" id="clsSeg"></div></div>
-      <div class="field"><label>ชื่อ - นามสกุล</label>
-        <select id="nameSel" class="inp" disabled><option value="">— เลือกชั้นก่อน —</option></select></div>
-      <div class="field"><label>เลขที่</label>
-        <div class="nobox"><div class="pill">เลขที่ <b id="noShow">–</b></div><div class="pill">ชั้น <b id="clsShow">–</b></div></div></div>
-      <button class="btn main" id="loginBtn" disabled>เข้าสู่ห้องฝึก 🚀</button>
-      <div id="loginErr" class="err hidden"></div>
+      <div class="loginform">
+        <div class="field"><label>ชั้น</label><div class="seg" id="clsSeg"></div></div>
+        <div class="field"><label>เลขที่</label>
+          <div class="nobox"><div class="pill">เลขที่ <b id="noShow">–</b></div><div class="pill">ชั้น <b id="clsShow">–</b></div></div></div>
+        <div class="field full"><label>ชื่อ - นามสกุล</label>
+          <select id="nameSel" class="inp" disabled><option value="">— เลือกชั้นก่อน —</option></select></div>
+        <div class="full"><button class="btn main" id="loginBtn" disabled>เข้าสู่ห้องฝึก 🚀</button>
+        <div id="loginErr" class="err hidden"></div></div>
+      </div>
     </div>
     <div class="foot"><div>Basic English Course · By T.OAT · Thanakhan-oomsin school</div>
       <button class="adminlink" data-admin>🔐 Admin ครูโอ๊ต</button></div>
-  </section>
+  </div></section>
 
   <!-- HUB -->
   <section id="scrHub" class="screen hidden">
@@ -558,7 +569,7 @@ tr:hover td{background:#fafaff}
 
 <script>
 /* ===================== CONFIG ===================== */
-const GAS_URL = "https://script.google.com/macros/s/AKfycbx_yxjdAKB6cok_CtiCidDCFgj0iOhqWRRYAXX9sBt4zLjM76VxMejTaddsbLMJ5RnDQw/exec";            // ← วาง URL เว็บแอป Apps Script (ลงท้าย /exec) ตรงนี้
+const GAS_URL = "";            // ← วาง URL เว็บแอป Apps Script (ลงท้าย /exec) ตรงนี้
 const CLASSES = ["6/1","6/2","6/3"];
 const OFFLINE_PIN = "7846";     // ใช้เฉพาะโหมดทดลอง (ไม่มี GAS_URL)
 
@@ -637,7 +648,18 @@ function clock(sec){sec=Math.max(0,Math.floor(sec));return Math.floor(sec/60)+":
 function nowTH(){const d=new Date();return d.toLocaleDateString("th-TH",{day:"numeric",month:"short",year:"numeric"})+" "+d.toLocaleTimeString("th-TH",{hour:"2-digit",minute:"2-digit"})+" น."}
 function stars(score){return score>=27?3:score>=21?2:score>=15?1:0}
 function rankOf(sc){return sc>=30?"S":sc>=27?"A":sc>=21?"B":sc>=15?"C":"D"}
-function safeUrl(u){u=String(u||"").trim();return /^https:\/\/[^\s"'<>()]+$/i.test(u)?u:""}
+function safeUrl(u){u=String(u||"").trim();if(!u)return"";
+  const all=u.match(/https:\/\/[^\s"'<>\[\]]+/gi)||[];
+  let m=(/^https:\/\//i.test(u)&&!/[<\[]/.test(u))?u:"";if(!m)m=all.find(x=>/^https:\/\/i\.postimg\.cc\//i.test(x))||all.find(x=>/\.(png|jpe?g|gif|webp|avif)(\?|$)/i.test(x))||all[0]||"";
+  if(!m&&/^https:\/\//i.test(u))m=u;
+  m=m.replace(/[)\].,;]+$/,s=>s.startsWith(")")&&/\(/.test(m)?s.replace(/^\)+/,")"):"");
+  if(!/^https:\/\/[^\/\s]+\.[^\/\s]+/i.test(m))return"";
+  return m.replace(/ /g,"%20").replace(/\(/g,"%28").replace(/\)/g,"%29").replace(/'/g,"%27").replace(/"/g,"%22").slice(0,600)}
+function urlWarn(u){u=String(u||"").trim();if(!u)return"";if(!safeUrl(u))return"⚠️ ไม่ใช่ลิงก์รูป (ต้องขึ้นต้นด้วย https://)";
+  if(/^https:\/\/(www\.)?postimg\.cc\//i.test(safeUrl(u)))return"⚠️ นี่คือลิงก์หน้าเว็บ ให้คัดลอก “Direct link” (i.postimg.cc/…)";return""}
+function imgFallback(root){(root||document).querySelectorAll("img[data-fb]").forEach(im=>{if(im._fb)return;im._fb=1;
+  const bad=()=>{const k=im.dataset.fb;if(k==="banner"){im.closest(".banner").classList.add("gen");im.remove()}else if(k==="thumb"){const s=im.parentElement;im.remove();s.textContent="⚠️";s.title="โหลดรูปไม่ได้ — ตรวจลิงก์อีกครั้ง"}else if(k==="cover"){const c=im.closest(".cover");c.classList.add("hidden");$("#heroDefault").classList.remove("hidden")}else if(k==="prev"){const p=im.parentElement;im.remove();p.textContent="⚠️ โหลดรูปไม่ได้ — ตรวจว่าเป็น Direct link (i.postimg.cc/…)"}};
+  im.addEventListener("error",bad);if(im.complete&&im.naturalWidth===0&&im.src)bad()})}
 function toast(msg,ms=2600){const t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),ms)}
 function show(id){["scrLogin","scrHub","scrQuiz","scrResult","scrAdmin"].forEach(s=>$("#"+s).classList.toggle("hidden",s!==id));window.scrollTo({top:0,behavior:"smooth"});if(id!=="scrQuiz")stopTimer()}
 function modal(html,cls=""){const m=document.createElement("div");m.className="modal";m.innerHTML='<div class="box '+cls+'">'+html+'</div>';document.body.appendChild(m);
@@ -781,8 +803,8 @@ function pget(i){return PROG[i]||PROG[String(i)]||null}
 function applyConfig(c){
   if(c){CFG=Object.assign({},DEFAULT_CFG,c);LS.set("tm_cfg",CFG)}
   const cov=safeUrl(CFG.cover);
-  [["#coverLogin",true],["#coverHub",false]].forEach(([id])=>{const el=$(id);if(cov){el.querySelector("img").src=cov;el.classList.remove("hidden")}else el.classList.add("hidden")});
-  $("#heroDefault").classList.toggle("hidden",!!cov);
+  ["#coverLogin","#coverHub"].forEach(id=>{const el=$(id),im=el.querySelector("img");im.dataset.fb="cover";im._fb=0;if(cov){if(im.getAttribute("src")!==cov)im.src=cov;el.classList.remove("hidden")}else{im.removeAttribute("src");el.classList.add("hidden")}});imgFallback();
+  $("#heroDefault").classList.toggle("hidden",!!cov);$("#loginTimeline").classList.toggle("hidden",!!cov);
   const an=String(CFG.announce||"").trim();$("#announceText").textContent=an;$("#announce").classList.toggle("hidden",!an);
   $("#lbBtn").classList.toggle("hidden",!CFG.leaderboard);
   if(ME&&!$("#scrHub").classList.contains("hidden"))openHub();
@@ -860,18 +882,17 @@ function openHub(){
     TENSES.forEach((t,i)=>{if(t.f!==f)return;const p=pget(i);const best=p?p.best:0,att=p?p.attempts:0;if(att){done++;sum+=best;st+=stars(best);if(best>=CFG.pass)pass++}
       const res=LS.get(resumeKey(i),null),open=CFG.open[i]!==false,img=safeUrl(CFG.cardImgs[i]),wr=(LS.get(wrongKey(i),[])||[]).length;
       html+=`<div class="card ${att?"done":""} ${open?"":"locked"}" style="--c1:${F.c1};--c2:${F.c2};--d:${(i*.37).toFixed(2)}s;animation-delay:${(delay++)*.06}s,0s" data-card="${i}"><div class="in">
-        <div class="banner ${img?"":"gen"}" ${img?`style="background-image:url('${img}')"`:""}>
+        <div class="banner ${img?"has":"gen"}">${img?`<img src="${esc(img)}" alt="" data-fb="banner" loading="lazy">`:""}
           ${res?`<span class="resume">⏸ ทำค้างไว้ ข้อ ${res.i+1}/30</span>`:best===30?'<span class="medal">🏅 PERFECT 30</span>':""}
-          <div class="num">${String(i+1).padStart(2,"0")}</div>${best>=CFG.pass?'<span class="pass">✔ ผ่าน</span>':""}</div>
-        <div class="ico">${t.ico}</div>
-        <div class="body"><div class="nm">${t.n}</div><div class="th">${t.th}</div><div class="fm">${esc(t.fm)}</div>
+          ${img?"":`<div class="num">${String(i+1).padStart(2,"0")}</div>`}${best>=CFG.pass?'<span class="pass">✔ ผ่าน</span>':""}</div>
+        <div class="body"><div class="ico">${t.ico}</div><div class="nm">${t.n}</div><div class="th">${t.th}</div><div class="fm">${esc(t.fm)}</div>
         <div class="row"><div class="ring">${ringSVG(best,F.c1,F.c2,i)}<b>${att?best:"–"}</b></div>
           <div class="meta"><div class="stars">${"★".repeat(stars(best))}${"☆".repeat(3-stars(best))}</div>${att?`สูงสุด ${best}/30 · ทำแล้ว ${att} ครั้ง`:"ยังไม่เคยทำ"}</div></div>
         <button class="go">${!open?"🔒 ครูยังไม่เปิด":res?"▶ ทำต่อ":att?"🔁 ทำอีกครั้ง":"🚀 เริ่มการ์ดนี้"}</button>
         <div class="mini"><button data-study>📘 สรุปสูตร</button>${wr&&open?`<button data-wrong>🎯 ฝึกข้อที่ผิด (${wr})</button>`:""}</div></div>
         ${open?"":'<div class="lockov">🔒</div>'}</div></div>`});
     html+=`</div>`}
-  $("#frames").innerHTML=html;
+  $("#frames").innerHTML=html;imgFallback($("#frames"));
   $("#stDone").textContent=done+"/12";$("#stPass").textContent=pass+"/12";$("#stSum").textContent=sum;$("#stStar").textContent=st;
   const pct=Math.round(sum/360*100);$("#overallPct").textContent=pct+"% · ผ่าน "+pass+"/12 การ์ด";
   setTimeout(()=>$("#overallBar").style.width=pct+"%",80);
@@ -1191,15 +1212,20 @@ function admRender(){
     B.innerHTML=`<div class="setgrid"><div class="setbox"><h3>🖼️ รูปหน้าปกเว็บไซต์</h3>
       <p class="hint">วางลิงก์รูปแบบ <b>ลิงก์ตรง</b> (ขึ้นต้น https:// ลงท้าย .jpg/.png) เช่นจาก postimg.cc ให้คัดลอก “Direct link” (i.postimg.cc/…)<br>📐 ขนาดแนะนำ <b>1600 × 600 px</b> (สัดส่วน 16:6) ไฟล์ไม่เกิน 1 MB · รูปจะแสดงเต็มภาพทุกอุปกรณ์ (ถ้าสัดส่วนไม่ใช่ 16:6 ขอบบน-ล่างหรือซ้าย-ขวาจะถูกตัด)</p>
       <input class="inp" id="cfgCover" placeholder="https://i.postimg.cc/xxxx/cover.jpg" value="${esc(C.cover)}">
-      <div class="coverprev" id="coverPrev" style="${safeUrl(C.cover)?`background-image:url('${esc(safeUrl(C.cover))}')`:""}">${safeUrl(C.cover)?"":"ยังไม่มีรูปหน้าปก — จะแสดงโลโก้นาฬิกาแทน"}</div>
+      <div class="coverprev" id="coverPrev">${safeUrl(C.cover)?`<img src="${esc(safeUrl(C.cover))}" data-fb="prev" alt="">`:"ยังไม่มีรูปหน้าปก — จะแสดงโลโก้นาฬิกาแทน"}</div><div class="hint" id="coverWarn" style="color:#b45309;margin-top:6px"></div>
       <div style="display:flex;gap:8px;margin-top:10px"><button class="btn main sm" id="saveCover" style="width:auto">💾 บันทึกรูปหน้าปก</button><button class="btn ghost sm" id="clearCover">ลบรูป</button></div></div>
       <div class="setbox"><h3>🃏 รูปหัวการ์ดทั้ง 12 ใบ (ไม่บังคับ)</h3><p class="hint">📐 ขนาดแนะนำ <b>800 × 300 px</b> · ถ้าเว้นว่าง จะใช้ลายไล่สีอัตโนมัติ</p>
-      <div class="cimgs">${TENSES.map((t,i)=>`<label><span style="${safeUrl(C.cardImgs[i])?`background-image:url('${esc(safeUrl(C.cardImgs[i]))}')`:""}">${safeUrl(C.cardImgs[i])?"":i+1}</span><input data-ci="${i}" placeholder="${i+1}. ${esc(t.n)}" value="${esc(C.cardImgs[i]||"")}"></label>`).join("")}</div>
+      <div class="cimgs">${TENSES.map((t,i)=>`<label><span data-th="${i}">${thumb(C.cardImgs[i],i)}</span><input data-ci="${i}" placeholder="${i+1}. ${esc(t.n)} (วางลิงก์รูป)" value="${esc(C.cardImgs[i]||"")}"></label>`).join("")}</div><div class="hint" id="cardWarn" style="color:#b45309;margin-top:6px"></div>
       <button class="btn main sm" id="saveCards" style="width:auto;margin-top:10px">💾 บันทึกรูปการ์ด</button></div></div>`;
-    $("#cfgCover").oninput=()=>{const u=safeUrl($("#cfgCover").value),p=$("#coverPrev");p.style.backgroundImage=u?`url('${u}')`:"";p.textContent=u?"":($("#cfgCover").value.trim()?"⚠️ ลิงก์ต้องขึ้นต้นด้วย https://":"ยังไม่มีรูปหน้าปก")};
-    $("#saveCover").onclick=()=>{const v=$("#cfgCover").value.trim();if(v&&!safeUrl(v)){toast("ลิงก์ต้องขึ้นต้นด้วย https://");return}saveCfg({cover:v},"บันทึกรูปหน้าปกแล้ว ✓")};
+    $("#cfgCover").oninput=()=>{const raw=$("#cfgCover").value,u=safeUrl(raw),p=$("#coverPrev");p.innerHTML=u?`<img src="${esc(u)}" data-fb="prev" alt="">`:(raw.trim()?"":"ยังไม่มีรูปหน้าปก");imgFallback(p);$("#coverWarn").textContent=urlWarn(raw)};
+    $("#cfgCover").onblur=()=>{const u=safeUrl($("#cfgCover").value);if(u)$("#cfgCover").value=u};
+    $("#saveCover").onclick=()=>{const v=$("#cfgCover").value.trim();if(v&&!safeUrl(v)){toast("ลิงก์ต้องขึ้นต้นด้วย https://");return}$("#cfgCover").value=safeUrl(v);saveCfg({cover:safeUrl(v)},"บันทึกรูปหน้าปกแล้ว ✓")};
+    imgFallback(B);
+    const cw=()=>{const bad=$$("[data-ci]").map((x,i)=>urlWarn(x.value)?(i+1):0).filter(Boolean);$("#cardWarn").textContent=bad.length?"⚠️ การ์ดที่ "+bad.join(", ")+" ลิงก์ไม่ถูกต้อง (ต้องเป็น Direct link https://i.postimg.cc/…)":""};
+    $$("[data-ci]").forEach(inp=>{inp.oninput=()=>{const i=+inp.dataset.ci,s=$(`[data-th="${i}"]`);s.innerHTML=thumb(inp.value,i);imgFallback(s);cw()};inp.onblur=()=>{const u=safeUrl(inp.value);if(u)inp.value=u}});cw();
     $("#clearCover").onclick=()=>{$("#cfgCover").value="";$("#cfgCover").oninput();saveCfg({cover:""},"ลบรูปหน้าปกแล้ว")};
-    $("#saveCards").onclick=()=>saveCfg({cardImgs:$$("[data-ci]").map(i=>safeUrl(i.value))},"บันทึกรูปการ์ดแล้ว ✓").then(()=>admRender());
+    $("#saveCards").onclick=()=>{const bad=$$("[data-ci]").filter(x=>x.value.trim()&&!safeUrl(x.value)).map(x=>+x.dataset.ci+1);
+      saveCfg({cardImgs:$$("[data-ci]").map(i=>safeUrl(i.value))},bad.length?"บันทึกแล้ว — การ์ด "+bad.join(", ")+" ลิงก์ไม่ถูกต้องจึงถูกเว้นว่าง":"บันทึกรูปการ์ดแล้ว ✓").then(()=>admRender())};
   }else{
     const C=CFG;
     B.innerHTML=`<div class="setgrid">
@@ -1221,6 +1247,7 @@ function admRender(){
     $("#savePin").onclick=async()=>{const np=$("#newPin").value.trim();const r=await api("setPin",{pin:ADM.pin,newPin:np});if(r.ok){ADM.pin=np;toast("เปลี่ยน PIN แล้ว ✓")}else toast(r.error==="pin_format"?"PIN ต้องเป็นตัวเลข 4–8 หลัก":errText(r))};
   }
 }
+function thumb(u,i){u=safeUrl(u);return u?`<img src="${esc(u)}" data-fb="thumb" alt="">`:String(i+1)}
 function uaShort(ua){ua=String(ua||"");if(/iPad|Macintosh.*Mobile/.test(ua))return"iPad";if(/iPhone/.test(ua))return"iPhone";if(/CrOS/.test(ua))return"Chromebook";if(/Android/.test(ua))return"Android";if(/Windows/.test(ua))return"Windows";if(/Mac/.test(ua))return"Mac";return ua.slice(0,30)}
 $("#admCsv").onclick=()=>{const D=ADM.data;if(!D)return;const rows=admRows();
   const head=["ชั้น","เลขที่","ชื่อ-นามสกุล"].concat(TENSES.map((t,i)=>(i+1)+" "+t.n),["ทำ","ผ่าน","รวม"]);
